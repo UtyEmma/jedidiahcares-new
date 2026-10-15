@@ -62,8 +62,8 @@ return [
         'id' => '98abeca8-3803-4b47-9782-8e12256e7478',
         'slug' => 'chukwudi-chukwubuihem',
         'title' => 'Rev. Can. Chukwudi Chukwubuihem',
-        'summary' => 'Director',
-        'role' => 'Director',
+        'summary' => 'Board Member',
+        'role' => 'Board Member',
         'group' => 'leadership',
         'socialLinks' => [
             'linkedin' => '',
@@ -88,9 +88,9 @@ return [
     [
         'id' => '9899950c-141f-48cb-9144-b69d86cd255c',
         'slug' => 'ebes-esho',
-        'title' => 'Dr. Ebes Esho',
-        'summary' => 'Director',
-        'role' => 'Director',
+        'title' => 'Dr. Ebes Aziegbe-Esho',
+        'summary' => 'Board Member',
+        'role' => 'Board Member',
         'group' => 'leadership',
         'socialLinks' => [
             'linkedin' => '',
