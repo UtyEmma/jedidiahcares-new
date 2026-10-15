@@ -9,6 +9,7 @@ import {
   YoutubeLogo,
   TiktokLogo,
   Globe,
+  Mail,
 } from './icons';
 
 const platforms = [
@@ -34,13 +35,23 @@ export function TeamMemberSocialLinks({
     const url = safeExternalUrl(person.socialLinks?.[platform.key] ?? '');
     return url ? [{ ...platform, url }] : [];
   });
-  if (!links.length) return null;
+  if (!links.length && !person.email) return null;
 
   return (
     <nav
       className={cn('person-social-links', compact && 'person-social-links-compact', className)}
-      aria-label={`${person.title}'s social profiles`}
+      aria-label={`${person.title}'s contact and social profiles`}
     >
+      {person.email && (
+        <a
+          href={`mailto:${person.email}`}
+          aria-label={`Email ${person.title}`}
+          title={`Email ${person.title}`}
+        >
+          <Mail size={20} aria-hidden="true" />
+          {!compact && <span>{person.email}</span>}
+        </a>
+      )}
       {links.map(({ key, label, Icon, url }) => (
         <a
           key={key}

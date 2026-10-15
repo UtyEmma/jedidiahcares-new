@@ -24,7 +24,7 @@ class CmsSchema
     ];
 
     public const FIELDS = [
-        'people' => ['role', 'group', 'biography', 'portraitConsent', 'socialLinks', 'coverAlt'],
+        'people' => ['role', 'group', 'biography', 'portraitConsent', 'email', 'socialLinks', 'coverAlt'],
         'programmes' => ['originalThematicName', 'shortTitle', 'heroTitle', 'introduction', 'photoId', 'sections', 'activities', 'relatedProjectIds', 'coverAlt'],
         'projects' => ['programmeIds', 'stage', 'location', 'startDate', 'intendedActivities', 'sections', 'verifiedOutcomes', 'reportIds', 'approvedDonationUrl', 'fundingTarget', 'fundsRaised', 'fundingCurrency', 'coverAlt'],
         'reports' => ['period', 'publishedAt', 'projectId', 'coverAlt'],
@@ -81,6 +81,7 @@ class CmsSchema
             $rules['data.'.$key] = $rule;
         }
         if ($entry->collection === 'people') {
+            $rules['data.email'] = 'nullable|email:rfc|max:254';
             $rules['data.socialLinks'] = 'sometimes|nullable|array:'.implode(',', array_keys(self::PEOPLE_SOCIAL_PLATFORMS));
             foreach (array_keys(self::PEOPLE_SOCIAL_PLATFORMS) as $platform) {
                 $rules['data.socialLinks.'.$platform] = 'nullable|url:https|max:2048';

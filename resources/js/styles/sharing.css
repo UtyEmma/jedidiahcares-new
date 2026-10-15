@@ -62,6 +62,15 @@
   flex-shrink: 0;
 }
 
+.person-social-links > a {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.person-social-links > a > span {
+  overflow-wrap: anywhere;
+}
+
 .share-action:is(:hover, :focus-visible),
 .person-social-links > a:is(:hover, :focus-visible) {
   border-color: var(--jc-teal);

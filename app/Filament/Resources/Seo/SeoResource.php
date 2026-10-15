@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\Seo;
 
 use App\Models\SeoSetting;
-use App\Support\CmsSchema;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -24,6 +23,8 @@ class SeoResource extends Resource
 
     protected static ?string $pluralModelLabel = 'SEO settings';
 
+    protected static ?int $navigationSort = 2;
+
     protected static string|\UnitEnum|null $navigationGroup = 'Website Settings';
 
     protected static string|\BackedEnum|null $navigationIcon = 'ph-chart-bar';
@@ -42,7 +43,7 @@ class SeoResource extends Resource
                         TextInput::make('site_url')->label('Canonical website URL')->url()->maxLength(2048),
                         Toggle::make('indexing_enabled')->label('Enable search engine indexing')->afterStateHydrated(function ($component, $state): void {
                             if ($state === null) {
-                                $component->state(CmsSchema::seed('site')['seo']['editorialApproved'] ?? false);
+                                $component->state(true);
                             }
                         })->helperText('When disabled, the public website stays noindex and the sitemap remains empty.'),
                     ] : [

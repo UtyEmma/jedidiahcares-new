@@ -2,6 +2,8 @@
 
 These files are the local source bundle for database seeding. Include this directory and `database/seeders/data/media-manifest.json` in checkouts and deployment packages. The source bundle lives outside the public document root; seeding copies files into the private CMS disk and generates thumbnails there.
 
+The CMS copy is automatically resized and encoded as WebP during import (1920-pixel maximum edge, quality 82; smaller 640-pixel thumbnails). These source files and their manifest checksums remain unchanged. Generated image flags, credits and consent metadata are retained.
+
 ```text
 people/                         2 available member portraits
 programmes/                     4 existing AI-generated programme images

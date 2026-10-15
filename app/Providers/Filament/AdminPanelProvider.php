@@ -5,7 +5,8 @@ namespace App\Providers\Filament;
 use App\Filament\Pages\Profile;
 use App\Filament\Widgets\ContentOverview;
 use App\Filament\Widgets\RecentContent;
-use App\Support\CmsSchema;
+use App\Http\Middleware\CmsAccess;
+use App\Support\WebsiteSettings;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -35,9 +36,9 @@ class AdminPanelProvider extends PanelProvider
             ->passwordReset()
             ->darkMode(false)
             ->databaseTransactions()
-            ->brandName(CmsSchema::seed('site')['brand']['publicName'].' · CMS')
-            ->brandLogo(asset('logo.webp'))
-            ->favicon(asset('icon.webp'))
+            ->brandName(fn () => app(WebsiteSettings::class)->site()['brand']['shortName'].' · CMS')
+            ->brandLogo(fn () => app(WebsiteSettings::class)->site()['brand']['logoPath'])
+            ->favicon(fn () => app(WebsiteSettings::class)->site()['brand']['faviconPath'])
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->colors([
                 'primary' => Color::hex('#072266'),
@@ -63,6 +64,7 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                CmsAccess::class,
             ])
             ->authMiddleware([
                 Authenticate::class,

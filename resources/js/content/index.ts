@@ -22,7 +22,15 @@ export { publicEntries, verifiedMetrics, safeExternalUrl } from './selectors';
 
 export interface WebsiteContent {
   now: number;
-  site: Omit<typeof siteData, 'giving'> & { giving: GivingConfig };
+  site: Omit<typeof siteData, 'giving' | 'brand' | 'social'> & {
+    giving: GivingConfig;
+    brand: typeof siteData.brand & {
+      primaryColor: string;
+      accentColor: string;
+      footerLogoPath: string;
+    };
+    social: typeof siteData.social & { youtube: string; tiktok: string };
+  };
   navigation: {
     primary: NavItem[];
     footer: { title: string; links: NavItem[] }[];

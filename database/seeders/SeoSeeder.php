@@ -10,7 +10,7 @@ class SeoSeeder extends Seeder
     public function run(): void
     {
         foreach (array_keys(SeoSetting::pageLabels()) as $path) {
-            SeoSetting::firstOrCreate(['path' => $path], ['indexable' => true]);
+            SeoSetting::firstOrCreate(['path' => $path], ['indexable' => true, 'indexing_enabled' => $path === 'global' ? true : null]);
         }
     }
 }

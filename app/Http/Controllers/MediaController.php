@@ -22,8 +22,10 @@ class MediaController extends Controller
             'Content-Type' => $conversion === 'thumb' ? 'image/webp' : ($item->collection_name === 'captions' ? 'text/vtt' : $item->mime_type),
             'Cache-Control' => 'private, no-store',
             'X-Content-Type-Options' => 'nosniff',
-            'X-Robots-Tag' => 'noindex',
         ]);
+        if (! $item->isPublic()) {
+            $response->headers->set('X-Robots-Tag', 'noindex, nofollow');
+        }
         if ($item->mime_type === 'application/pdf') {
             $response->setContentDisposition('attachment', $item->file_name);
         }

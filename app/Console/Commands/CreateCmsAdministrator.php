@@ -16,8 +16,8 @@ class CreateCmsAdministrator extends Command
     {
         $name = $this->ask('Administrator name');
         $email = $this->ask('Administrator email');
-        $password = $this->secret('Password (at least 12 characters)');
-        $confirmation = $this->secret('Confirm password');
+        $password = $this->secret('Password (at least 12 characters)', fallback: false);
+        $confirmation = $this->secret('Confirm password', fallback: false);
         $validator = Validator::make(compact('name', 'email', 'password') + ['password_confirmation' => $confirmation], [
             'name' => 'required|string|max:255', 'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|string|min:12|confirmed',

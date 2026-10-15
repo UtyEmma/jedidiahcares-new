@@ -8,6 +8,8 @@ import {
   InstagramLogo,
   LinkedinLogo,
   XLogo,
+  YoutubeLogo,
+  TiktokLogo,
   ArrowUpRight,
 } from './icons';
 import { safeExternalUrl } from '../content';
@@ -18,6 +20,8 @@ const socialPlatforms = [
   { key: 'instagram', label: 'Instagram', Icon: InstagramLogo },
   { key: 'linkedin', label: 'LinkedIn', Icon: LinkedinLogo },
   { key: 'x', label: 'X', Icon: XLogo },
+  { key: 'youtube', label: 'YouTube', Icon: YoutubeLogo },
+  { key: 'tiktok', label: 'TikTok', Icon: TiktokLogo },
 ] as const;
 
 export function SocialLinks({ className }: { className?: string }) {

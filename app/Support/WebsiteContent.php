@@ -29,7 +29,7 @@ class WebsiteContent
         if (isset($this->files[$name])) {
             return $this->files[$name];
         }
-        $result = CmsSchema::seed($name);
+        $result = $name === 'site' ? app(WebsiteSettings::class)->site() : CmsSchema::seed($name);
         if ($name === 'site' && ($global = $this->seoSettings()['global'] ?? null)) {
             $result['seo']['url'] = $global->site_url ?: $result['seo']['url'];
             $result['seo']['description'] = $global->description ?: $result['seo']['description'];
@@ -84,6 +84,11 @@ class WebsiteContent
             $result['size'] = round($document->size / 1024).' KB';
         }
         if ($entry->collection === 'people') {
+            if (filter_var($data['email'] ?? '', FILTER_VALIDATE_EMAIL)) {
+                $result['email'] = $data['email'];
+            } else {
+                unset($result['email']);
+            }
             $socials = is_array($data['socialLinks'] ?? null) ? $data['socialLinks'] : [];
             $socials = array_filter(Arr::only($socials, array_keys(CmsSchema::PEOPLE_SOCIAL_PLATFORMS)), fn ($url) => is_string($url) && filter_var($url, FILTER_VALIDATE_URL) && parse_url($url, PHP_URL_SCHEME) === 'https');
             if ($socials) {
@@ -234,7 +239,10 @@ class WebsiteContent
                 'affiliation' => ['@type' => 'Organization', 'name' => $site['brand']['publicName'], 'url' => $base],
             ]],
             $article !== null => ['@type' => 'Article', ...$article, 'url' => $canonical],
-            default => ['@type' => 'Organization', 'name' => $site['brand']['publicName'], 'alternateName' => [$site['brand']['shortName'], 'Jedidiah Cares Global Outreach'], 'url' => $base, 'logo' => $base.$site['brand']['logoPath']],
+            default => ['@type' => 'Organization', 'name' => $site['brand']['publicName'], 'alternateName' => [$site['brand']['shortName'], 'Jedidiah Cares Global Outreach'], 'url' => $base, 'logo' => $base.'/'.ltrim(parse_url($site['brand']['logoPath'], PHP_URL_PATH), '/'),
+                ...array_filter(['email' => $site['contact']['email'], 'telephone' => $site['contact']['phone'], 'address' => $site['contact']['address']]),
+                'sameAs' => array_values(array_filter($site['social'], fn ($url) => is_string($url) && filter_var($url, FILTER_VALIDATE_URL))),
+            ],
         };
 
         return [

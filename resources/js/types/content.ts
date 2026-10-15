@@ -79,6 +79,7 @@ export interface Person extends BaseEntry {
   group: 'leadership' | 'team' | 'volunteers';
   biography: string;
   portraitConsent: boolean;
+  email?: string;
   socialLinks?: Partial<Record<PersonSocialPlatform, string>>;
   sourceUrl?: string;
   imageSourceUrl?: string;

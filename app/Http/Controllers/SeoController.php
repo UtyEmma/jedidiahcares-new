@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Support\WebsiteContent;
+use App\Support\WebsiteSettings;
 use Illuminate\Http\Response;
 
 class SeoController extends Controller
@@ -19,12 +20,10 @@ class SeoController extends Controller
         return response($xml)->header('Content-Type', 'application/xml; charset=UTF-8');
     }
 
-    public function robots(WebsiteContent $content): Response
+    public function robots(WebsiteContent $content, WebsiteSettings $settings): Response
     {
         $site = $content->read('site');
-        $rule = ($site['seo']['editorialApproved'] ?? false) ? 'Allow: /' : 'Disallow: /';
-        $body = "User-agent: *\n{$rule}\nSitemap: ".rtrim($site['seo']['url'], '/')."/sitemap.xml\n";
-        $body .= "Disallow: /admin\nDisallow: /media/\n";
+        $body = $settings->robots($site['seo']['url'], (bool) $site['seo']['editorialApproved']);
 
         return response($body)->header('Content-Type', 'text/plain; charset=UTF-8');
     }

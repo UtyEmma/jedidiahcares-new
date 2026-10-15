@@ -6,6 +6,7 @@ use App\Support\CmsContentSeeder;
 use App\Support\CmsSchema;
 use App\Support\CmsSeedReport;
 use Database\Seeders\SeoSeeder;
+use Database\Seeders\SiteSettingSeeder;
 use Illuminate\Console\Command;
 
 class ImportWebsiteContent extends Command
@@ -26,6 +27,7 @@ class ImportWebsiteContent extends Command
         }
         $statistics = $seeder->seed($collections, ! $this->option('without-media'), fn ($message) => $this->line($message));
         (new SeoSeeder)->run();
+        app()->call([new SiteSettingSeeder, 'run']);
         CmsSeedReport::write($statistics, $this);
 
         return self::SUCCESS;

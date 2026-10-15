@@ -3,11 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#072266">
-        <link rel="icon" href="{{ asset('icon.webp') }}" type="image/webp">
         @viteReactRefresh
         @vite('resources/js/app.tsx')
         <x-inertia::head>
+            <style data-inertia="brand-colours">:root { --jc-navy: {{ $siteBrand['primaryColor'] }}; --jc-lemon: {{ $siteBrand['accentColor'] }}; }</style>
+            <meta data-inertia="theme-color" name="theme-color" content="{{ $siteBrand['primaryColor'] }}">
+            <link data-inertia="favicon" rel="icon" href="{{ $siteBrand['faviconPath'] }}" type="image/webp">
             <title>{{ $seo['title'] }}</title>
             <meta data-inertia="description" name="description" content="{{ $seo['description'] }}">
             <meta data-inertia="robots" name="robots" content="{{ $seo['robots'] }}">
@@ -25,8 +26,10 @@
                 <script data-inertia="structured-data" type="application/ld+json">{!! json_encode($seo['structuredData'], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_SLASHES) !!}</script>
             @endif
         </x-inertia::head>
+        {!! $siteScripts['header'] !!}
     </head>
     <body>
         <x-inertia::app />
+        {!! $siteScripts['footer'] !!}
     </body>
 </html>

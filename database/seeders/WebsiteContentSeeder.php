@@ -13,6 +13,7 @@ class WebsiteContentSeeder extends Seeder
     {
         $statistics = $seeder->seed(array_keys(CmsSchema::COLLECTIONS), progress: fn ($message) => $this->command?->line($message));
         $this->call(SeoSeeder::class);
+        $this->call(SiteSettingSeeder::class);
         CmsSeedReport::write($statistics, $this->command);
     }
 }

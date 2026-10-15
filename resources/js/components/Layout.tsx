@@ -207,7 +207,12 @@ function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <Link href="/" className="footer-logo">
-              <img src={site.brand.logoPath} alt={site.brand.publicName} width="458" height="101" />
+              <img
+                src={site.brand.footerLogoPath}
+                alt={site.brand.publicName}
+                width="458"
+                height="101"
+              />
             </Link>
             <p className="footer-organisation-name">{site.brand.publicName}</p>
             <p>{site.footer.text}</p>

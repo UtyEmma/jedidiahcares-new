@@ -76,7 +76,7 @@ class CmsForms
             ->openable()
             ->camera()
             ->importFromUrl()
-            ->helperText('JPEG, PNG or WebP, up to 10 MB.')->columnSpanFull();
+            ->helperText('JPEG, PNG or WebP, up to 10 MB. Images are automatically resized and saved as optimized WebP.')->columnSpanFull();
     }
 
     public static function fields(string $collection, ?ContentEntry $record): array
@@ -96,7 +96,7 @@ class CmsForms
             ])->columns(2),
         ];
         $fields = match ($collection) {
-            'people' => [self::text('role', 'Role'), Select::make('data.group')->label('Group')->options(['leadership' => 'Leadership', 'team' => 'Team', 'volunteers' => 'Volunteers'])->default('team')->required(), self::text('biography', 'Biography', true), self::socialProfiles(), Toggle::make('data.portraitConsent')->label('Portrait publication consent confirmed')->default(false)],
+            'people' => [self::text('role', 'Role'), Select::make('data.group')->label('Group')->options(['leadership' => 'Leadership', 'team' => 'Team', 'volunteers' => 'Volunteers'])->default('team')->required(), self::text('email', 'Public email address')->email()->maxLength(254)->helperText('Optional. Only enter an address the member has agreed to publish. Leave blank to hide the email link.'), self::text('biography', 'Biography', true), self::socialProfiles(), Toggle::make('data.portraitConsent')->label('Portrait publication consent confirmed')->default(false)],
             'programmes' => [self::text('shortTitle', 'Short title'), self::text('heroTitle', 'Page heading'), self::text('introduction', 'Introduction', true), self::text('originalThematicName', 'Thematic name'), Select::make('data.photoId')->label('Context photograph')->options(array_map(fn($p) => $p['caption'], CmsSchema::seed('media'))), self::sections(), self::list('activities', 'Activities'), self::relation('relatedProjectIds', 'Related projects', 'projects', true)],
             'projects' => [self::relation('programmeIds', 'Programmes', 'programmes', true), Select::make('data.stage')->label('Project status')->options(CmsSchema::PROJECT_STAGES)->default('planned')->required(), self::text('location', 'Location'), DatePicker::make('data.startDate')->label('Start date'), self::funding(), self::sections(), self::list('intendedActivities', 'Intended activities'), Repeater::make('data.verifiedOutcomes')->label('Outcomes')->schema([Textarea::make('description')->required(), TextInput::make('source')->required(), Toggle::make('verified')->label('Evidence verified')->default(false)])->default([])->columnSpanFull(), self::relation('reportIds', 'Related reports', 'reports', true), self::text('approvedDonationUrl', 'Approved donation link')->url()],
             'reports' => [self::text('period', 'Reporting period'), DatePicker::make('data.publishedAt')->label('Report date'), self::relation('projectId', 'Project', 'projects'), SpatieMediaLibraryFluppyField::make('documentUpload')->label('Report PDF')->collection('document')->required(fn($get) => $get('status') === 'published')->disk('cms')->visibility('private')->acceptedFileTypes(['application/pdf'])->maxSize(20480)->openable()->helperText('PDF, up to 20 MB.')],
@@ -111,7 +111,7 @@ class CmsForms
             ->googleDrive()
             ->googlePhotos()
             ->camera()
-            ->importFromUrl()->multiple()->disk('cms')->visibility('private')->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])->maxSize(10240)->customProperties(['visible' => false, 'consentApproved' => false])->helperText('Select multiple photos. Add captions, alternative text and consent in Gallery media after saving.')->columnSpanFull(), SpatieMediaLibraryFluppyField::make('videoUpload')->label('Upload videos')->collection('gallery')->filterMediaUsing(fn($media) => $media->filter(fn($m) => str_starts_with($m->mime_type, 'video/')))->multiple()->googleDrive()
+            ->importFromUrl()->multiple()->disk('cms')->visibility('private')->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])->maxSize(10240)->customProperties(['visible' => false, 'consentApproved' => false])->helperText('Select multiple photos. Images are automatically resized and saved as optimized WebP. Add captions, alternative text and consent in Gallery media after saving.')->columnSpanFull(), SpatieMediaLibraryFluppyField::make('videoUpload')->label('Upload videos')->collection('gallery')->filterMediaUsing(fn($media) => $media->filter(fn($m) => str_starts_with($m->mime_type, 'video/')))->multiple()->googleDrive()
             ->googlePhotos()
             ->camera()
             ->importFromUrl()->disk('cms')->visibility('private')->acceptedFileTypes(['video/mp4', 'video/webm'])->maxSize(102400)->customProperties(['visible' => false, 'consentApproved' => false])->helperText('MP4 or WebM, up to 100 MB each. Use browser-compatible encoding; videos are not transcoded.')->columnSpanFull()],

@@ -1,6 +1,6 @@
 # Managing Jedidiah Cares Global Outreach for Women, Youth and Children content
 
-The admin interface is available at `/admin`. It manages dynamic records and SEO. Static page copy, founder’s note, policy wording, navigation, contact details and visual layouts stay in JSON and application code.
+The admin interface is available at `/admin`. It manages dynamic records, SEO and site settings. Static page copy, founder’s note, policy wording, navigation and visual layouts stay in JSON and application code. Active administrators can manage general identity, brand assets/colours, contact/social details, custom scripts and robots.txt.
 
 ## First-time setup
 
@@ -36,6 +36,7 @@ Individual seeders are available for each dynamic collection:
 | FAQs | `FaqSeeder` |
 | Impact Metrics | `ImpactMetricSeeder` |
 | SEO defaults | `SeoSeeder` |
+| General, scripts and robots defaults | `SiteSettingSeeder` |
 
 For example:
 
@@ -85,7 +86,7 @@ Manage Our People, Programmes, Projects, Reports, Stories & Updates, Events, Gal
 - Event badges are calculated from the start/end times: Upcoming before the start, Ongoing through the end, and Past afterwards. When no end is supplied, the event remains ongoing until the end of its start day in the selected timezone. Status refreshes every 30 seconds while the page is open and when returning to the tab. Cards and event detail pages use the same status rules.
 - Partners require confirmed publication rights for their logos. Impact Metrics require a value, period, evidence source and verification before publishing.
 
-Static page wording and policies are maintained in `resources/js/data/site.json`, `pages.json`, `interface.json` and `policies.json`. Navigation stays in `navigation.json`. CMS edits cannot change these files or override their page text. Retired page-copy/policy database records from the initial CMS implementation are retained but are not exposed or consumed.
+Static page wording and policies are maintained in `resources/js/data/site.json`, `pages.json`, `interface.json` and `policies.json`. Navigation stays in `navigation.json`. CMS site settings override only identity, branding, contact/social details and SEO defaults; they do not edit page sections or layouts. Retired page-copy/policy database records from the initial CMS implementation are retained but are not exposed or consumed.
 
 ## Sharing public content
 
@@ -108,6 +109,20 @@ Accepted formats and per-file limits:
 | Report documents | PDF | 20 MB |
 | Video captions | WebVTT (`.vtt`) | 1 MB |
 
+JPEG, PNG and WebP uploads are automatically converted to compressed WebP when saved, including portraits, covers, partner logos, gallery photos and video posters. The stored image fits within 1920 × 1920 pixels at quality 82, preserving its proportions and transparency without upscaling. Phone photo orientation is corrected and embedded source metadata is not copied into the encoded image. Thumbnails fit within 640 × 640 pixels at quality 78. The same server-side process handles chunked uploads, edited images, URL imports and local seed imports. Original seed-bundle files are retained.
+
+These settings live in `config/cms-media.php`. Images still have a 10 MB input limit, and excessively large pixel dimensions or images that exceed the server's processing memory are rejected before decoding. PHP GD must support WebP. Processing happens synchronously before thumbnails are generated; no queue worker or external image-optimizer binary is required. Failed new-image processing removes the incomplete CMS media record and reports a validation error. PDFs, videos and WebVTT files retain their original formats and bytes.
+
+Existing stored images can be processed with:
+
+```sh
+php artisan cms:optimize-images --dry-run
+php artisan cms:optimize-images
+php artisan cms:optimize-images --id=123
+```
+
+The command is repeatable: images already optimized under the current settings are skipped. Existing UUIDs, relationships, ordering, captions, credits, consent and public URLs are preserved. Before replacement, original image bytes and media metadata are backed up privately under `storage/app/private/image-optimization-backups/{uuid}/`; backups are not served by the media routes. Keep these until the conversion is reviewed and follow your backup retention policy. The reported space saving excludes backups. Temporary processing copies are removed after completion, and failed conversions restore the original file and metadata.
+
 Videos can have a poster image, caption file and text transcript. Upload browser-compatible video encoding; automatic transcoding is not provided. The uploader supports chunked transfers and retry/resume. Image thumbnails are generated using PHP GD; FFmpeg is not required. Gallery tabs support keyboard activation and shareable `/gallery?gallery=gallery-slug` links. Videos play on demand and stop when switching galleries.
 
 The public gallery displays photos at their natural proportions in a responsive masonry layout: one column on small screens, two from 640px and three from 1024px. Photo tiles and previews show no visible captions or credit/organisation labels. Keep descriptions, credits, consent and alternative text in the CMS; publication checks still use this metadata. Video controls, caption tracks and expandable transcripts remain available.
@@ -124,11 +139,46 @@ Use **Website Settings → SEO** for site-wide defaults and the fixed public pag
 
 Site-wide values include canonical website URL, title suffix, default description, social image and search indexing. Per-page values include SEO title, description, canonical override, social image and indexing eligibility. Blank overrides use the existing JSON defaults. A social image can be an HTTPS URL or a local path such as `/images/social-card.png`.
 
-Indexing remains disabled by default, following the existing JSON setting. Enabling it exposes eligible public URLs in the sitemap; individual pages can still be excluded. Canonical overrides on another domain are excluded from this site’s sitemap. Admin pages and media-serving endpoints remain excluded from crawling.
+Indexing is enabled by default. The site-settings migration removes the old launch-time global and page exclusions on existing installations. Later deliberate choices are preserved by repeat seeding/deployments. Published public URLs appear in the sitemap; individual pages can still be excluded. Canonical overrides on another domain are excluded from this site’s sitemap. Admin and upload utilities retain exclusions; eligible public images and reports can be crawled. Unavailable records return 404 and duplicate donation utility pages retain noindex.
+
+## General, brand, script and crawler settings
+
+Only active administrators can view or save these screens, including through direct URLs and subsequent Livewire requests. Editors retain their existing content/SEO permissions.
+
+**General & Brand** sets the full site/organisation name, compact name, tagline, default description, primary/accent colours, public email, telephone, office address and six HTTPS social profile links. Blank contact/social fields disappear from the public interface. Page-specific SEO descriptions and social-image overrides take priority over general defaults. The main logo, optional footer logo, favicon and default social image use private CMS uploads with public controlled URLs and automatic WebP optimization. Removing an upload restores the bundled default; an absent footer logo uses the main logo. Keep a dark primary and a light contrasting accent to retain legible controls.
+
+**Scripts** accepts complete trusted HTML/JavaScript tags up to 100,000 characters in each location. Header code is placed immediately before `</head>` and footer code before `</body>` on public pages. The enable toggle pauses both locations without deleting their contents. These fields are executable administrator configuration, not sanitized editorial text. They are not rendered on admin pages or serialized in public Inertia props. Integrations execute once per document load; subscribe to Inertia navigation events when tracking later page visits.
+
+**Robots.txt** edits the plain-text response served at `/robots.txt`. The seeded defaults allow `/`, exclude `/admin`, `/livewire`, `/fluppy` and `/up`, and include `Sitemap: {site_url}/sitemap.xml`. `{site_url}` resolves from the canonical URL in SEO settings. Restore defaults fills the editor; Save changes commits it. If the site-wide SEO indexing switch is deliberately disabled, the response becomes `User-agent: *` / `Disallow: /` and page metadata/sitemap follow that choice. Robots rules are crawler instructions; existing authentication and media publication checks remain authoritative.
+
+Our People includes an optional **Public email address**. Individual addresses are blank by default, as requested. Adding one publishes a mail link on the card/profile and includes the address in profile structured data. Invalid addresses and header-injection strings are rejected. Do not put private staff addresses in a public field.
+
+## Deployment command
+
+Configure `.env` first: production environment, `APP_DEBUG=false`, correct `APP_URL`, database, mail and persistent storage paths. Bootstrap PHP dependencies with `composer install --no-dev --prefer-dist --no-interaction` so Artisan can run. Include `database/seeders/assets` and its manifest in the release. Keep existing application keys and content/media storage; take a database/media backup before deployment.
+
+```sh
+php artisan cms:deploy --dry-run
+php artisan cms:deploy --force
+# Optional interactive account creation after deployment
+php artisan cms:deploy --force --create-admin
+```
+
+The command enters maintenance mode before replacing installed dependencies or build assets, installs locked Composer production dependencies and npm build dependencies, builds client/SSR assets, clears bootstrap caches, generates a key only when absent, applies pending migrations and runs all collection/SEO/site seeders. It then optimizes existing images with private backups, creates the configured public storage link, publishes Filament assets, caches configuration/events/routes/views/Filament metadata, and signals queue workers, scheduler and SSR to restart. The CMS media disk is never publicly symlinked. Add `--create-admin` to run `cms:create-admin` after deployment succeeds and maintenance owned by this run has ended. It uses a fresh PHP process with the deployed configuration and private terminal prompts; no account/password is seeded. File imports stay offline, report missing sources and preserve successful imports and subsequent CMS edits.
+
+- `--skip-dependencies`: use installed dependencies. Required for the local verification workflow or prepared CI artifacts.
+- `--skip-build`: require existing client and SSR artifacts. Combine with `--skip-dependencies` when the target has no Node build tools.
+- `--without-media`: import records/settings without copying seed media; existing image optimization still runs.
+- `--skip-reload`: leave process restarts to your deployment platform.
+- `--create-admin`: optionally create an administrator after success. Requires an interactive terminal; `--force` does not bypass account prompts. `--no-interaction` is rejected with this option before deployment changes begin. Dry runs list the step without prompting. Validation failure or cancellation does not undo the deployment or put a live website back into maintenance; rerun `php artisan cms:create-admin` separately.
+- `--no-maintenance`: use only when preparing an isolated release directory or when maintenance is managed externally.
+- `--force`: suppress Laravel's production confirmation. Without it, production runs ask for confirmation.
+
+Commands run sequentially in fresh PHP processes, stop on failure and use a storage-directory deployment lock. A failure after entering maintenance leaves the site down for correction. Fix the cause and repeat the command, then run `php artisan up` once ready. An already enabled maintenance mode is preserved, including on a successful retry. Do not use `migrate:fresh` for deployments. Queue/SSR processes need an external supervisor to restart them; the command does not install cron jobs, provision hosting, configure TLS or deploy to an external server.
 
 ## Hosting and backups
 
-Serve the application from `public/`. Keep the database, `storage/` and `bootstrap/cache/` writable by PHP. Upload files must persist across deployments. Keep GD installed for image thumbnails. Livewire accepts assembled uploads up to 100 MB; Fluppy uses small chunks, so proxy/PHP request limits must accommodate those individual requests. Actual hosting capacity and upload behaviour should be checked on the destination server.
+Serve the application from `public/`. Keep the database, `storage/` and `bootstrap/cache/` writable by PHP. Upload files must persist across deployments. Keep GD installed with WebP support for image conversion and thumbnails. Livewire accepts assembled uploads up to 100 MB; Fluppy uses small chunks, so proxy/PHP request limits must accommodate those individual requests. Actual hosting capacity and upload behaviour should be checked on the destination server.
 
 Run Laravel’s scheduler every minute through the host’s cron facility:
 

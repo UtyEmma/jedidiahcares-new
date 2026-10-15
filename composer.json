@@ -17,7 +17,8 @@
         "inertiajs/inertia-laravel": "^3.0",
         "laravel/framework": "^13.17",
         "laravel/tinker": "^3.0",
-        "saade/fluppy": "^1.0"
+        "saade/fluppy": "^1.0",
+        "spatie/laravel-sitemap": "^8.2"
     },
     "require-dev": {
         "laravel/pint": "^1.27"

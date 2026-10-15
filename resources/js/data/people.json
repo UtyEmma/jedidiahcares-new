@@ -7,10 +7,10 @@
     "role": "Founder & Director",
     "group": "leadership",
     "socialLinks": {
-      "linkedin": "",
+      "linkedin": "https://ng.linkedin.com/in/ebere-ubesie-2a147a16",
       "facebook": "",
-      "instagram": "",
-      "x": "",
+      "instagram": "https://www.instagram.com/eberechukwu_ubesie/",
+      "x": "https://twitter.com/bubechi",
       "youtube": "",
       "tiktok": "",
       "website": ""
@@ -25,7 +25,8 @@
     "imageSourceUrl": "https://jedidiahcares.org/assets/images/team/Ebere_Ubesie.jpg",
     "checkedOn": "2026-10-14",
     "sourceNote": "Founder role and Dr. title supplied by the project owner; director record and portrait taken from the organisation’s website.",
-    "seedImage": "people/ebere-ubesie.jpg"
+    "seedImage": "people/ebere-ubesie.jpg",
+    "email": ""
   },
   {
     "id": "16012d3a-ccf2-42eb-b834-f2304d35d51f",
@@ -52,7 +53,8 @@
     "sourceUrl": "https://jedidiahcares.org/team",
     "imageSourceUrl": "https://jedidiahcares.org/assets/images/team/Agozie_Ubesie.jpg",
     "checkedOn": "2026-10-14",
-    "seedImage": "people/agozie-ubesie.jpg"
+    "seedImage": "people/agozie-ubesie.jpg",
+    "email": ""
   },
   {
     "id": "98abeca8-3803-4b47-9782-8e12256e7478",
@@ -76,7 +78,8 @@
     "portraitConsent": false,
     "sourceUrl": "https://jedidiahcares.org/team",
     "imageSourceUrl": "https://admin.jedidiahcares.org/images/storage/cKHhoooE9cpG2BSY.JPG",
-    "checkedOn": "2026-10-14"
+    "checkedOn": "2026-10-14",
+    "email": ""
   },
   {
     "id": "9899950c-141f-48cb-9144-b69d86cd255c",
@@ -100,6 +103,7 @@
     "portraitConsent": false,
     "sourceUrl": "https://jedidiahcares.org/team",
     "imageSourceUrl": "https://admin.jedidiahcares.org/images/storage/opT6CYg6tSW1qHrM.jpg",
-    "checkedOn": "2026-10-14"
+    "checkedOn": "2026-10-14",
+    "email": ""
   }
 ]

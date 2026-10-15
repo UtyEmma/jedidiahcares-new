@@ -2,9 +2,12 @@ import { Head, usePage } from '@inertiajs/react';
 import type { WebsitePageProps } from '../types/inertia';
 
 export function Seo() {
-  const { seo } = usePage<WebsitePageProps>().props;
+  const { seo, content } = usePage<WebsitePageProps>().props;
   return (
     <Head title={seo.title}>
+      <style head-key="brand-colours">{`:root { --jc-navy: ${content.site.brand.primaryColor}; --jc-lemon: ${content.site.brand.accentColor}; }`}</style>
+      <meta head-key="theme-color" name="theme-color" content={content.site.brand.primaryColor} />
+      <link head-key="favicon" rel="icon" href={content.site.brand.faviconPath} type="image/webp" />
       <meta head-key="description" name="description" content={seo.description} />
       <meta head-key="robots" name="robots" content={seo.robots} />
       <link head-key="canonical" rel="canonical" href={seo.canonical} />

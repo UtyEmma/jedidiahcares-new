@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Support\CmsSchema;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\File;
@@ -22,7 +23,7 @@ class CmsMedia extends Media implements HasMedia
     public function registerMediaConversions(?Media $media = null): void
     {
         if ($media && str_starts_with($media->mime_type ?? '', 'image/')) {
-            $this->addMediaConversion('thumb')->width(640)->height(480)->format('webp')->nonQueued();
+            $this->addMediaConversion('thumb')->fit(Fit::Max, config('cms-media.thumbnail_size'), config('cms-media.thumbnail_size'))->quality(config('cms-media.thumbnail_quality'))->format('webp')->nonQueued();
         }
     }
 
@@ -40,6 +41,9 @@ class CmsMedia extends Media implements HasMedia
         $owner = $this->model;
         if ($owner instanceof self) {
             return $owner->isPublic();
+        }
+        if ($owner instanceof SiteSetting) {
+            return $owner->key === 'site' && in_array($this->collection_name, ['logo', 'footer-logo', 'favicon', 'social-image'], true);
         }
         if (! $owner instanceof ContentEntry || ! array_key_exists($owner->collection, CmsSchema::COLLECTIONS) || $owner->trashed() || $owner->status !== 'published') {
             return false;

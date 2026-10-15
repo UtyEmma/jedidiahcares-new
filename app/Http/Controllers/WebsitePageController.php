@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Support\WebsiteContent;
+use App\Support\WebsiteSettings;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -44,6 +45,9 @@ class WebsitePageController extends Controller
         if ($collection === 'people') {
             $description = ($entry['seoDescription'] ?? '') ?: Str::limit(Str::squish($entry['biography'] ?: $entry['summary']), 160);
             $person = ['name' => $entry['title'], 'jobTitle' => $entry['role'], 'description' => $description];
+            if (! empty($entry['email'])) {
+                $person['email'] = $entry['email'];
+            }
             if (! empty($entry['socialLinks'])) {
                 $person['sameAs'] = array_values($entry['socialLinks']);
             }
@@ -82,9 +86,10 @@ class WebsitePageController extends Controller
     private function render(Request $request, string $component, string $title, ?string $description, array $props = [], bool $indexable = true, ?array $article = null, int $status = 200, ?array $person = null): Response
     {
         $seo = $this->content->metadata($request->getPathInfo(), $title, $description, $indexable, $article, $person);
+        $content = $this->content->payload($request);
 
-        return Inertia::render($component, [...$props, 'seo' => $seo, 'content' => $this->content->payload($request)])
-            ->withViewData(['seo' => $seo])
+        return Inertia::render($component, [...$props, 'seo' => $seo, 'content' => $content])
+            ->withViewData(['seo' => $seo, 'siteBrand' => $content['site']['brand'], 'siteScripts' => app(WebsiteSettings::class)->scripts()])
             ->toResponse($request)
             ->setStatusCode($status);
     }

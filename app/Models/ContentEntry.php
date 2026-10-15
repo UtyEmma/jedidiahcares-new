@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\File;
@@ -128,7 +129,7 @@ class ContentEntry extends Model implements HasMedia
     public function registerMediaConversions(?Media $media = null): void
     {
         if ($media && str_starts_with($media->mime_type ?? '', 'image/')) {
-            $this->addMediaConversion('thumb')->width(640)->height(480)->format('webp')->nonQueued();
+            $this->addMediaConversion('thumb')->fit(Fit::Max, config('cms-media.thumbnail_size'), config('cms-media.thumbnail_size'))->quality(config('cms-media.thumbnail_quality'))->format('webp')->nonQueued();
         }
     }
 }
