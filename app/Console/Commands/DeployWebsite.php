@@ -212,7 +212,7 @@ class DeployWebsite extends Command
             $steps[] = ['Cache release metadata: '.$command, [$command]];
         }
 
-        $steps[] = ['Generate website site map', 'app:generate-sitemap'];
+        $steps[] = ['Generate website site map', ['app:generate-sitemap']];
         
         if (! $this->option('skip-reload')) {
             $steps[] = ['Signal queue workers to restart', ['queue:restart']];
