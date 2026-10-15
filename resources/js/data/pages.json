@@ -1,0 +1,196 @@
+{
+  "home": {
+    "title": "Homepage",
+    "fields": {
+      "Hero Headline": "Building the future, one person at a time.",
+      "Hero Supporting Copy": "Every child, young person and woman deserves the opportunity to thrive. Through education, practical assistance, prevention and empowerment, Jedidiah Cares Global Outreach for Women, Youth and Children works with communities to help people discover their potential and build more hopeful futures.",
+      "Introduction / Who We Are": "Rooted in faith. Guided by compassion. Committed to action. We believe care becomes meaningful when it meets real needs and opens doors to opportunity. That is why we work alongside underserved communities to support learning, wellbeing, confidence and self-reliance.",
+      "Programme Section": "Four areas. One shared purpose. From scholarships and youth development to girls’ health and women’s empowerment, our programmes respond to challenges that shape individual lives and community futures.",
+      "Impact Section": "Progress is made one opportunity at a time. Explore the outreach activities, education support and partnerships that reflect our commitment to practical, community-centred change.",
+      "Stories Section": "Every intervention has a story. Meet the people, volunteers and partners whose experiences reveal what compassion in action can look like.",
+      "Final Invitation": "Be part of the change. Your time, partnership and support can help more children, young people and women access opportunities to thrive."
+    }
+  },
+  "about": {
+    "title": "About us",
+    "fields": {
+      "Page Opener": "Care rooted in faith. Change built through action.",
+      "Founding Narrative": "Jedidiah Cares Global Outreach for Women, Youth and Children began with a conviction that people should not be defined by the challenges they face. Through community assistance and education support, the organisation makes compassion tangible while investing in people’s future potential.",
+      "Who We Serve": "We work with children, young people and women facing barriers to education, information and opportunity.",
+      "Our Vision": "To produce agents of change who in turn will transform the world.",
+      "Our Mission — Proposed Web Reading": "Inspired by Christian faith and compassion, we respond to the challenges facing children, young people and women through education, prevention, practical support and empowerment opportunities that enable them to realise their potential and contribute to their communities.",
+      "Our Values": "Compassion, dignity, empowerment, integrity and community guide how we respond, collaborate and report our work.",
+      "Our Approach": "We listen, collaborate, act and learn alongside communities."
+    },
+    "headline": "Care rooted in faith. Change built through action."
+  },
+  "programmes": {
+    "title": "Our Programmes",
+    "fields": {
+      "Hero": "Creating opportunities where they matter most.",
+      "Intro": "Every challenge has a human story. Our four programme areas are designed to address barriers that affect learning, healthy decisions, personal dignity and community wellbeing. We combine immediate support with learning, practical tools and partnerships that help people move forward.",
+      "Closing Invitation": "Do you work with a school, community group or institution facing one of these challenges? We welcome opportunities to listen, learn and collaborate on practical solutions."
+    },
+    "headline": "Four areas. One shared purpose."
+  },
+  "education": {
+    "title": "Education & Scholarships",
+    "fields": {
+      "Headline": "Education opens doors. Opportunity helps children walk through them.",
+      "Overview": "Access to education can change the direction of a child’s life, yet financial pressure and unequal opportunities can make school participation difficult. Jedidiah Cares Global Outreach for Women, Youth and Children seeks to support children with educational assistance, scholarships and community partnerships that help them continue learning and pursuing their aspirations.",
+      "Our Approach": "We identify needs through trusted school and community relationships; consider available resources and eligibility; and provide practical support designed to ease educational barriers. We aim to nurture confidence and a love of learning, not simply cover immediate costs.",
+      "Evidence And Stories": "Historical organisational records describe scholarships supporting one child in Lagos State and seven children in Ogboji, Anambra State. These should be documented as past interventions after confirming dates, details and publication permissions.",
+      "How To Participate": "Individuals, schools and sponsors can explore education-focused campaigns, contribute learning resources or enquire about collaborative support."
+    }
+  },
+  "youth-drug-prevention": {
+    "title": "Youth Development & Drug Abuse Prevention",
+    "fields": {
+      "Headline": "Helping young people grow with confidence and purpose.",
+      "Overview": "Young people need safe spaces to ask questions, develop confidence and make informed choices. Our youth development and drug abuse prevention work focuses on self-awareness, positive identity, accurate information and the life skills that help young people navigate pressure and uncertainty.",
+      "The Budding Space": "The Budding Space is an initiative described in the organisation’s historical plans. Its concept combines conversations about self-esteem, resilience, peer influence and the risks associated with substance use. Before presenting it as an active programme, its current format and delivery history should be confirmed.",
+      "What Participants Gain": "Opportunities to learn, reflect, ask informed questions, understand risks, strengthen decision-making and find supportive relationships.",
+      "Community Partnership": "We welcome schools, community groups and appropriate practitioners who can help deliver thoughtful, age-appropriate preventive education."
+    }
+  },
+  "girls-health": {
+    "title": "Girls’ Health, Safety & Empowerment",
+    "fields": {
+      "Headline": "Every girl deserves dignity, knowledge and the confidence to thrive.",
+      "Overview": "Girls in underserved communities can face barriers to reliable menstrual and reproductive health information, safe choices and affordable hygiene materials. Jedidiah Cares Global Outreach for Women, Youth and Children works toward practical, age-appropriate responses that support health awareness, personal dignity, confidence and self-protection.",
+      "What A Session May Include": "Menstrual health education; puberty and body awareness; personal safety and consent; confidence-building conversations; practical reusable pad-making skills when appropriate; and distribution of relevant support materials.",
+      "A Proposed Project": "A 2026 grant proposal sets out a six-week empowerment intervention targeting 100 girls in rural Enugu State. Until implementation is confirmed, the website must label this as a proposed initiative and should not report the intended participants as beneficiaries reached.",
+      "Our Commitment": "Sessions should be age-appropriate, evidence-informed, culturally respectful and delivered with safeguarding safeguards and appropriate professional input."
+    }
+  },
+  "community-empowerment": {
+    "title": "Women & Community Empowerment",
+    "fields": {
+      "Headline": "Standing with communities. Strengthening what is possible.",
+      "Overview": "Strong communities grow when women and families have access to support, practical resources and opportunities to develop their own capacity. Jedidiah Cares Global Outreach for Women, Youth and Children responds to immediate community needs while seeking pathways to stronger wellbeing, dignity and resilience.",
+      "Our Work": "Our organisational records describe food support for women in Enugu North and recurring seasonal assistance for households in Enugu. These activities provide an important foundation for future skill-building and community partnerships.",
+      "How We Work": "We listen to the communities we serve, identify practical gaps, collaborate with local partners and seek support that responds to immediate needs without losing sight of longer-term opportunity.",
+      "Join The Effort": "Community partners, volunteers and supporters can contribute knowledge, materials, services and funding to carefully defined interventions."
+    }
+  },
+  "projects": {
+    "title": "Projects & Campaigns",
+    "fields": {
+      "Headline": "See the work. Understand the purpose. Support the progress.",
+      "Intro": "Our projects bring specific community needs into focus. Some support immediate assistance, while others create opportunities through education, prevention and practical skills. Each project has a defined purpose, a clear stage and updates that help supporters follow its progress.",
+      "Status Labels": "Proposed • Fundraising • Planned • Ongoing • Completed • Archived. Completed projects should lead with results rather than a “Donate Now” button.",
+      "Archive Invitation": "Explore the projects we have undertaken, the communities involved and the lessons shaping the next steps of our work."
+    },
+    "headline": "See the work. Understand the purpose. Support the progress."
+  },
+  "project-detail": {
+    "title": "Project Detail / Campaign Landing",
+    "fields": {
+      "Project Headline Example": "Supporting Girls’ Health and Confidence in Rural Enugu",
+      "Project Description Example": "This proposed initiative combines age-appropriate menstrual health education, personal safety sessions and reusable pad-making workshops. It aims to equip girls with knowledge, confidence and practical resources that can support their wellbeing and participation in school.",
+      "The Need": "Describe the local barrier with cautious, credible data; include source, publication date and location for third-party statistics.",
+      "Our Response": "Outline key activities, who will deliver them, who the programme is intended for, where it will take place and how participation will be managed.",
+      "Progress And Accountability": "For active projects, show updates, funds received where independently reconciled, milestones and approved photo evidence. For completed projects, show final delivery results, report downloads, learning and acknowledgements.",
+      "Supporting Action": "Invite contributions toward specific budget items or approved campaigns, or direct visitors to partnership enquiries when donations are not open."
+    }
+  },
+  "impact": {
+    "title": "Our Impact",
+    "fields": {
+      "Headline": "Measured through action. Remembered through people.",
+      "Introduction": "Behind every number is a person, a school, a family or a community. We are committed to sharing what we do, what we learn and where we still need to grow.",
+      "Impact Summary": "Present approved verified totals by reporting period, grouped into individuals reached, scholarships supported, community interventions delivered, volunteers engaged and partner organisations involved. Show what each measure actually means.",
+      "Reflection": "Our mission calls us to do more than report activities. We also seek to understand whether our efforts are helping people gain access, confidence, knowledge and opportunities."
+    },
+    "headline": "Real work. Meaningful progress. Shared responsibility."
+  },
+  "stories": {
+    "title": "Stories & Updates",
+    "fields": {
+      "Headline": "Stories from the heart of our work.",
+      "Introduction": "From classrooms and community outreach to the people who make each intervention possible, our stories offer a closer look at the work of Jedidiah Cares Global Outreach for Women, Youth and Children.",
+      "Categories": "Programme Update • Community Story • Event Recap • Partnership • Organisation News • Insight & Learning.",
+      "Editorial Promise": "We share stories with care, seek appropriate consent and focus on the experiences, contributions and dignity of the people and communities involved."
+    },
+    "headline": "Stories of compassion, courage and community."
+  },
+  "events": {
+    "title": "Events & Activities",
+    "fields": {
+      "Headline": "Come together. Learn together. Make change together.",
+      "Intro": "Workshops, community outreach, youth conversations and collaborative events create opportunities for learning and collective action.",
+      "Upcoming Events": "Show approved future event date, local time, location or virtual format, target audience, description, organiser, safeguarding considerations and registration deadline.",
+      "Past Events": "Show archived events with actual attendance where verified, selected photos, short outcomes and a link to a full recap.",
+      "Participation Message": "We welcome appropriate involvement from individuals, schools, institutions and volunteers who share a commitment to dignified, community-centred service."
+    },
+    "headline": "Where care becomes community action."
+  },
+  "get-involved": {
+    "title": "Get Involved",
+    "fields": {
+      "Headline": "There is more than one way to make a difference.",
+      "Introduction": "Compassion becomes action through people who give their time, resources, skills and ideas. Whether you are an individual, a school, a company or a community organisation, there is room to contribute to meaningful work.",
+      "Ways To Get Involved": "Make a Donation — Support an approved project or general mission needs. Volunteer — Contribute time and skills to community activities. Partner With Us — Develop practical initiatives together. Sponsor an Opportunity — Support education or other structured programmes when a verified campaign is open.",
+      "Assurance": "Every opportunity for engagement should be clearly described, with realistic expectations and a reliable point of contact."
+    },
+    "headline": "Your compassion can become someone else’s opportunity."
+  },
+  "donations": {
+    "title": "Donate / Support Our Work",
+    "fields": {
+      "Headline": "Your support can create meaningful opportunities.",
+      "Intro": "Every contribution helps make thoughtful community interventions possible. You can choose to support an open project or contribute to the general work of Jedidiah Cares Global Outreach for Women, Youth and Children.",
+      "Impact Explanation": "Before linking visitors to an independently operated donation channel, explain what the selected project aims to deliver, its status and any approved funding purpose. Avoid promising a fixed result per naira unless the underlying costing is approved.",
+      "Trust Statement": "Transactions should be processed securely. Donors should receive confirmation, and the organisation should make project updates or periodic reports accessible where practical.",
+      "Thank-You Content": "Thank you for standing with Jedidiah Cares Global Outreach for Women, Youth and Children. Your support helps turn compassion into opportunities for children, young people and women. We will share relevant updates as projects progress."
+    },
+    "headline": "Your support can create meaningful opportunities."
+  },
+  "volunteers": {
+    "title": "Volunteer With Us",
+    "fields": {
+      "Headline": "Your time and talents can help build brighter futures.",
+      "Intro": "Volunteers make community engagement possible. From supporting outreach and learning activities to helping with logistics, communication and specialist skills, there are many ways to contribute meaningfully.",
+      "What Volunteering Involves": "Opportunities depend on current programmes, location, experience and safeguarding requirements. Some roles involve direct community participation; others support planning, communications, logistics or technical work.",
+      "How It Works": "Tell us about your interest and skills → We review your application → We discuss a suitable role → Selected volunteers complete any required orientation or safeguarding checks.",
+      "Closing Message": "We value people who are dependable, respectful and ready to learn with communities."
+    },
+    "headline": "Your time and talents can help build brighter futures."
+  },
+  "partner": {
+    "title": "Partner With Us",
+    "fields": {
+      "Headline": "Stronger communities begin with meaningful partnerships.",
+      "Intro": "Lasting change requires shared expertise, community trust and practical resources. Jedidiah Cares Global Outreach for Women, Youth and Children welcomes conversations with organisations that want to advance education, youth development, girls’ wellbeing and community empowerment.",
+      "Partnership Possibilities": "Programme sponsorship; co-designed school and community interventions; in-kind or technical support; professional volunteering; community referrals and evidence-based learning.",
+      "How We Collaborate": "We begin by understanding needs and alignment, agree clear responsibilities and safeguarding requirements, design measurable activities and document delivery and learning.",
+      "Invitation": "Tell us about your organisation, the communities you serve and the difference you hope to make together."
+    },
+    "headline": "Stronger communities begin with meaningful partnerships."
+  },
+  "team": {
+    "title": "Leadership & People",
+    "fields": {
+      "Intro": "Our work is shaped by people who contribute their experience, time, values and care to the communities we serve."
+    },
+    "headline": "The people behind the mission."
+  },
+  "gallery": {
+    "title": "Photo Gallery",
+    "fields": {
+      "Intro": "Learning, care and connection: a window into the purpose and community at the heart of Jedidiah Cares Global Outreach for Women, Youth and Children."
+    },
+    "headline": "Moments of care, learning and community."
+  },
+  "contact": {
+    "title": "Contact",
+    "fields": {
+      "Intro": "Have a question about our programmes, want to explore a partnership or need to reach our team? Choose the enquiry that best matches your interest."
+    },
+    "headline": "Let’s make meaningful change together."
+  },
+  "shop": {
+    "title": "Historical Shop (Excluded)",
+    "fields": {}
+  }
+}

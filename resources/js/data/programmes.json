@@ -1,0 +1,134 @@
+[
+  {
+    "id": "education",
+    "slug": "education",
+    "title": "Education & Scholarships",
+    "originalThematicName": "Education",
+    "shortTitle": "Learning today. Possibility tomorrow.",
+    "summary": "Supporting opportunities to learn and thrive.",
+    "heroTitle": "Education opens doors. Opportunity helps children walk through them.",
+    "introduction": "Access to education can change the direction of a child’s life, yet financial pressure and unequal opportunities can make school participation difficult. Jedidiah Cares Global Outreach for Women, Youth and Children seeks to support children with educational assistance, scholarships and community partnerships that help them continue learning and pursuing their aspirations.",
+    "icon": "book",
+    "number": "01",
+    "illustration": "education",
+    "publicationState": "approved",
+    "isPublished": true,
+    "sections": [
+      {
+        "heading": "Why education matters",
+        "text": "Education can open doors to confidence, independence and opportunity. Financial pressure and unequal access can make continuing in school difficult."
+      },
+      {
+        "heading": "Our approach",
+        "text": "We identify needs through trusted school and community relationships; consider available resources and eligibility; and provide practical support designed to ease educational barriers. We aim to nurture confidence and a love of learning, not simply cover immediate costs."
+      }
+    ],
+    "activities": ["Learning resources", "School engagement", "Education support"],
+    "relatedProjectIds": [],
+    "photoId": "education",
+    "seedImage": "programmes/education.webp"
+  },
+  {
+    "id": "youth-drug-prevention",
+    "slug": "youth-drug-prevention",
+    "title": "Youth Development & Drug Abuse Prevention",
+    "originalThematicName": "Drug Abuse Prevention",
+    "shortTitle": "Confidence to grow. Knowledge to choose.",
+    "summary": "Creating space for young people to make informed choices.",
+    "heroTitle": "Helping young people grow with confidence and purpose.",
+    "introduction": "Young people need safe spaces to ask questions, develop confidence and make informed choices. Our youth development and drug abuse prevention work focuses on self-awareness, positive identity, accurate information and the life skills that help young people navigate pressure and uncertainty.",
+    "icon": "spark",
+    "number": "02",
+    "illustration": "youth-drug-prevention",
+    "publicationState": "approved",
+    "isPublished": true,
+    "sections": [
+      {
+        "heading": "Why safe spaces matter",
+        "text": "Young people need reliable information and supportive spaces to ask questions, navigate peer pressure and make thoughtful decisions."
+      },
+      {
+        "heading": "Our approach",
+        "text": "We listen, collaborate and seek practical, age-appropriate responses alongside schools and communities."
+      },
+      {
+        "heading": "The Budding Space · a planned concept",
+        "text": "A concept in historical organisational plans brings together self-esteem, resilience, peer influence and substance-use prevention. Its current format and delivery status remain to be confirmed."
+      }
+    ],
+    "activities": [
+      "Self-awareness & confidence",
+      "Healthy decision-making",
+      "Drug abuse prevention"
+    ],
+    "relatedProjectIds": [],
+    "photoId": "learning",
+    "seedImage": "programmes/youth-drug-prevention.webp"
+  },
+  {
+    "id": "girls-health",
+    "slug": "girls-health",
+    "title": "Girls’ Health, Safety & Empowerment",
+    "originalThematicName": "Sex Education and Empowerment",
+    "shortTitle": "Knowledge, dignity and the confidence to thrive.",
+    "summary": "Supporting girls with knowledge, agency and wellbeing.",
+    "heroTitle": "Every girl deserves dignity, knowledge and the confidence to thrive.",
+    "introduction": "Girls in underserved communities can face barriers to reliable menstrual and reproductive health information, safe choices and affordable hygiene materials. Jedidiah Cares Global Outreach for Women, Youth and Children works toward practical, age-appropriate responses that support health awareness, personal dignity, confidence and self-protection.",
+    "icon": "flower",
+    "number": "03",
+    "illustration": "girls-health",
+    "publicationState": "approved",
+    "isPublished": true,
+    "sections": [
+      {
+        "heading": "Why dignity matters",
+        "text": "Reliable health information, confidence and practical resources can help girls navigate change, make safe choices and participate in learning."
+      },
+      {
+        "heading": "Our approach",
+        "text": "We listen, collaborate and seek practical, age-appropriate responses alongside schools and communities."
+      },
+      {
+        "heading": "Knowledge that builds confidence",
+        "text": "Health education, personal safety conversations and practical skills can help girls navigate everyday challenges with confidence. We welcome school and community partnerships that create space for this learning."
+      }
+    ],
+    "activities": [
+      "Age-appropriate health education",
+      "Personal safety & agency",
+      "Practical skills"
+    ],
+    "relatedProjectIds": [],
+    "photoId": "girls",
+    "seedImage": "programmes/girls-health.webp"
+  },
+  {
+    "id": "community-empowerment",
+    "slug": "community-empowerment",
+    "title": "Women & Community Empowerment",
+    "originalThematicName": "Youth and Women Empowerment",
+    "shortTitle": "Stronger people. Stronger communities.",
+    "summary": "Standing alongside women, families and communities.",
+    "heroTitle": "Standing with communities. Strengthening what is possible.",
+    "introduction": "Strong communities grow when women and families have access to support, practical resources and opportunities to develop their own capacity. Jedidiah Cares Global Outreach for Women, Youth and Children responds to immediate community needs while seeking pathways to stronger wellbeing, dignity and resilience.",
+    "icon": "hands",
+    "number": "04",
+    "illustration": "community-empowerment",
+    "publicationState": "approved",
+    "isPublished": true,
+    "sections": [
+      {
+        "heading": "Why community matters",
+        "text": "Strong communities grow when women and families can access practical resources, supportive relationships and opportunities to build their own capacity."
+      },
+      {
+        "heading": "Our approach",
+        "text": "We listen to the communities we serve, identify practical gaps, collaborate with local partners and seek support that responds to immediate needs without losing sight of longer-term opportunity."
+      }
+    ],
+    "activities": ["Practical community support", "Capacity & skills", "Local partnerships"],
+    "relatedProjectIds": [],
+    "photoId": "skills",
+    "seedImage": "programmes/community-empowerment.webp"
+  }
+]

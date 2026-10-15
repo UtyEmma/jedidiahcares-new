@@ -1,0 +1,14 @@
+[
+  {
+    "from": "/blog",
+    "to": "/stories"
+  },
+  {
+    "from": "/blog/:slug",
+    "to": "/stories/:slug"
+  },
+  {
+    "from": "/impact",
+    "to": "/reports"
+  }
+]

@@ -1,0 +1,185 @@
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--jc-white);
+}
+
+.project-card-media,
+.project-detail-media {
+  position: relative;
+}
+
+.project-card-image-link {
+  display: block;
+}
+
+.project-card-media .content-image {
+  border-radius: 0;
+}
+
+.project-card-media > .project-status,
+.project-detail-media > .project-status {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  max-width: calc(100% - 32px);
+  box-shadow: 0 2px 12px #0722661a;
+}
+
+.project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 6px 13px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: var(--jc-text-interface);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.project-status::before {
+  content: '';
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.project-status-planned {
+  color: var(--jc-navy);
+  background: var(--jc-lemon-wash);
+  border-color: #e6dfa1;
+}
+
+.project-status-active {
+  color: #1e654b;
+  background: #e7f4ec;
+  border-color: #c6e3d1;
+}
+
+.project-status-completed {
+  color: var(--jc-navy);
+  background: var(--jc-navy-wash);
+  border-color: #d7e0f1;
+}
+
+.project-card .entry-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.entry-card-body > .project-card-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0;
+  color: var(--jc-muted);
+  font-size: var(--jc-text-interface);
+}
+
+.project-card-location svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.project-card-excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+
+.project-card .entry-card-body > .text-link {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.project-funding {
+  width: 100%;
+  margin-block: 24px 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--jc-border);
+}
+
+.project-funding p {
+  margin: 0;
+}
+
+.project-funding .project-funding-label {
+  margin-bottom: 12px;
+  color: var(--jc-navy);
+  font-size: var(--jc-text-interface);
+  font-weight: 600;
+}
+
+.project-funding-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 16px;
+}
+
+.project-funding-summary strong {
+  color: var(--jc-navy);
+  font-size: var(--jc-text-body);
+  font-weight: 700;
+}
+
+.project-funding-summary span,
+.project-funding .project-funding-target {
+  color: var(--jc-muted);
+  font-size: var(--jc-text-interface);
+}
+
+.project-funding-summary .project-funding-percentage {
+  color: #1e654b;
+  font-weight: 600;
+}
+
+.project-funding-bar {
+  display: block;
+  appearance: none;
+  width: 100%;
+  height: 9px;
+  margin: 12px 0 10px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 999px;
+  background: var(--jc-navy-wash);
+  color: var(--jc-teal);
+}
+
+.project-funding-bar::-webkit-progress-bar {
+  border-radius: 999px;
+  background: var(--jc-navy-wash);
+}
+
+.project-funding-bar::-webkit-progress-value {
+  border-radius: 999px;
+  background: var(--jc-teal);
+}
+
+.project-funding-bar::-moz-progress-bar {
+  border-radius: 999px;
+  background: var(--jc-teal);
+}
+
+.project-funding-detail {
+  margin-block: 0 28px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--jc-border);
+}
+
+.project-funding-summary p,
+.project-funding-target {
+  overflow-wrap: anywhere;
+}

@@ -1,0 +1,104 @@
+[
+  {
+    "id": "community",
+    "files": [
+      {
+        "path": "public/images/generated/jedidiah-community-connection.webp",
+        "width": 1200,
+        "height": 800,
+        "bytes": 127054
+      },
+      {
+        "path": "public/images/generated/jedidiah-community-connection-600.webp",
+        "width": 600,
+        "height": 400,
+        "bytes": 47066
+      }
+    ]
+  },
+  {
+    "id": "education",
+    "files": [
+      {
+        "path": "public/images/generated/jedidiah-education-support.webp",
+        "width": 1200,
+        "height": 800,
+        "bytes": 111022
+      },
+      {
+        "path": "public/images/generated/jedidiah-education-support-600.webp",
+        "width": 600,
+        "height": 400,
+        "bytes": 43156
+      }
+    ]
+  },
+  {
+    "id": "learning",
+    "files": [
+      {
+        "path": "public/images/generated/jedidiah-youth-mentoring.webp",
+        "width": 1200,
+        "height": 800,
+        "bytes": 106436
+      },
+      {
+        "path": "public/images/generated/jedidiah-youth-mentoring-600.webp",
+        "width": 600,
+        "height": 400,
+        "bytes": 41622
+      }
+    ]
+  },
+  {
+    "id": "skills",
+    "files": [
+      {
+        "path": "public/images/generated/jedidiah-women-skills.webp",
+        "width": 1200,
+        "height": 800,
+        "bytes": 139540
+      },
+      {
+        "path": "public/images/generated/jedidiah-women-skills-600.webp",
+        "width": 600,
+        "height": 400,
+        "bytes": 53356
+      }
+    ]
+  },
+  {
+    "id": "care",
+    "files": [
+      {
+        "path": "public/images/generated/jedidiah-volunteer-care.webp",
+        "width": 1200,
+        "height": 800,
+        "bytes": 113596
+      },
+      {
+        "path": "public/images/generated/jedidiah-volunteer-care-600.webp",
+        "width": 600,
+        "height": 400,
+        "bytes": 43146
+      }
+    ]
+  },
+  {
+    "id": "girls",
+    "files": [
+      {
+        "path": "public/images/generated/jedidiah-girls-wellbeing.webp",
+        "width": 1200,
+        "height": 800,
+        "bytes": 90274
+      },
+      {
+        "path": "public/images/generated/jedidiah-girls-wellbeing-600.webp",
+        "width": 600,
+        "height": 400,
+        "bytes": 35078
+      }
+    ]
+  }
+]

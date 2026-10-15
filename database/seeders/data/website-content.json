@@ -1,0 +1,944 @@
+{
+  "source": "https://jedidiahcares.org",
+  "checkedOn": "2026-10-14",
+  "notes": [
+    "Curated from publicly displayed collection records; local collection JSON takes precedence.",
+    "Project activities describe intentions; donation totals, reach targets and unverified outcomes are not imported as achievements.",
+    "Gallery media retains its existing public publication status. No additional releases or private personal contact fields are imported.",
+    "The live events list and project report lists are empty; no partner directory or verified impact metrics were available."
+  ],
+  "collections": {
+    "projects": [
+      {
+        "id": "989d1beb-4e3c-433c-a2e0-ea1d44233f8c",
+        "slug": "the-budding-space-project",
+        "title": "The Budding Space Project",
+        "summary": "A school-based initiative designed to help children make informed choices, develop leadership skills and become positive influences in their communities.",
+        "programmeIds": ["youth-drug-prevention", "education"],
+        "stage": "active",
+        "location": "Nigeria",
+        "startDate": "2023-03-05",
+        "intendedActivities": [
+          "School seminars and guided discussions about responsible choices, technology and drug abuse prevention.",
+          "Engagement with school leaders and experienced role models.",
+          "Learning materials and opportunities for children to share what they learn.",
+          "Practical skills training as part of the proposed programme."
+        ],
+        "sections": [
+          {
+            "heading": "Purpose and approach",
+            "paragraphs": [
+              "The Budding Space Project brings guidance, leadership development and practical learning into school communities. It addresses the pressures children face online and offline, including harmful influences, drug abuse and a lack of positive role models.",
+              "The project plan proposes regular sessions across the school year, with topics shaped around young people’s questions. School authorities and experienced leaders would support the sessions and help children put their learning into practice."
+            ]
+          },
+          {
+            "heading": "Supporting lasting learning",
+            "paragraphs": [
+              "Children are encouraged to pass on useful lessons within their communities. The plan also includes a concluding skills programme to build confidence and practical capability."
+            ]
+          }
+        ],
+        "verifiedOutcomes": [],
+        "reportIds": [],
+        "coverAlt": "The Budding Space Project campaign artwork",
+        "imageSourceUrl": "https://jedidiahcares.org/storage/H63ySMWR6HyuWcA6-1678005407.png",
+        "sourceUrl": "https://jedidiahcares.org/projects/the-budding-space-project",
+        "sourcePublishedAt": "2023-03-05T13:37:36.000000Z",
+        "isPublished": true,
+        "publicationState": "approved",
+        "seedImage": "projects/the-budding-space-project.png"
+      },
+      {
+        "id": "99022204-3129-4264-ab65-345bf7853e57",
+        "slug": "scholarship-for-rural-indigent-children",
+        "title": "Scholarship for Rural Indigent Children",
+        "summary": "An education initiative to help children in rural Enugu communities overcome financial barriers to schooling through tuition support, learning materials and practical skills.",
+        "programmeIds": ["education", "community-empowerment"],
+        "stage": "active",
+        "location": "Rural communities in Enugu State, Nigeria",
+        "startDate": "2023-05-01",
+        "intendedActivities": [
+          "Identify children facing financial barriers to schooling in collaboration with school authorities.",
+          "Support tuition and essential academic materials.",
+          "Encourage learning through an essay competition, guidance and progress reviews.",
+          "Introduce practical skills such as crocheting, baking, beadwork and household product making."
+        ],
+        "sections": [
+          {
+            "heading": "Keeping education within reach",
+            "paragraphs": [
+              "The scholarship initiative responds to the financial pressures that prevent children in rural Enugu communities from attending school. Its plan combines school fees and academic materials with support from teachers and school leaders.",
+              "The proposed approach includes identifying children who have left school because of household hardship, including those who have lost a family breadwinner. Guidance and academic reviews are intended to help beneficiaries maintain progress."
+            ]
+          },
+          {
+            "heading": "Learning for life",
+            "paragraphs": [
+              "Alongside formal education, the project proposes practical skills training to expand young people’s capabilities and future livelihood options."
+            ]
+          }
+        ],
+        "verifiedOutcomes": [],
+        "reportIds": [],
+        "coverAlt": "Scholarship for Rural Indigent Children campaign artwork",
+        "imageSourceUrl": "https://jedidiahcares.org/storage/BBRZYsv1VZbqztqv-1682344735.png",
+        "sourceUrl": "https://jedidiahcares.org/projects/scholarship-for-rural-indigent-children",
+        "sourcePublishedAt": "2023-04-24T17:53:16.000000Z",
+        "isPublished": true,
+        "publicationState": "approved",
+        "seedImage": "projects/scholarship-for-rural-indigent-children.png"
+      }
+    ],
+    "stories": [
+      {
+        "id": "a2391eb6-a754-4dd1-bb9a-e4bfbefd774c",
+        "slug": "turning-policy-into-protection-jedidiah-cares-at-the-enugu-vapp-law-stop-guidelines-workshop",
+        "title": "Turning Policy Into Protection: Jedidiah Cares Global Outreach for Women, Youth and Children at the Enugu VAPP Law & SToP Guidelines Workshop",
+        "summary": "Jedidiah Cares Global Outreach for Women, Youth and Children joined stakeholders in Enugu from 29 June to 1 July 2026 to strengthen the implementation of protections for women, girls and vulnerable people.",
+        "category": "Advocacy",
+        "publishedAt": "2026-07-10T05:42:01.000000Z",
+        "programmeId": "girls-health",
+        "author": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "data": {
+              "text": "Our Programs Officer represented Jedidiah Cares Global Outreach for Women, Youth and Children at a three-day policy workshop in Enugu from 29 June to 1 July 2026. The discussions focused on putting the state’s Violence Against Persons (Prohibition) Law and Safe Termination of Pregnancy guidelines into practice."
+            }
+          },
+          {
+            "type": "heading",
+            "data": {
+              "text": "Bringing policy closer to people"
+            }
+          },
+          {
+            "type": "paragraph",
+            "data": {
+              "text": "LifeSpring Development Foundation convened the workshop with the Enugu State Ministry of Health. Representatives of government, health services, the judiciary, security agencies, civil society, the media and faith communities considered how clearer responsibilities and stronger coordination could improve protection."
+            }
+          },
+          {
+            "type": "heading",
+            "data": {
+              "text": "Our contribution"
+            }
+          },
+          {
+            "type": "paragraph",
+            "data": {
+              "text": "Through discussions and validation sessions, participants examined implementation gaps and ways to improve collaboration and public awareness. Jedidiah Cares Global Outreach for Women, Youth and Children contributed the perspective of the women, youth and children at the centre of our work. Our commitment is to support the steps that turn policy into practical protection and access to services."
+            }
+          }
+        ],
+        "coverAlt": "Participants at the Enugu VAPP Law and SToP Guidelines Workshop",
+        "imageSourceUrl": "https://jedidiahcares.org/images/storage/iSxkznekl0TgtaJR.webp",
+        "sourceUrl": "https://jedidiahcares.org/blog/turning-policy-into-protection-jedidiah-cares-at-the-enugu-vapp-law-stop-guidelines-workshop",
+        "isPublished": true,
+        "publicationState": "approved",
+        "seedImage": "stories/turning-policy-into-protection-jedidiah-cares-at-the-enugu-vapp-law-stop-guidelines-workshop.webp"
+      }
+    ],
+    "galleries": [
+      {
+        "id": "a2392c23-5a97-4702-871e-429783937d52",
+        "slug": "enugu-vapp-law-stop-guidelines-workshop",
+        "title": "Enugu VAPP Law & SToP Guidelines Workshop",
+        "summary": "Photographs from the Enugu policy workshop held from 29 June to 1 July 2026, where Jedidiah Cares Global Outreach for Women, Youth and Children joined stakeholders working to strengthen protection for women, girls and vulnerable people.",
+        "isActive": true,
+        "sourcePublishedAt": "2026-07-10T06:19:33.000000Z",
+        "sourceUrl": "https://jedidiahcares.org/gallery",
+        "isPublished": true,
+        "publicationState": "approved",
+        "media": [
+          {
+            "id": "legacy-gallery-file-62",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/vrd97rNxWVRAGrU5-1783664288.jpeg",
+            "alt": "Workshop participants seated and standing for a group photograph in the meeting room.",
+            "caption": "Working together at the Enugu VAPP Law & SToP Guidelines Workshop, 29 June–1 July 2026.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/enugu-vapp-law-stop-guidelines-workshop/legacy-gallery-file-62.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-63",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/VvgZ35ZZq5GzP3Sl-1783664289.jpeg",
+            "alt": "Participants discuss workshop materials around a table while a facilitator addresses the group.",
+            "caption": "Working together at the Enugu VAPP Law & SToP Guidelines Workshop, 29 June–1 July 2026.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/enugu-vapp-law-stop-guidelines-workshop/legacy-gallery-file-63.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-64",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/RtJrpUGf2B4umQo0-1783664289.jpeg",
+            "alt": "Workshop delegates gathered behind tables displaying discussion materials.",
+            "caption": "Working together at the Enugu VAPP Law & SToP Guidelines Workshop, 29 June–1 July 2026.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/enugu-vapp-law-stop-guidelines-workshop/legacy-gallery-file-64.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-65",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/DUmfQQodFTGm6OLU-1783664289.jpeg",
+            "alt": "A participant stands beside flipchart sheets beneath the workshop banner.",
+            "caption": "Working together at the Enugu VAPP Law & SToP Guidelines Workshop, 29 June–1 July 2026.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/enugu-vapp-law-stop-guidelines-workshop/legacy-gallery-file-65.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-66",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/dk1as32lZpI5LNWa-1783664289.jpeg",
+            "alt": "Participants present their group discussion beside flipchart notes on the meeting-room wall.",
+            "caption": "Working together at the Enugu VAPP Law & SToP Guidelines Workshop, 29 June–1 July 2026.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/enugu-vapp-law-stop-guidelines-workshop/legacy-gallery-file-66.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-67",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/wDLt3A5Gx5sq6g03-1783664289.jpeg",
+            "alt": "Workshop participants exchange ideas during a group presentation.",
+            "caption": "Working together at the Enugu VAPP Law & SToP Guidelines Workshop, 29 June–1 July 2026.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/enugu-vapp-law-stop-guidelines-workshop/legacy-gallery-file-67.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-68",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/DiM9qqPFycvDotKA-1783664289.jpeg",
+            "alt": "Facilitators and participants review the notes displayed around the workshop room.",
+            "caption": "Working together at the Enugu VAPP Law & SToP Guidelines Workshop, 29 June–1 July 2026.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/enugu-vapp-law-stop-guidelines-workshop/legacy-gallery-file-68.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-69",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/n4vMwIhenJvD9pVf-1783664289.jpeg",
+            "alt": "A participant refers to flipchart notes during a workshop discussion.",
+            "caption": "Working together at the Enugu VAPP Law & SToP Guidelines Workshop, 29 June–1 July 2026.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/enugu-vapp-law-stop-guidelines-workshop/legacy-gallery-file-69.jpg"
+          }
+        ]
+      },
+      {
+        "id": "a2391590-565a-4aa8-a94d-f16e658aa23a",
+        "slug": "menstrual-health-project",
+        "title": "Menstrual Health Project",
+        "summary": "Moments from Jedidiah Cares Global Outreach for Women, Youth and Children’s Menstrual Health Project, supporting conversations about menstrual wellbeing and access to practical information.",
+        "isActive": true,
+        "sourcePublishedAt": "2026-07-10T05:16:26.000000Z",
+        "sourceUrl": "https://jedidiahcares.org/gallery",
+        "isPublished": true,
+        "publicationState": "approved",
+        "media": [
+          {
+            "id": "legacy-gallery-file-37",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/qrIDAYQYxTrZlQS3-1783660965.jpg",
+            "alt": "A pupil holds a card reading care, confidence and change outdoors.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-37.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-38",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/LOaGKESVCPPUkktD-1783660973.jpg",
+            "alt": "Facilitators speak together outside the school during the project visit.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-38.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-39",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/13J6rEyaMKlrJAYt-1783660973.jpg",
+            "alt": "A pupil holds a sanitary product pack while standing in the school grounds.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-39.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-40",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/LzehL6rFFZ2K56wu-1783660987.jpg",
+            "alt": "Pupils raise sanitary product packs and hold menstrual health message cards.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-40.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-41",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/YAlhya7hMHn05vY0-1783660989.jpg",
+            "alt": "A facilitator holds a menstrual health message card above her head in the school grounds.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-41.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-42",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/K3BQoGexnZF4aAXW-1783660991.jpg",
+            "alt": "Facilitators stand beside a campaign banner during the school outreach.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-42.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-43",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/etgUn10BvwbAoFQk-1783660994.jpg",
+            "alt": "A facilitator raises a menstrual health message card outdoors.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-43.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-44",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/7ajGEAWRAHgx6KhR-1783661000.jpg",
+            "alt": "Two facilitators talk beside a classroom doorway during the school visit.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-44.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-45",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/CAM79qaeeBeyELAN-1783661005.jpg",
+            "alt": "Pupils hold cards calling for a period-friendly world and an end to menstrual stigma.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-45.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-46",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/Sl8WhfHfAEECazcL-1783661005.jpg",
+            "alt": "Pupils look together at learning materials during the school outreach.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-46.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-47",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/xAhS39Tg3lkn5INh-1783661009.jpg",
+            "alt": "Black-and-white photograph of pupils seated during a classroom session.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-47.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-48",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/VFqVrTSlsSQLFQxU-1783661011.jpg",
+            "alt": "A pupil sits with hands together while listening during the classroom session.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-48.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-49",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/1CFNJDaVKmNj4TD8-1783661017.jpg",
+            "alt": "A group of pupils stand outdoors holding sanitary products and project materials.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-49.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-50",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/7TjzmIaosllWrEEu-1783661029.jpg",
+            "alt": "Pupils take part in a discussion inside their classroom.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-50.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-51",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/fAloA19ZET1Vgd4e-1783661038.jpg",
+            "alt": "Black-and-white photograph of a facilitator raising her hand while addressing pupils.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-51.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-52",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/Vxu6xQCsxy8dhcuD-1783661047.jpg",
+            "alt": "Black-and-white photograph of a pupil listening from a classroom seat.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-52.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-53",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/C9YZF5WRVDcJEOws-1783661067.jpg",
+            "alt": "Pupils in school sportswear sit together during the menstrual health session.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-53.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-54",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/W35X3SHpk4xbGfPP-1783661068.jpg",
+            "alt": "A facilitator wearing glasses listens inside the classroom.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-54.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-55",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/hf41mdZJjis5lD8C-1783661069.jpg",
+            "alt": "A facilitator speaks to pupils inside a classroom.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-55.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-56",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/bStgndTCmRM9obyz-1783661070.jpg",
+            "alt": "Pupils follow a discussion from their classroom seats.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-56.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-57",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/Q4e0u2QYihQSGELm-1783661080.jpg",
+            "alt": "Pupils seated together look towards the classroom facilitator.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-57.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-58",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/0K3gq50eRpL2X9Wr-1783661089.jpg",
+            "alt": "Pupils listen attentively at their desks during the school outreach.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-58.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-59",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/Hyn67g8Zk8OFIJ7W-1783661093.jpg",
+            "alt": "Facilitators gather beside the period-friendly world campaign banner.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-59.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-60",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/x9uXaVUqRNL0Czy9-1783661093.jpg",
+            "alt": "A facilitator speaks and gestures beside the classroom chalkboard.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-60.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-61",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/fIan6Lgc0yizYFEL-1783661093.jpg",
+            "alt": "A pupil in a green sports shirt listens during the classroom session.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-61.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-27",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/lC2oT8vRrrIdU7kM-1783660739.jpg",
+            "alt": "Two facilitators hold message cards supporting menstrual dignity outdoors.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-27.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-28",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/EfSEmQgDyHhoygeI-1783660752.jpg",
+            "alt": "Pupils examine learning materials together during the menstrual health project.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-28.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-29",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/5Nso30W1wMr4LPtR-1783660767.jpg",
+            "alt": "A pupil listens with hands clasped during a classroom discussion.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-29.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-30",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/pWPAjBBj08TUfuA5-1783660769.jpg",
+            "alt": "Facilitators gather behind the period-friendly world campaign banner outdoors.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-30.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-31",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/HHXnTc8peWAPbN2K-1783660780.jpg",
+            "alt": "A facilitator gestures as she addresses pupils beside a classroom chalkboard.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-31.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-32",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/qdaqckdiA8PCOUVO-1783660782.jpg",
+            "alt": "Pupils listen to the menstrual health session from their classroom seats.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-32.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-33",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/VcsRjFG9NtFjYdtX-1783660787.jpg",
+            "alt": "A pupil leans on a desk while listening to the classroom session.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-33.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-34",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/hVyk03QLYQIrkb1b-1783660791.jpg",
+            "alt": "A facilitator stands among pupils during a classroom discussion.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-34.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-35",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/9u2qAsoyfqp2HlIC-1783660792.jpg",
+            "alt": "Pupils seated at their desks listen closely to the menstrual health session.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-35.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-36",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/o9FiJveZsHyGKN8I-1783660793.jpg",
+            "alt": "A pupil in a red sports shirt listens from the classroom.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-36.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-23",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/fVq9H9Jzawe1N37B-1783660654.jpg",
+            "alt": "Pupils hold sanitary product packs and menstrual health message cards outdoors.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-23.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-24",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/3JHn7GRS7yDTBhyU-1783660654.jpg",
+            "alt": "A facilitator holds a menstrual health message above her head during the school visit.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-24.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-25",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/S0wSxq0Lls4spvfC-1783660656.jpg",
+            "alt": "Pupils stand together outdoors holding learning materials and sanitary products.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-25.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-26",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/8lNWxOXZV3M9qqgV-1783660660.jpg",
+            "alt": "Facilitators discuss menstrual wellbeing together inside a classroom.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-26.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-21",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/J3nUg0spjU4iLPwm-1783660564.jpg",
+            "alt": "School pupils and facilitators gather outdoors with menstrual health campaign materials.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-21.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-22",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/HBpoTZXqGZXabDIf-1783660564.jpg",
+            "alt": "A large group of pupils and facilitators stand behind the period-friendly world banner.",
+            "caption": "Learning, conversation and menstrual dignity through our Menstrual Health Project.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/menstrual-health-project/legacy-gallery-file-22.jpg"
+          }
+        ]
+      },
+      {
+        "id": "a2390df3-f980-40c8-8d13-d98555dd4cab",
+        "slug": "women-empowerment",
+        "title": "Women Empowerment",
+        "summary": "Photographs from Jedidiah Cares Global Outreach for Women, Youth and Children’s outreach to women in Enugu North, reflecting our commitment to practical support and community empowerment.",
+        "isActive": true,
+        "sourcePublishedAt": "2026-07-10T04:55:09.000000Z",
+        "sourceUrl": "https://jedidiahcares.org/gallery",
+        "isPublished": true,
+        "publicationState": "approved",
+        "media": [
+          {
+            "id": "legacy-gallery-file-1",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/YMHCsfBAuV6D9stH-1783659263.jpeg",
+            "alt": "A member of the outreach team pictured outdoors during the women’s empowerment visit.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-1.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-2",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/jA1oQ1wBB6TU9Gjo-1783659265.jpeg",
+            "alt": "Women gather in conversation outside a building during the outreach visit.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-2.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-3",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/2u1mdgLn5oo4LSbd-1783659266.jpeg",
+            "alt": "An outreach team member speaks with women outside the meeting venue.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-3.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-4",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/llmoYVm5pL3UYb7L-1783659267.jpeg",
+            "alt": "A member of the outreach team stands in the courtyard during the community visit.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-4.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-5",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/WSJKtrfzyluFePY5-1783659268.jpeg",
+            "alt": "Women and outreach team members gather for a group photograph with support supplies in Enugu North.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-5.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-6",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/yvSW5x5XAYPcpMKF-1783659268.jpeg",
+            "alt": "Women and outreach team members gather for a group photograph with support supplies in Enugu North.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-6.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-7",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/KlSzcFovkIQnOmc1-1783659268.jpeg",
+            "alt": "Women and outreach team members gather for a group photograph with support supplies in Enugu North.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-7.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-8",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/AT8GkZAP5i8gO8PH-1783659268.jpeg",
+            "alt": "Women and outreach team members gather for a group photograph with support supplies in Enugu North.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-8.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-9",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/NlvrtmYmu0L0ZjIB-1783659268.jpeg",
+            "alt": "Women and outreach team members gather for a group photograph with support supplies in Enugu North.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-9.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-10",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/wTWeTNJi2fqm2sXF-1783659268.jpeg",
+            "alt": "Women and outreach team members gather for a group photograph with support supplies in Enugu North.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-10.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-11",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/IwSR2yTmEqtalbNy-1783659268.jpeg",
+            "alt": "Women and outreach team members gather for a group photograph with support supplies in Enugu North.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-11.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-12",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/oxoDgkLYVBZxBOwD-1783659283.jpeg",
+            "alt": "A member of the outreach team addresses women outside the meeting venue.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-12.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-13",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/JLILXSO0Oaz3ZbMG-1783659286.jpeg",
+            "alt": "An outreach team member in a blue shirt listens to women during the community visit.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-13.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-14",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/OPtzFsLAeS2PTaCK-1783659294.jpeg",
+            "alt": "Members of the outreach team stand beside supplies at the community meeting venue.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-14.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-15",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/0iqQtpq3X5n2pZqg-1783659295.jpeg",
+            "alt": "Women and outreach team members gather for a group photograph with support supplies in Enugu North.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-15.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-16",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/jlIFHNcE2gIYfguq-1783659298.jpeg",
+            "alt": "An outreach team member speaks with women gathered near the community meeting venue.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-16.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-17",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/tfy52ApF0H1bRc7Z-1783659298.jpeg",
+            "alt": "Women listen to a discussion in the courtyard during the outreach visit.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-17.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-18",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/1qZtSd87h4H52r1j-1783659298.jpeg",
+            "alt": "Women and outreach team members gather for a group photograph with support supplies in Enugu North.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-18.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-19",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/TkwCnJh6AhbVK8ou-1783659299.jpeg",
+            "alt": "Women and outreach team members gather for a group photograph with support supplies in Enugu North.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-19.jpg"
+          },
+          {
+            "id": "legacy-gallery-file-20",
+            "type": "image",
+            "src": "https://jedidiahcares.org/storage/6ONOPVyW0QvgOsZF-1783659299.jpeg",
+            "alt": "Women and outreach team members gather for a group photograph with support supplies in Enugu North.",
+            "caption": "Women’s empowerment outreach in Enugu North.",
+            "credit": "Jedidiah Cares Global Outreach for Women, Youth and Children",
+            "visible": true,
+            "consentApproved": true,
+            "seedFile": "galleries/women-empowerment/legacy-gallery-file-20.jpg"
+          }
+        ]
+      }
+    ]
+  }
+}

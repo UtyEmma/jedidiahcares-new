@@ -1,0 +1,11 @@
+node_modules
+dist
+public/images
+PRD.md
+Jedidiah_Cares_Frontend_Only_Codex_PRD.md
+package-lock.json
+composer.lock
+vendor
+public/build
+bootstrap/ssr
+storage

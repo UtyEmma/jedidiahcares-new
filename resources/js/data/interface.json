@@ -1,0 +1,118 @@
+{
+  "home": {
+    "scroll": "Discover what drives us",
+    "programmeNoteEyebrow": "Potential in every life",
+    "programmeNoteTitle": "Care that meets people where they are.",
+    "programmeNoteText": "Education. Wellbeing. Confidence. Community.",
+    "faithLine": "Rooted in faith.",
+    "careLine": "Moved by compassion.",
+    "evidenceNoteTitle": ["People first.", "Purpose always."],
+    "evidenceNoteText": "Respectful storytelling. Clear project status. Evidence before numbers."
+  },
+  "about": {
+    "introTitle": ["Potential is everywhere.", "Opportunity should be, too."],
+    "missionTitle": "Compassion, made practical.",
+    "valuesTitle": "Care is a way of working.",
+    "valuesText": "Compassion, dignity, empowerment, integrity and community guide how we care for people and build opportunities together.",
+    "approachTitle": "Alongside communities, every step."
+  },
+  "programme": {
+    "purpose": "The purpose",
+    "helpTitle": "Ways we aim to help",
+    "arrangements": "Activities depend on community needs, available resources and appropriate safeguarding arrangements.",
+    "relatedTitle": "Putting purpose into practice.",
+    "exploreTitle": "One purpose. Many possibilities.",
+    "hostTitle": "Bring opportunity to your community."
+  },
+  "getInvolved": {
+    "hostTitle": ["Host a programme.", "Open a conversation."]
+  },
+  "support": {
+    "intro": "Thoughtful support can open doors to learning, wellbeing and opportunity. Explore the purpose of Jedidiah Cares Global Outreach for Women, Youth and Children and find a way to contribute.",
+    "purposeTitle": "A purpose worth standing behind.",
+    "causes": [
+      {
+        "icon": "book",
+        "title": "Opportunities to learn",
+        "text": "Education resources and thoughtful support for access to learning."
+      },
+      {
+        "icon": "flower",
+        "title": "Knowledge and wellbeing",
+        "text": "Age-appropriate health, confidence and personal safety education."
+      },
+      {
+        "icon": "hands",
+        "title": "Stronger communities",
+        "text": "Practical support and community-led opportunities."
+      }
+    ],
+    "allocationNote": "Speak with our team about programme-specific support and the arrangements for your contribution.",
+    "otherTitle": "There’s more than one way to help.",
+    "otherText": "Time, skills, resources and partnerships can all contribute to meaningful opportunity."
+  },
+  "volunteer": {
+    "rolesTitle": "There’s possibility in what you bring.",
+    "nextTitle": ["Start with an interest.", "Grow into a purpose."],
+    "safeguarding": "Opportunities depend on programme needs. Appropriate orientation and safeguarding checks are required before any direct work with participants.",
+    "externalTitle": "Express your interest",
+    "externalText": "Share your interest in volunteering with Jedidiah Cares Global Outreach for Women, Youth and Children through our enquiry form."
+  },
+  "partner": {
+    "introTitle": ["Your expertise.", "Our shared possibility."],
+    "approachTitle": "Good partnerships begin with listening.",
+    "externalTitle": "Explore a partnership",
+    "externalText": "Tell us how you would like to collaborate with Jedidiah Cares Global Outreach for Women, Youth and Children through our partnership enquiry form.",
+    "collaboratorsTitle": "Our partners in possibility."
+  },
+  "contact": {
+    "title": ["A question. An idea.", "A possibility."],
+    "guidance": "Choose a topic to help direct your enquiry. Programme participation and support depend on available resources and agreed arrangements.",
+    "pendingTitle": "Connecting with care."
+  },
+  "impact": {
+    "evidenceTitle": "Every outcome deserves evidence.",
+    "progressTitle": "Progress, shared with care.",
+    "progressText": "Education, wellbeing and community opportunity are the priorities behind our work. We use reflection and learning to strengthen how we support the people and communities we serve.",
+    "reportsTitle": "Reports & learning.",
+    "projectsTitle": "Completed projects."
+  },
+  "actions": {
+    "givingTitle": "Support with confidence.",
+    "handoff": "This website does not collect payment details.",
+    "emailTitle": "Start a conversation.",
+    "emailText": "Choose your topic and tell us a little more."
+  },
+  "policy": {
+    "pages": {
+      "privacy": {
+        "intro": "How Jedidiah Cares Global Outreach for Women, Youth and Children treats your information with care when you visit our website, contact our team or explore ways to get involved.",
+        "title": "Who this notice is for",
+        "text": "Jedidiah Cares Global Outreach for Women, Youth and Children works with children, young people, women and communities to create opportunities through education, wellbeing and empowerment. This notice explains personal information connected with our website and enquiries to our team.",
+        "detail": "For questions, contact info@jedidiahcares.org."
+      },
+      "safeguarding": {
+        "intro": "Our expectations for safe, respectful participation and clear ways to raise a concern about Jedidiah Cares Global Outreach for Women, Youth and Children activities.",
+        "title": "Care begins with safety",
+        "text": "Every child, young person and adult taking part in a Jedidiah Cares Global Outreach for Women, Youth and Children activity deserves dignity, respect and protection from harm. Compassion must be reflected in how people are treated, how activities are planned and how concerns are heard.",
+        "detail": "For questions, contact info@jedidiahcares.org."
+      },
+      "donation-terms": {
+        "intro": "Practical terms for using the Jedidiah Cares Global Outreach for Women, Youth and Children website, sharing our content and exploring ways to support our work.",
+        "title": "About these terms",
+        "text": "These terms cover use of the Jedidiah Cares Global Outreach for Women, Youth and Children website and general enquiries about giving, volunteering and partnerships. Please read them alongside our privacy, safeguarding and accessibility pages.",
+        "detail": "For questions, contact info@jedidiahcares.org."
+      },
+      "accessibility": {
+        "intro": "The features that help people explore Jedidiah Cares Global Outreach for Women, Youth and Children, the limits we are working with and how to ask for assistance.",
+        "title": "An inclusive place to connect",
+        "text": "Jedidiah Cares Global Outreach for Women, Youth and Children wants people with different abilities, devices and ways of navigating to be able to understand our work and take part in the conversation. Accessibility supports our wider commitment to dignity and opportunity.",
+        "detail": "For questions, contact info@jedidiahcares.org."
+      }
+    }
+  },
+  "faq": {
+    "title": "Questions, answered.",
+    "text": "Practical information for your next step."
+  }
+}

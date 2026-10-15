@@ -1,0 +1,88 @@
+/* Small, purposeful movement: no looping decoration or hidden reading content. */
+@media (prefers-reduced-motion: no-preference) {
+  .nav-dropdown,
+  .mobile-nav-children,
+  .select-content[data-state='open'],
+  .scroll-to-top {
+    animation: jc-menu-enter 160ms ease-out;
+  }
+
+  .mobile-dialog[open] {
+    animation: jc-drawer-enter 200ms ease-out;
+  }
+
+  .select-content {
+    transform-origin: var(--radix-select-content-transform-origin);
+  }
+
+  [data-slot='accordion-content'][data-state='open'] {
+    animation: jc-accordion-open 200ms ease-out;
+  }
+
+  [data-slot='accordion-content'][data-state='closed'] {
+    animation: jc-accordion-close 160ms ease-in;
+  }
+
+  .entry-card,
+  .partner-card {
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .button:active {
+    transform: translateY(0);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .entry-card:hover,
+    .partner-card:hover {
+      border-color: #07226645;
+      box-shadow: 0 8px 24px #0722660a;
+    }
+  }
+}
+
+@keyframes jc-menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes jc-drawer-enter {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes jc-accordion-open {
+  from {
+    height: 0;
+    opacity: 0.5;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes jc-accordion-close {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0.5;
+  }
+}

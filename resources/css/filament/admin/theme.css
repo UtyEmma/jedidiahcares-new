@@ -1,0 +1,17 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+@import '../../../../vendor/saade/fluppy/resources/css/fluppy.css';
+@source '../../../../app/Filament/**/*.php';
+@source '../../../views/filament/**/*.blade.php';
+@source '../../../../vendor/saade/fluppy/resources/views/**/*.blade.php';
+:root { --cms-navy: #072266; --cms-lemon: #f0eb6f; }
+.fi-sidebar-header { border-bottom: 1px solid color-mix(in srgb, var(--cms-navy) 10%, transparent); }
+.fi-sidebar-item-active { border-radius: .7rem; }
+.fi-section, .fi-ta { border-radius: 1rem; }
+.fi-fo-field-label, .fi-btn, .fi-sidebar-item-label, .fi-ta-text { font-size: max(14px, .875rem); }
+.cms-quick-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.cms-recent-heading { font-size: 18px; font-weight: 700; margin-top: 2rem; margin-bottom: .75rem; }
+.cms-recent-row { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-top: 1px solid #94a3b833; transition: color 150ms; }
+.cms-recent-row:hover { color: var(--cms-navy); }
+.cms-recent-row span span { display: block; font-size: 14px; margin-top: .25rem; opacity: .8; }
+@media(max-width: 640px) { .cms-recent-row { flex-direction: column; } }
+@media(prefers-reduced-motion: reduce) { .cms-recent-row { transition: none; } }

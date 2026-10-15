@@ -1,0 +1,33 @@
+/* Jedidiah Cares Global Outreach for Women, Youth and Children — brand tokens (2026-10-14)
+ * Primary tones approximated from fully opaque pixels in the supplied raster logo.webp.
+ * Text/navy: #072266, circle/lemon: #F0EB6F.
+ * Teal and neutrals are supporting design interpretations, not verified logo brand standards.
+ */
+:root {
+  --jc-navy: #072266;
+  --jc-lemon: #f0eb6f;
+  --jc-teal: #4f8788;
+  --jc-link-hover: var(--jc-navy);
+  --jc-link-hover-on-dark: var(--jc-lemon);
+  --jc-ink: #24344a;
+  --jc-white: #ffffff;
+  --jc-porcelain: #fbfcf8;
+  --jc-lemon-wash: #faf9dd;
+  --jc-navy-wash: #edf2fb;
+  --jc-border: #dee5ec;
+  --jc-muted: #59687c;
+  --jc-success: #247a5b;
+  --jc-danger: #b42336;
+  --jc-bg: var(--jc-white);
+  --jc-surface: var(--jc-porcelain);
+  --jc-foreground: var(--jc-navy);
+  --jc-body: var(--jc-ink);
+  --jc-accent: var(--jc-lemon);
+  --jc-focus: var(--jc-navy);
+  --jc-radius-sm: 0.5rem;
+  --jc-radius-md: 1rem;
+  --jc-radius-lg: 1.5rem;
+  --jc-radius-xl: 2rem;
+  --jc-content-max: 1280px;
+}
+/* Never use lemon text on white: low contrast. Navy on lemon = 11.76:1. */

@@ -1,0 +1,115 @@
+.share-panel {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--jc-border);
+  min-width: 0;
+}
+
+.share-panel .share-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  color: var(--jc-navy);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.share-panel .share-actions,
+.person-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.share-panel .share-actions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.share-panel .share-actions > li {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.share-action,
+.person-social-links > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--jc-border);
+  border-radius: 6px;
+  background: var(--jc-white);
+  color: var(--jc-navy);
+  font: inherit;
+  font-size: var(--jc-text-interface);
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.share-action > svg,
+.person-social-links > a > svg {
+  flex-shrink: 0;
+}
+
+.share-action:is(:hover, :focus-visible),
+.person-social-links > a:is(:hover, :focus-visible) {
+  border-color: var(--jc-teal);
+  background: var(--jc-lemon-wash);
+  color: var(--jc-link-hover);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.share-panel .share-feedback {
+  margin: 12px 0 0;
+  color: var(--jc-navy);
+  font-size: var(--jc-text-interface);
+  line-height: 1.6;
+}
+
+.share-feedback:empty {
+  margin: 0;
+}
+
+.share-manual-copy {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.share-manual-copy > label {
+  font-size: var(--jc-text-interface);
+  font-weight: 600;
+}
+
+.share-manual-copy > input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--jc-border);
+  border-radius: 6px;
+  color: var(--jc-navy);
+  background: var(--jc-white);
+  font-size: 1rem;
+}
+
+.person-social-links-compact > a {
+  width: 44px;
+  padding: 10px;
+}
+
+.article-back {
+  margin-top: 24px;
+}
