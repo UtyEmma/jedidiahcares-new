@@ -15,7 +15,7 @@ import {
 } from '../../components/UI';
 
 export default function VolunteersPage() {
-  const { site, pages, ui } = useContent();
+  const { site, pages, ui, routes } = useContent();
   const external = safeExternalUrl(site.volunteering.externalInterestFormUrl);
   return (
     <>
@@ -66,7 +66,7 @@ export default function VolunteersPage() {
               <ShieldCheck size={26} aria-hidden="true" />
               <p>{ui.volunteer.safeguarding}</p>
             </div>
-            <TextLink to="/safeguarding">Safeguarding information</TextLink>
+            <TextLink to={routes.safeguarding}>Safeguarding information</TextLink>
           </div>
           <div>
             {external ? (

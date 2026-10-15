@@ -8,7 +8,7 @@ import { ShareButtons } from '../../components/ShareButtons';
 import { GalleryMediaGrid } from '../../components/gallery/GalleryMediaGrid';
 
 export default function GalleryPage() {
-  const { pages, galleries, selectedGallery } = useContent();
+  const { pages, galleries, selectedGallery, routes } = useContent();
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -16,7 +16,7 @@ export default function GalleryPage() {
     if (slug === selectedGallery?.slug || loading) return;
     setMessage('');
     router.get(
-      '/gallery',
+      routes.gallery,
       { gallery: slug },
       {
         only: ['content'],

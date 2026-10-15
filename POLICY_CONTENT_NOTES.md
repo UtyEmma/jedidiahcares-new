@@ -2,7 +2,7 @@
 
 Prepared on 14 October 2026 for the Jedidiah Cares website. The project owner specified `info@jedidiahcares.org` as the contact for all four pages.
 
-The copy is stored in `resources/js/data/policies.json` and displayed on `/privacy`, `/safeguarding`, `/donation-terms` and `/accessibility`. The terms page covers both website use and giving; its existing URL is retained. Publication flags enable the copy in the application. The updated date records this content revision; organisational or legal review dates have not been recorded. Global search indexing settings remain unchanged.
+The copy is stored in `resources/data/policies.php` and displayed on `/privacy`, `/safeguarding`, `/donation-terms` and `/accessibility`. The terms page covers both website use and giving; its existing URL is retained. Publication flags enable the copy in the application. The updated date records this content revision; organisational or legal review dates have not been recorded. Global search indexing settings remain unchanged.
 
 ## Basis of the wording
 

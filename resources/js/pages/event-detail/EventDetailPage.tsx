@@ -13,7 +13,7 @@ import { CTA, Eyebrow, Media, PageHero, TextLink } from '../../components/UI';
 import NotFoundPage from '../not-found/NotFoundPage';
 
 export default function EventDetailPage() {
-  const { findEvent, programmes, site } = useContent();
+  const { findEvent, programmes, site, routes } = useContent();
   const { slug = '' } = usePage<WebsitePageProps>().props;
   const now = useEventTime();
   const event = findEvent(slug);
@@ -77,7 +77,7 @@ export default function EventDetailPage() {
               <div className="event-related-programmes">
                 <h3>Programmes</h3>
                 {related.map((programme) => (
-                  <TextLink key={programme.id} to={`/programmes/${programme.slug}`}>
+                  <TextLink key={programme.id} to={programme.detailUrl}>
                     {programme.title}
                   </TextLink>
                 ))}
@@ -103,7 +103,7 @@ export default function EventDetailPage() {
                   : `Contact ${site.brand.publicName} to find out how you can participate.`}
               </p>
             )}
-            <TextLink to="/events">Explore all activities</TextLink>
+            <TextLink to={routes.events}>Explore all activities</TextLink>
             <ShareButtons
               title={event.title}
               description={event.summary}

@@ -25,7 +25,7 @@ class CmsSeedCatalog
                 'galleries' => CmsSchema::seed('gallery'),
                 default => CmsSchema::seed($collection),
             };
-            // Local editorial JSON wins when a record exists in both sources.
+            // Local PHP data wins when a record exists in both sources.
             foreach ([...($snapshot['collections'][$collection] ?? []), ...$bundled] as $record) {
                 $record['slug'] ??= Str::slug($record['id']);
                 $key = $record['id'];

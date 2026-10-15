@@ -9,7 +9,7 @@ import { ShareButtons } from '../../components/ShareButtons';
 import NotFoundPage from '../not-found/NotFoundPage';
 
 export default function StoryDetailPage() {
-  const { findStory } = useContent();
+  const { findStory, routes } = useContent();
   const { slug = '' } = usePage<WebsitePageProps>().props;
   const story = findStory(slug);
   if (!story) return <NotFoundPage />;
@@ -46,7 +46,7 @@ export default function StoryDetailPage() {
           </div>
           <ShareButtons title={story.title} description={story.summary} label="Share this story" />
           <div className="article-back">
-            <TextLink to="/stories">Back to stories</TextLink>
+            <TextLink to={routes.stories}>Back to stories</TextLink>
           </div>
         </div>
       </article>

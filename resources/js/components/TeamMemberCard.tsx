@@ -8,7 +8,7 @@ export function TeamMemberCard({ person }: { person: Person }) {
   return (
     <article className="entry-card team-member-card" data-entrance>
       <Link
-        href={`/team/${person.slug}`}
+        href={person.detailUrl}
         className="team-member-card-link"
         aria-label={`${person.title}, ${person.role} — view profile`}
       >

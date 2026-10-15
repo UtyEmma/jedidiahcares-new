@@ -5,7 +5,7 @@ import { Photo } from '../../components/Photo';
 import { FounderNote } from '../../components/FounderNote';
 import { ButtonLink, CTA, Eyebrow, PageHero, SectionHeading, TextLink } from '../../components/UI';
 export default function AboutPage() {
-  const { pages, ui, site } = useContent();
+  const { pages, ui, site, routes } = useContent();
   const copy = pages.about;
   return (
     <>
@@ -31,7 +31,7 @@ export default function AboutPage() {
           <div>
             <p className="lead">{copy.fields['Who We Serve']}</p>
             <p>{site.home.introText}</p>
-            <TextLink to="/programmes">Explore our four programme areas</TextLink>
+            <TextLink to={routes.programmes}>Explore our four programme areas</TextLink>
           </div>
         </div>
       </section>
@@ -82,8 +82,8 @@ export default function AboutPage() {
                 </li>
               ))}
             </ol>
-            <ButtonLink to="/partner">Explore a partnership</ButtonLink>
-            <TextLink to="/team">The people behind the mission</TextLink>
+            <ButtonLink to={routes.partner}>Explore a partnership</ButtonLink>
+            <TextLink to={routes.team}>The people behind the mission</TextLink>
           </div>
         </div>
       </section>

@@ -9,8 +9,8 @@ class LegacyRedirectController extends Controller
 {
     public function __invoke(Request $request): RedirectResponse
     {
-        $destination = str_replace(':slug', rawurlencode((string) $request->route('slug', '')), $request->route('redirectTo'));
+        $parameters = $request->route('slug') !== null ? ['slug' => $request->route('slug')] : [];
 
-        return redirect($destination, 301);
+        return redirect()->route($request->route('redirectRoute'), $parameters, 301);
     }
 }

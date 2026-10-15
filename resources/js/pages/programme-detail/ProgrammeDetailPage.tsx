@@ -19,7 +19,7 @@ import {
 import NotFoundPage from '../not-found/NotFoundPage';
 
 export default function ProgrammeDetailPage() {
-  const { findProgramme, projects, ui, programmes } = useContent();
+  const { findProgramme, projects, ui, programmes, routes } = useContent();
   const { slug = '' } = usePage<WebsitePageProps>().props;
   const programme = findProgramme(slug);
   if (!programme) return <NotFoundPage />;
@@ -41,7 +41,7 @@ export default function ProgrammeDetailPage() {
         }
       >
         <div className="hero-actions">
-          <ButtonLink to="/contact">Enquire about this programme</ButtonLink>
+          <ButtonLink to={routes.contact}>Enquire about this programme</ButtonLink>
         </div>
       </PageHero>
       <section className="section">
@@ -69,8 +69,8 @@ export default function ProgrammeDetailPage() {
               ))}
             </ul>
             <p>{ui.programme.arrangements}</p>
-            <TextLink to="/partner">Partner on this programme</TextLink>
-            <TextLink to="/volunteers">Share your skills</TextLink>
+            <TextLink to={routes.partner}>Partner on this programme</TextLink>
+            <TextLink to={routes.volunteers}>Share your skills</TextLink>
             <ShareButtons
               title={programme.title}
               description={programme.summary}
@@ -103,7 +103,7 @@ export default function ProgrammeDetailPage() {
             {programmes
               .filter((item) => item.id !== programme.id)
               .map((item) => (
-                <TextLink key={item.id} to={`/programmes/${item.slug}`}>
+                <TextLink key={item.id} to={item.detailUrl}>
                   {item.title}
                 </TextLink>
               ))}

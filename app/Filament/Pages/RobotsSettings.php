@@ -22,7 +22,7 @@ class RobotsSettings extends SettingsPage
     {
         return $schema->statePath('data')->model($this->settingsRecord())->components([
             Section::make('Crawler instructions')->description('The default allows public pages and media to be crawled, excludes admin and upload utilities, and advertises the sitemap. Search indexing is enabled by default; the site-wide SEO indexing control takes priority if deliberately disabled.')->schema([
-                Textarea::make('robots_txt')->label('robots.txt content')->required()->rows(18)->maxLength(100000)->extraInputAttributes(['spellcheck' => 'false', 'class' => 'font-mono'])->helperText('Use {site_url} for the canonical website address from SEO settings. Changes appear immediately at /robots.txt.'),
+                Textarea::make('robots_txt')->label('robots.txt content')->required()->rows(18)->maxLength(100000)->extraInputAttributes(['spellcheck' => 'false', 'class' => 'font-mono'])->helperText('Use {site_url} for the canonical website address from Pages → Site-wide SEO. Changes appear immediately at /robots.txt.'),
             ]),
         ])->columns(1);
     }

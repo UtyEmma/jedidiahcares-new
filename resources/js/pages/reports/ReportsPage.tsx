@@ -8,7 +8,7 @@ import { ShareButtons } from '../../components/ShareButtons';
 import { CTA, EmptyState, Eyebrow, PageHero, SectionHeading, TextLink } from '../../components/UI';
 
 export default function ReportsPage() {
-  const { pages, ui, metrics, reports, projects } = useContent();
+  const { pages, ui, metrics, reports, projects, routes } = useContent();
   return (
     <>
       <Seo />
@@ -45,7 +45,7 @@ export default function ReportsPage() {
             <div className="impact-editorial">
               <h2>{ui.impact.progressTitle}</h2>
               <p>{ui.impact.progressText}</p>
-              <TextLink to="/programmes">Understand our programme purpose</TextLink>
+              <TextLink to={routes.programmes}>Understand our programme purpose</TextLink>
             </div>
           )}
         </div>

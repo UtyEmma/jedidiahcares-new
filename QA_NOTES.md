@@ -1,5 +1,19 @@
 # Implementation verification
 
+## Runtime PHP data and named URLs — 15 October 2026
+
+All 16 former `resources/js/data` JSON files now return PHP arrays under `resources/data`; no frontend JSON type imports remain. The site SEO base defaults to Laravel `APP_URL`, with explicit CMS canonical settings retaining priority. Default brand/photograph URLs use Laravel asset resolution, and navigation, static page links, detail links, project donation links and legacy redirects use named routes. Public TypeScript contracts are explicit. Seed definitions retain their original media identities, local source paths and factual external source URLs. Vite watches the new PHP data directory.
+
+Manual comparison preserved every original content value apart from the intended runtime URL expressions and route-based redirect definitions. All 78 available seed images resolved locally, with only the two previously unavailable portraits absent. A repeated import in an isolated SQLite copy preserved all 19 records; fresh isolated migrations and a media-free import created the same 19 records. The working database/media were not reseeded. Public HTTP handling returned the expected page components, route maps, gallery/policy/detail data, robots/sitemap responses and branded 404; legacy routes returned HTTP 301 after refreshing the existing local route cache.
+
+Isolated route changes updated navigation and project/person links; an HTTPS subdirectory configuration produced correct canonicals and sitemap entries without duplicate prefixes, and per-page sitemap exclusions remained effective. An explicit CMS domain overrode `APP_URL`, while complete HTTP image URLs remained intact. Invalid data-file paths were rejected. TypeScript, ESLint, production client/SSR builds, 24 PHP syntax checks, scoped Pint and whitespace checks passed. No automated tests or test tooling were added, no browser visual review was needed for these data/URL changes, and no hosting deployment was performed.
+
+## Page SEO titles — 15 October 2026
+
+The SEO navigation item and list heading are now **Pages**. Individual edit screens identify the page, with a **Page title** field explaining its browser/search/social use and the automatic site-wide suffix. The global entry retains its separate **Title suffix** field. Existing URLs, permissions and stored overrides remain compatible.
+
+Manual review used an isolated SQLite copy and the actual Filament edit form under an editor account. Saving a Contact title produced matching browser, Open Graph, Twitter and Inertia metadata in an HTTP 200 public response; its JSON page title remained unchanged. Clearing the override restored the existing default. The navigation/list labels, contextual edit heading, 255-character limit and global suffix field were inspected. Changed PHP syntax/style and whitespace checks passed. No automated tests or test tooling were added.
+
 ## Direct saved image files — 15 October 2026
 
 Published images now use actual public files under `storage/app/public/images/{uuid}` with full-size `.webp` URLs and separate `thumbnails/*-thumb.webp` files. The web server serves them through `public/storage`; URL generation and image requests do not resize, encode or create files. Private source files and saved conversions remain available for CMS editing and unpublished previews. Existing public controlled image URLs redirect to the corresponding static file. Non-image delivery retains its existing controlled routes.

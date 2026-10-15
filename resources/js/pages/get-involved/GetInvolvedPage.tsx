@@ -5,7 +5,7 @@ import { Art } from '../../components/Art';
 import { ButtonLink, CTA, Eyebrow, Icon, PageHero } from '../../components/UI';
 
 export default function GetInvolvedPage() {
-  const { pages, site, ui } = useContent();
+  const { pages, site, ui, routes } = useContent();
   return (
     <>
       <Seo />
@@ -43,7 +43,9 @@ export default function GetInvolvedPage() {
               {ui.getInvolved.hostTitle[1]}
             </h2>
             <p>{pages.programmes.fields['Closing Invitation']}</p>
-            <ButtonLink to="/contact?topic=Host%20a%20programme">
+            <ButtonLink
+              to={`${routes.contact}?${new URLSearchParams({ topic: 'Host a programme' })}`}
+            >
               Explore hosting a programme
             </ButtonLink>
           </div>

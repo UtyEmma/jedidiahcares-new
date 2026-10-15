@@ -11,7 +11,7 @@ import { CTA, EntryCard, Media, PageHero, SectionHeading, TextLink } from '../..
 import NotFoundPage from '../not-found/NotFoundPage';
 
 export default function ProjectDetailPage() {
-  const { findProject, stories, programmes } = useContent();
+  const { findProject, stories, programmes, routes } = useContent();
   const { slug = '' } = usePage<WebsitePageProps>().props;
   const project = findProject(slug);
   if (!project) return <NotFoundPage />;
@@ -81,7 +81,7 @@ export default function ProjectDetailPage() {
                   {programmes
                     .filter((item) => project.programmeIds.includes(item.id))
                     .map((item) => (
-                      <Link key={item.id} href={`/programmes/${item.slug}`}>
+                      <Link key={item.id} href={item.detailUrl}>
                         {item.title}
                       </Link>
                     ))}
@@ -89,9 +89,9 @@ export default function ProjectDetailPage() {
               </dl>
               {safeExternalUrl(project.approvedDonationUrl ?? '') &&
               project.stage !== 'completed' ? (
-                <TextLink to={`/donations/${project.slug}`}>Support this programme</TextLink>
+                <TextLink to={project.donationUrl}>Support this programme</TextLink>
               ) : (
-                <TextLink to="/partner">Explore a partnership</TextLink>
+                <TextLink to={routes.partner}>Explore a partnership</TextLink>
               )}
             </aside>
           </div>
@@ -108,12 +108,7 @@ export default function ProjectDetailPage() {
             <SectionHeading eyebrow="FOLLOW THE STORY" title="Related updates." />
             <div className="cards-grid">
               {related.map((item) => (
-                <EntryCard
-                  key={item.id}
-                  entry={item}
-                  to={`/stories/${item.slug}`}
-                  label={item.category}
-                />
+                <EntryCard key={item.id} entry={item} to={item.detailUrl} label={item.category} />
               ))}
             </div>
           </div>

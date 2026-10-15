@@ -11,6 +11,7 @@ import { ContactLinks, SocialLinks } from './ContactLinks';
 import { ScrollToTop } from './ScrollToTop';
 import { useEntranceMotion } from '../hooks/useEntranceMotion';
 function NavGroup({ item }: { item: NavItem }) {
+  const { routes } = useContent();
   const group = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
   const location = usePageLocation();
@@ -53,7 +54,7 @@ function NavGroup({ item }: { item: NavItem }) {
           <ChevronDown size={20} aria-hidden="true" />
         </button>
       ) : (
-        <NavLink href={item.href} end={item.href === '/'}>
+        <NavLink href={item.href} end={item.href === routes.home}>
           {item.label}
         </NavLink>
       )}
@@ -75,6 +76,7 @@ function NavGroup({ item }: { item: NavItem }) {
   );
 }
 function MobileNavGroup({ item }: { item: NavItem }) {
+  const { routes } = useContent();
   const [open, setOpen] = useState(false);
   const location = usePageLocation();
   useEffect(() => setOpen(false), [location]);
@@ -103,7 +105,7 @@ function MobileNavGroup({ item }: { item: NavItem }) {
           )}
         </>
       ) : (
-        <NavLink href={item.href} end={item.href === '/'}>
+        <NavLink href={item.href} end={item.href === routes.home}>
           {item.label}
           <ArrowUpRight size={18} aria-hidden="true" />
         </NavLink>
@@ -112,7 +114,7 @@ function MobileNavGroup({ item }: { item: NavItem }) {
   );
 }
 function Header() {
-  const { site, navigation } = useContent();
+  const { site, navigation, routes } = useContent();
   const dialog = useRef<HTMLDialogElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
   const location = usePageLocation();
@@ -142,7 +144,11 @@ function Header() {
       </div>
       <header className="site-header">
         <div className="max-w-7xl mx-auto header-container">
-          <Link href="/" className="logo-link" aria-label={`${site.brand.publicName} home`}>
+          <Link
+            href={routes.home}
+            className="logo-link"
+            aria-label={`${site.brand.publicName} home`}
+          >
             <img src={site.brand.logoPath} width="458" height="101" alt={site.brand.publicName} />
           </Link>
           <nav className="desktop-nav" aria-label="Main navigation">
@@ -150,7 +156,7 @@ function Header() {
               <NavGroup key={item.href} item={item} />
             ))}
           </nav>
-          <ButtonLink to="/donations" variant="lemon" className="header-support">
+          <ButtonLink to={routes.donations} variant="lemon" className="header-support">
             Support our work
           </ButtonLink>
           <button
@@ -192,7 +198,7 @@ function Header() {
             <MobileNavGroup key={item.href} item={item} />
           ))}
         </nav>
-        <ButtonLink to="/donations" variant="lemon">
+        <ButtonLink to={routes.donations} variant="lemon">
           Support our work
         </ButtonLink>
       </dialog>
@@ -200,13 +206,13 @@ function Header() {
   );
 }
 function Footer() {
-  const { site, navigation } = useContent();
+  const { site, navigation, routes } = useContent();
   return (
     <footer className="site-footer">
       <div className="max-w-7xl mx-auto container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link href="/" className="footer-logo">
+            <Link href={routes.home} className="footer-logo">
               <img
                 src={site.brand.footerLogoPath}
                 alt={site.brand.publicName}
@@ -235,12 +241,12 @@ function Footer() {
           <div className="footer-contact">
             <h2>Let’s connect</h2>
             <ContactLinks />
-            <Link href="/contact" className="footer-contact-link">
+            <Link href={routes.contact} className="footer-contact-link">
               Contact information
               <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
-            <Link href="/events">Events & activities</Link>
-            <Link href="/gallery">Photo gallery</Link>
+            <Link href={routes.events}>Events & activities</Link>
+            <Link href={routes.gallery}>Photo gallery</Link>
           </div>
         </div>
         <div className="footer-bottom">

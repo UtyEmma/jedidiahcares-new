@@ -1,6 +1,6 @@
 # Managing Jedidiah Cares Global Outreach for Women, Youth and Children content
 
-The admin interface is available at `/admin`. It manages dynamic records, SEO and site settings. Static page copy, founder’s note, policy wording, navigation and visual layouts stay in JSON and application code. Active administrators can manage general identity, brand assets/colours, contact/social details, custom scripts and robots.txt.
+The admin interface is available at `/admin`. It manages dynamic records, SEO and site settings. Static page copy, founder’s note, policy wording, navigation and visual layouts stay in PHP data and application code. Active administrators can manage general identity, brand assets/colours, contact/social details, custom scripts and robots.txt.
 
 ## First-time setup
 
@@ -13,13 +13,13 @@ php artisan cms:create-admin
 npm run build
 ```
 
-The configured SQLite connection creates `database/database.sqlite` during migration. MySQL can also be configured through Laravel’s standard database settings. The import combines the existing collection JSON with a curated snapshot of the organisation’s public website. Repeating it preserves CMS edits, SEO values and records in Trash.
+The configured SQLite connection creates `database/database.sqlite` during migration. MySQL can also be configured through Laravel’s standard database settings. The import combines the PHP collection arrays with a curated snapshot of the organisation’s public website. Repeating it preserves CMS edits, SEO values and records in Trash.
 
 The organisation's full name is **Jedidiah Cares Global Outreach for Women, Youth and Children**. Use it when identifying the organisation in CMS text and media credits. The 15 October name-correction migration expands existing display text while preserving IDs, slugs, source URLs, media consent, funding values and authorship fields. Browser/search title suffixes may use the compact name. The correction is idempotent and remains in place on migration rollback so later editorial changes are preserved.
 
 ## Collection seeders and source media
 
-`php artisan db:seed` runs `WebsiteContentSeeder`, using the same importer as `cms:import-content`. The current source catalogue includes four programmes, four people, five FAQs, two projects, one story and three galleries containing 69 photographs. Existing records with matching IDs or slugs are retained; counts can be lower when staff have removed or archived content. The website snapshot was checked on 14 October 2026 and is stored in `database/seeders/data/website-content.json`. Local collection JSON takes precedence over matching snapshot records.
+`php artisan db:seed` runs `WebsiteContentSeeder`, using the same importer as `cms:import-content`. The current source catalogue includes four programmes, four people, five FAQs, two projects, one story and three galleries containing 69 photographs. Existing records with matching IDs or slugs are retained; counts can be lower when staff have removed or archived content. The website snapshot was checked on 14 October 2026 and is stored in `database/seeders/data/website-content.json`. Local PHP collection data takes precedence over matching snapshot records.
 
 Individual seeders are available for each dynamic collection:
 
@@ -46,7 +46,7 @@ php artisan cms:import-content --collection=projects --collection=stories
 php artisan cms:import-content --without-media
 ```
 
-Referenced source records are included automatically, and relationships are resolved after record creation. No staff accounts or passwords are seeded. Page copy, policies, navigation and design settings remain in JSON/code.
+Referenced source records are included automatically, and relationships are resolved after record creation. No staff accounts or passwords are seeded. Page copy, policies, navigation and design settings remain in PHP data/code.
 
 Default images are bundled in `database/seeders/assets`, grouped into people, programmes, projects, stories and individual gallery folders. The current bundle contains 78 images: two portraits, four existing generated programme images, two project images, one story cover and 69 gallery photos. `seedImage`/`seedFile` references and `database/seeders/data/media-manifest.json` resolve sources locally. Original remote URLs remain as provenance; normal seeding never requests them. Actual file types, sizes, checksums and safe local paths are checked before files are copied to the private CMS disk with thumbnails. Include the source bundle and manifest in deployments.
 
@@ -58,7 +58,7 @@ Database seeding with media now works offline. `--without-media` remains availab
 
 The old cache at `storage/app/private/cms-seed-cache` can be removed to reclaim space once the bundle is prepared. Keep the versioned source bundle, plus the CMS originals and thumbnails on the configured `cms` disk. Bundled source files are preserved when imported into the database.
 
-The public events list and project report lists were empty, and no verified impact metrics or partner directory were available. Those seeders still import any records supplied in the respective existing JSON files; they do not generate fictional events, PDFs, partners or impact figures. Project plans are recorded as intended activities, without converting fundraising totals or targets into achieved outcomes.
+The public events list and project report lists were empty, and no verified impact metrics or partner directory were available. Those seeders still import any records supplied in the respective PHP data files; they do not generate fictional events, PDFs, partners or impact figures. Project plans are recorded as intended activities, without converting fundraising totals or targets into achieved outcomes.
 
 `cms:create-admin` asks for the name, email and password privately. Passwords must contain at least 12 characters. No default credentials or public registration are provided. To recover a staff password, use `php artisan cms:reset-password staff@example.org`; it prompts privately for the replacement password. Email-based password recovery is not enabled.
 
@@ -77,7 +77,7 @@ Manage Our People, Programmes, Projects, Reports, Stories & Updates, Events, Gal
 - Our People retains leadership, team and volunteer groups; confirm portrait publication consent before making a portrait public.
 - Published people appear at `/team/{slug}` with a full biography and related profiles. Use blank lines in Biography for paragraphs. Search appearance overrides control the profile metadata, while the public title and role stay tied to the person's record. Changing a published slug redirects its old profile address.
 - In **Our People → Social profiles**, add optional LinkedIn, Facebook, Instagram, X, YouTube, TikTok and personal website URLs. Use complete HTTPS links; leave unused fields blank. Saving a published member updates the links on their profile and people cards immediately. Only supplied accounts appear, and profile metadata includes them as `sameAs` when indexing is enabled. These fields use the existing record data and require no new migration.
-- Programme illustrations, decorative icons and numbers remain defined by the JSON design. Programme content and uploaded photographs are editable.
+- Programme illustrations, decorative icons and numbers remain defined by the PHP design data. Programme content and uploaded photographs are editable.
 - Projects support programme associations, status, location, activities, documented outcomes and related reports. Status labels are Upcoming, Ongoing and Completed; existing `planned` and `active` records retain their stored values and display the new labels. Project cards show the status over the image and limit their excerpt to four lines. Only verified, source-attributed outcomes appear publicly.
 - Under **Project funding**, optionally enter a Funding target, Amount raised and Funding currency (NGN by default; USD, GBP and EUR are also supported). Use confirmed totals and update the amount raised manually. A positive target enables the funding block on cards and the detail page; leaving or clearing the target hides it. Blank amounts raised display as zero. Amounts support up to two decimal places, and negative values are rejected. Progress can exceed 100% in the displayed figures while the visual bar remains full. These fields do not process donations or synchronise with a payment provider.
 - Reports accept a PDF up to 20 MB and include a reporting period and publication date. Associate a report with a project to make its download available on the project page.
@@ -86,7 +86,9 @@ Manage Our People, Programmes, Projects, Reports, Stories & Updates, Events, Gal
 - Event badges are calculated from the start/end times: Upcoming before the start, Ongoing through the end, and Past afterwards. When no end is supplied, the event remains ongoing until the end of its start day in the selected timezone. Status refreshes every 30 seconds while the page is open and when returning to the tab. Cards and event detail pages use the same status rules.
 - Partners require confirmed publication rights for their logos. Impact Metrics require a value, period, evidence source and verification before publishing.
 
-Static page wording and policies are maintained in `resources/js/data/site.json`, `pages.json`, `interface.json` and `policies.json`. Navigation stays in `navigation.json`. CMS site settings override only identity, branding, contact/social details and SEO defaults; they do not edit page sections or layouts. Retired page-copy/policy database records from the initial CMS implementation are retained but are not exposed or consumed.
+Static page wording and policies are maintained in `resources/data/site.php`, `pages.php`, `interface.php` and `policies.php`. Navigation stays in `navigation.php`. CMS site settings override only identity, branding, contact/social details and SEO defaults; they do not edit page sections or layouts. Retired page-copy/policy database records from the initial CMS implementation are retained but are not exposed or consumed.
+
+PHP data is evaluated at runtime. The default SEO URL follows `APP_URL`; a site-wide CMS canonical URL takes priority. Navigation and React links use Laravel named routes, and detail URLs use current record slugs. PHP copy edits need no frontend rebuild. After changing route/configuration files, refresh the Laravel caches; production PHP workers may also need their OPcache refreshed. See the [PHP data guide](resources/data/README.md).
 
 ## Sharing public content
 
@@ -155,9 +157,9 @@ Apache/LiteSpeed receives `Cache-Control: public, max-age=0, must-revalidate` an
 
 ## SEO without changing page design
 
-Use **Website Settings → SEO** for site-wide defaults and the fixed public page entries. These controls affect metadata, social previews, robots and sitemap output; they do not change visible headings, founder’s note, page copy, layout or navigation.
+Use **Website Settings → Pages** for site-wide defaults and the fixed public page entries. Select a page and edit its **Page title** to set the browser tab, search result and social preview title. The site-wide title suffix is appended automatically; leave the field blank to restore the default page title. Changes appear immediately after saving, without a frontend rebuild. These controls affect metadata, social previews, robots and sitemap output; they do not change visible headings, founder’s note, page copy, layout or navigation.
 
-Site-wide values include canonical website URL, title suffix, default description, social image and search indexing. Per-page values include SEO title, description, canonical override, social image and indexing eligibility. Blank overrides use the existing JSON defaults. A social image can be an HTTPS URL or a local path such as `/images/social-card.png`.
+The **Site-wide SEO** entry includes canonical website URL, title suffix, default description, social image and search indexing. Per-page values include page title, description, canonical override, social image and indexing eligibility. Blank overrides use the existing PHP defaults. A social image can be an HTTPS URL or a local path such as `/images/social-card.png`.
 
 Indexing is enabled by default. The site-settings migration removes the old launch-time global and page exclusions on existing installations. Later deliberate choices are preserved by repeat seeding/deployments. Published public URLs appear in the sitemap; individual pages can still be excluded. Canonical overrides on another domain are excluded from this site’s sitemap. Admin and upload utilities retain exclusions; eligible public images and reports can be crawled. Unavailable records return 404 and duplicate donation utility pages retain noindex.
 
@@ -169,7 +171,7 @@ Only active administrators can view or save these screens, including through dir
 
 **Scripts** accepts complete trusted HTML/JavaScript tags up to 100,000 characters in each location. Header code is placed immediately before `</head>` and footer code before `</body>` on public pages. The enable toggle pauses both locations without deleting their contents. These fields are executable administrator configuration, not sanitized editorial text. They are not rendered on admin pages or serialized in public Inertia props. Integrations execute once per document load; subscribe to Inertia navigation events when tracking later page visits.
 
-**Robots.txt** edits the plain-text response served at `/robots.txt`. The seeded defaults allow `/`, exclude `/admin`, `/livewire`, `/fluppy` and `/up`, and include `Sitemap: {site_url}/sitemap.xml`. `{site_url}` resolves from the canonical URL in SEO settings. Restore defaults fills the editor; Save changes commits it. If the site-wide SEO indexing switch is deliberately disabled, the response becomes `User-agent: *` / `Disallow: /` and page metadata/sitemap follow that choice. Robots rules are crawler instructions; existing authentication and media publication checks remain authoritative.
+**Robots.txt** edits the plain-text response served at `/robots.txt`. The seeded defaults allow `/`, exclude `/admin`, `/livewire`, `/fluppy` and `/up`, and include `Sitemap: {site_url}/sitemap.xml`. `{site_url}` resolves from the canonical URL in **Pages → Site-wide SEO**. Restore defaults fills the editor; Save changes commits it. If the site-wide SEO indexing switch is deliberately disabled, the response becomes `User-agent: *` / `Disallow: /` and page metadata/sitemap follow that choice. Robots rules are crawler instructions; existing authentication and media publication checks remain authoritative.
 
 Our People includes an optional **Public email address**. Individual addresses are blank by default, as requested. Adding one publishes a mail link on the card/profile and includes the address in profile structured data. Invalid addresses and header-injection strings are rejected. Do not put private staff addresses in a public field.
 

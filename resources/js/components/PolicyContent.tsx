@@ -15,7 +15,7 @@ const policyTitles: Record<string, string> = {
 };
 
 export default function PolicyContent({ policySlug }: { policySlug: string }) {
-  const { policies, ui, site } = useContent();
+  const { policies, ui, site, routes } = useContent();
   const key = policySlug;
   const policy = policies.find((item) => item.slug === key);
   const title = policy?.title ?? policyTitles[key];
@@ -115,7 +115,7 @@ export default function PolicyContent({ policySlug }: { policySlug: string }) {
                 <h2>{information.title}</h2>
                 <p>{information.text}</p>
                 <p>{information.detail}</p>
-                <TextLink to="/contact">Contact information</TextLink>
+                <TextLink to={routes.contact}>Contact information</TextLink>
               </div>
             )}
           </article>

@@ -23,7 +23,8 @@ import {
   TextLink,
 } from '../../components/UI';
 export default function HomePage() {
-  const { site, ui, programmes, projects, metrics, stories, events } = useContent();
+  const { site, ui, programmes, projects, metrics, stories, events, routes } = useContent();
+  const educationProgramme = programmes.find((programme) => programme.id === 'education');
   const now = useEventTime();
   const upcomingEvents = filterEvents(events, '', 'upcoming', '', now).slice(0, 3);
   const copy = site.home;
@@ -44,8 +45,8 @@ export default function HomePage() {
             </h1>
             <p>{copy.heroText}</p>
             <div className="hero-actions">
-              <ButtonLink to="/programmes">Explore our work</ButtonLink>
-              <ButtonLink to="/get-involved" variant="outline">
+              <ButtonLink to={routes.programmes}>Explore our work</ButtonLink>
+              <ButtonLink to={routes.getInvolved} variant="outline">
                 Get involved
               </ButtonLink>
             </div>
@@ -86,7 +87,7 @@ export default function HomePage() {
           </div>
           <div className="intro-copy" data-entrance>
             <p>{copy.introText}</p>
-            <TextLink to="/about">Meet our organisation</TextLink>
+            <TextLink to={routes.about}>Meet our organisation</TextLink>
             <div className="intro-footnote">
               <span aria-hidden="true" />
               <p>
@@ -105,7 +106,7 @@ export default function HomePage() {
             eyebrow={copy.programmeEyebrow}
             title={copy.programmeHeadline}
             text={copy.programmeText}
-            action={{ label: 'All programmes', to: '/programmes' }}
+            action={{ label: 'All programmes', to: routes.programmes }}
           />
           <div className="home-programme-layout">
             <div className="programme-note">
@@ -113,7 +114,7 @@ export default function HomePage() {
               <p className="small-label">{ui.home.programmeNoteEyebrow}</p>
               <h3>{ui.home.programmeNoteTitle}</h3>
               <p>{ui.home.programmeNoteText}</p>
-              <Link href="/programmes" aria-label="Discover our four programme areas">
+              <Link href={routes.programmes} aria-label="Discover our four programme areas">
                 <ArrowUpRight size={27} aria-hidden="true" />
               </Link>
             </div>
@@ -138,7 +139,9 @@ export default function HomePage() {
               <Icon name="book" size={28} />
               <span>Education & Scholarships</span>
             </div>
-            <ButtonLink to="/programmes/education">Discover education support</ButtonLink>
+            <ButtonLink to={educationProgramme?.detailUrl ?? routes.programmes}>
+              Discover education support
+            </ButtonLink>
           </div>
         </div>
       </section>
@@ -148,7 +151,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="PROJECTS & CAMPAIGNS"
               title="A purpose behind every project."
-              action={{ label: 'Explore projects', to: '/projects' }}
+              action={{ label: 'Explore projects', to: routes.projects }}
             />
             <div className="cards-grid">
               {projects.slice(0, 3).map((item) => (
@@ -164,7 +167,7 @@ export default function HomePage() {
             <Eyebrow>{copy.evidenceEyebrow}</Eyebrow>
             <h2>{copy.evidenceTitle}</h2>
             <p>{copy.evidenceText}</p>
-            <TextLink to="/reports">Our approach to impact</TextLink>
+            <TextLink to={routes.reports}>Our approach to impact</TextLink>
           </div>
           <div className="evidence-note">
             <ShieldCheck size={44} weight="regular" aria-hidden="true" />
@@ -175,7 +178,7 @@ export default function HomePage() {
             </h3>
             <p>{ui.home.evidenceNoteText}</p>
             <div className="evidence-rule" />
-            <TextLink to="/projects">Explore our projects</TextLink>
+            <TextLink to={routes.projects}>Explore our projects</TextLink>
           </div>
         </div>
         {metrics.length > 0 && (
@@ -200,16 +203,11 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="STORIES & UPDATES"
               title="A closer look at compassion in action."
-              action={{ label: 'All stories', to: '/stories' }}
+              action={{ label: 'All stories', to: routes.stories }}
             />
             <div className="cards-grid">
               {stories.slice(0, 3).map((item) => (
-                <EntryCard
-                  key={item.id}
-                  entry={item}
-                  to={`/stories/${item.slug}`}
-                  label={item.category}
-                />
+                <EntryCard key={item.id} entry={item} to={item.detailUrl} label={item.category} />
               ))}
             </div>
           </div>
@@ -221,7 +219,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="COME TOGETHER"
               title="Upcoming opportunities."
-              action={{ label: 'All events', to: '/events' }}
+              action={{ label: 'All events', to: routes.events }}
             />
             <div className="cards-grid">
               {upcomingEvents.map((item) => (

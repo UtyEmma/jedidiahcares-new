@@ -9,7 +9,7 @@ import { GivingPanel } from './Actions';
 import { ButtonLink, Eyebrow, FAQList, Icon, PageHero, TextLink } from './UI';
 
 export default function DonationContent({ project }: { project?: Project }) {
-  const { site, pages, ui } = useContent();
+  const { site, pages, ui, routes } = useContent();
   const config = project?.approvedDonationUrl
     ? {
         ...site.giving,
@@ -53,7 +53,7 @@ export default function DonationContent({ project }: { project?: Project }) {
                 </li>
               ))}
             </ul>
-            <TextLink to="/reports">Understand our approach to accountability</TextLink>
+            <TextLink to={routes.reports}>Understand our approach to accountability</TextLink>
           </div>
           <GivingPanel config={config} />
         </div>
@@ -68,7 +68,7 @@ export default function DonationContent({ project }: { project?: Project }) {
           <Heart size={35} weight="regular" aria-hidden="true" />
           <h2>{ui.support.otherTitle}</h2>
           <p>{ui.support.otherText}</p>
-          <ButtonLink to="/get-involved" variant="outline">
+          <ButtonLink to={routes.getInvolved} variant="outline">
             Explore other ways to get involved
           </ButtonLink>
         </div>

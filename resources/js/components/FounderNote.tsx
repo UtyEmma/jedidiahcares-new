@@ -5,7 +5,7 @@ import { Quotes } from './icons';
 import { Eyebrow, TextLink } from './UI';
 
 export function FounderNote({ compact = false }: { compact?: boolean }) {
-  const { site } = useContent();
+  const { site, routes } = useContent();
   const note = site.founderNote;
   const [failedPortrait, setFailedPortrait] = useState('');
   const showPortrait = Boolean(note.portraitPath && failedPortrait !== note.portraitPath);
@@ -58,7 +58,9 @@ export function FounderNote({ compact = false }: { compact?: boolean }) {
                 {note.name && <strong>{note.name}</strong>}
                 <span>{note.role}</span>
               </div>
-              {compact && <TextLink to="/about#founder-note">More about our purpose</TextLink>}
+              {compact && (
+                <TextLink to={routes.about + '#founder-note'}>More about our purpose</TextLink>
+              )}
             </div>
           </div>
         </div>

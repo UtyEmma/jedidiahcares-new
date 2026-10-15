@@ -66,7 +66,7 @@ export default function StoriesPage() {
                 <EntryCard
                   key={item.id}
                   entry={item}
-                  to={`/stories/${item.slug}`}
+                  to={item.detailUrl}
                   label={`${item.category} · ${dateLabel(item.publishedAt)}`}
                 />
               ))}

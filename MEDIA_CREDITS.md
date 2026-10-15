@@ -19,7 +19,7 @@ The final [prompt set](output/imagegen/prompts.json) is retained with the projec
 | `generated/jedidiah-volunteer-care.webp` | Volunteering and the About approach section: preparing practical community support |
 | `generated/jedidiah-girls-wellbeing.webp` | Girls’ Health, Safety & Empowerment: an encouraging school discussion |
 
-Each scene also has a sibling filename ending in `-600.webp`. The `generated` and `representative` flags in `media.json` retain the image's illustrative status internally. These assets are not imported into the authentic activity galleries, evidence, testimonials or team records.
+Each scene also has a sibling filename ending in `-600.webp`. The `generated` and `representative` flags in `media.php` retain the image's illustrative status internally. These assets are not imported into the authentic activity galleries, evidence, testimonials or team records.
 
 The following earlier Pexels files are retained as inactive assets; active contextual photo references have been replaced. Their original [Pexels licence](https://www.pexels.com/license/) and credits remain recorded here.
 
@@ -44,6 +44,6 @@ The Founder’s Note uses Dr. Ebere Ubesie’s real portrait, with her founder i
 | `team/ebere-ubesie.jpg`  | [Ebere Ubesie portrait](https://jedidiahcares.org/assets/images/team/Ebere_Ubesie.jpg)   |
 | `team/agozie-ubesie.jpg` | [Agozie Ubesie portrait](https://jedidiahcares.org/assets/images/team/Agozie_Ubesie.jpg) |
 
-Other director and volunteer image URLs are retained in `people.json` as provenance. Their old admin host currently fails its TLS connection, so those images are not bundled or presented as loaded. Name initials appear instead. No stock photographs substitute for missing team portraits.
+Other director and volunteer image URLs are retained in `people.php` as provenance. Their old admin host currently fails its TLS connection, so those images are not bundled or presented as loaded. Name initials appear instead. No stock photographs substitute for missing team portraits.
 
 Inter and Manrope are self-hosted through Fontsource with their package font licences. The locally owned button and accordion follow [shadcn/ui](https://github.com/shadcn-ui/ui) patterns using Radix primitives. See `THIRD_PARTY_NOTICES.md`.

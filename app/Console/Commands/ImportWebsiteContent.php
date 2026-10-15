@@ -15,7 +15,7 @@ class ImportWebsiteContent extends Command
         {--collection=* : Import only these collection keys and their dependencies}
         {--without-media : Seed records without importing local media files}';
 
-    protected $description = 'Seed JSON and official website collections without overwriting CMS edits';
+    protected $description = 'Seed PHP data and official website collections without overwriting CMS edits';
 
     public function handle(CmsContentSeeder $seeder): int
     {

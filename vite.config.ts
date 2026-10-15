@@ -8,7 +8,13 @@ export default defineConfig(({ isSsrBuild }) => ({
   plugins: [
     laravel({
       input: ['resources/js/app.tsx', 'resources/css/filament/admin/theme.css'],
-      refresh: ['resources/views/**', 'routes/**', 'app/Http/**'],
+      refresh: [
+        'resources/views/**',
+        'resources/data/**',
+        'routes/**',
+        'app/Http/**',
+        'app/Support/**',
+      ],
     }),
     inertia({ ssr: { host: '127.0.0.1', sourcemap: false } }),
     react(),

@@ -6,6 +6,7 @@ use App\Models\ContentEntry;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use InvalidArgumentException;
 
 /** Shared collection definitions keep admin validation and public serialization aligned. */
 class CmsSchema
@@ -38,7 +39,16 @@ class CmsSchema
 
     public static function seed(string $file): array
     {
-        return json_decode(file_get_contents(resource_path("js/data/{$file}.json")), true, 512, JSON_THROW_ON_ERROR);
+        if (! preg_match('/^[a-z][a-z-]*$/D', $file) || ! is_file($path = resource_path("data/{$file}.php"))) {
+            throw new InvalidArgumentException('Unknown website data file.');
+        }
+
+        $data = require $path;
+        if (! is_array($data)) {
+            throw new InvalidArgumentException('Website data files must return an array.');
+        }
+
+        return $data;
     }
 
     public static function validate(ContentEntry $entry): void

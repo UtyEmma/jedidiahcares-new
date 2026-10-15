@@ -6,7 +6,7 @@ import { ProjectStatusBadge } from './ProjectStatusBadge';
 import { Media, TextLink } from './UI';
 
 export function ProjectCard({ project }: { project: Project }) {
-  const to = `/projects/${project.slug}`;
+  const to = project.detailUrl;
 
   return (
     <article className="entry-card project-card" data-entrance>

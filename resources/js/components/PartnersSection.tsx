@@ -43,7 +43,7 @@ function PartnerCard({ partner, detailed }: { partner: Partner; detailed: boolea
 }
 
 export function PartnersSection({ variant = 'home' }: { variant?: 'home' | 'page' }) {
-  const { site, partners } = useContent();
+  const { site, partners, routes } = useContent();
   const copy = site.partnerShowcase;
   const entries = variant === 'home' ? partners.slice(0, 8) : partners;
   return (
@@ -75,7 +75,7 @@ export function PartnersSection({ variant = 'home' }: { variant?: 'home' | 'page
               <p>{copy.emptyText}</p>
             </div>
             <ButtonLink
-              to={variant === 'home' ? '/partner' : '/partner#partnership-enquiry'}
+              to={variant === 'home' ? routes.partner : routes.partner + '#partnership-enquiry'}
               variant="outline"
             >
               {variant === 'home' ? copy.homeCta : copy.pageCta}
@@ -84,7 +84,7 @@ export function PartnersSection({ variant = 'home' }: { variant?: 'home' | 'page
         )}
         {entries.length > 0 && variant === 'home' && (
           <div className="partners-showcase-action">
-            <ButtonLink to="/partner" variant="outline">
+            <ButtonLink to={routes.partner} variant="outline">
               {copy.homeCta}
             </ButtonLink>
           </div>

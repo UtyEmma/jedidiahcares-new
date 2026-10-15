@@ -13,7 +13,7 @@ export function EventCard({ event, now }: { event: Event; now: number }) {
   return (
     <EntryCard
       entry={event}
-      to={`/events/${event.slug}`}
+      to={event.detailUrl}
       label={`${dateLabel(event.startDate, event.timezone)} · ${event.timezone}`}
       badge={<EventStatusBadge status={getEventStatus(event, now)} />}
     >
@@ -21,7 +21,7 @@ export function EventCard({ event, now }: { event: Event; now: number }) {
         <ul className="event-programmes" aria-label="Programmes">
           {related.map((programme) => (
             <li key={programme.id}>
-              <Link href={`/programmes/${programme.slug}`}>{programme.title}</Link>
+              <Link href={programme.detailUrl}>{programme.title}</Link>
             </li>
           ))}
         </ul>

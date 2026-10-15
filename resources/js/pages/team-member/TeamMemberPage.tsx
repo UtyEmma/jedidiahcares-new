@@ -19,7 +19,7 @@ const groups: Record<Person['group'], string> = {
 };
 
 export default function TeamMemberPage() {
-  const { findPerson, people } = useContent();
+  const { findPerson, people, routes } = useContent();
   const { slug = '' } = usePage<WebsitePageProps>().props;
   const person = findPerson(slug);
   if (!person) return <NotFoundPage />;
@@ -41,7 +41,7 @@ export default function TeamMemberPage() {
       <Seo />
       <section className="person-profile-hero" aria-labelledby="person-name">
         <div className="max-w-7xl mx-auto container">
-          <Breadcrumbs current={person.title} parent={{ label: 'Our people', href: '/team' }} />
+          <Breadcrumbs current={person.title} parent={{ label: 'Our people', href: routes.team }} />
           <div className="person-profile-grid">
             <div className="person-profile-visual" data-entrance>
               <TeamMemberPortrait person={person} priority className="person-profile-portrait" />
@@ -71,8 +71,8 @@ export default function TeamMemberPage() {
                 </section>
               )}
               <div className="person-profile-actions">
-                <ButtonLink to="/contact">Contact our team</ButtonLink>
-                <Link href="/team" className="person-profile-back">
+                <ButtonLink to={routes.contact}>Contact our team</ButtonLink>
+                <Link href={routes.team} className="person-profile-back">
                   <ChevronLeft size={18} aria-hidden="true" />
                   Back to our people
                 </Link>
@@ -93,7 +93,7 @@ export default function TeamMemberPage() {
               <SectionHeading
                 eyebrow="A SHARED PURPOSE"
                 title="Meet more of our people."
-                action={{ label: 'All our people', to: '/team' }}
+                action={{ label: 'All our people', to: routes.team }}
               />
             </div>
             <div className="team-members-grid person-profile-related">

@@ -8,7 +8,7 @@ import { buildMailto } from '../lib/mailto';
 import { CopyButton, TextLink } from './UI';
 import { SelectField } from './SelectField';
 export function GivingPanel({ config: suppliedConfig }: { config?: GivingConfig }) {
-  const { site, ui } = useContent();
+  const { site, ui, routes } = useContent();
   const config = suppliedConfig ?? site.giving;
   const url = config.enabled ? safeExternalUrl(config.externalDonationUrl) : undefined;
   const bank = config.enabled && config.bankTransfer?.approved ? config.bankTransfer : null;
@@ -47,7 +47,7 @@ export function GivingPanel({ config: suppliedConfig }: { config?: GivingConfig 
       ) : (
         <>
           <p>{config.unavailable}</p>
-          <TextLink to="/contact">Contact information</TextLink>
+          <TextLink to={routes.contact}>Contact information</TextLink>
         </>
       )}
       <div className="handoff-note">

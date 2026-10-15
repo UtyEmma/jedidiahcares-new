@@ -8,7 +8,7 @@ import { EmailComposer } from '../../components/Actions';
 import { Eyebrow, Icon, PageHero, TextLink } from '../../components/UI';
 
 export default function ContactPage() {
-  const { site, pages, ui } = useContent();
+  const { site, pages, ui, routes } = useContent();
   const location = usePageLocation();
   const search = new URLSearchParams(location.search);
   const requested = search.get('topic') ?? 'General enquiry';
@@ -65,9 +65,9 @@ export default function ContactPage() {
             </div>
             <SocialMessaging />
             <div className="contact-paths">
-              <TextLink to="/programmes">Explore programme information</TextLink>
-              <TextLink to="/partner">Learn about partnerships</TextLink>
-              <TextLink to="/volunteers">Find your volunteering path</TextLink>
+              <TextLink to={routes.programmes}>Explore programme information</TextLink>
+              <TextLink to={routes.partner}>Learn about partnerships</TextLink>
+              <TextLink to={routes.volunteers}>Find your volunteering path</TextLink>
             </div>
           </div>
           <EmailComposer key={topic} topic={topic} />

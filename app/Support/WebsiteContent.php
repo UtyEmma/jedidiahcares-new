@@ -23,7 +23,7 @@ class WebsiteContent
         if ($name === 'impact') {
             return ['metrics' => $this->published('metrics'), 'reports' => $this->published('reports')];
         }
-        if (! in_array($name, ['site', 'pages', 'interface', 'navigation', 'media', 'redirects', 'policies'], true)) {
+        if (! in_array($name, ['site', 'pages', 'interface', 'navigation', 'routes', 'media', 'redirects', 'policies'], true)) {
             throw new InvalidArgumentException('Unknown website content collection.');
         }
         if (isset($this->files[$name])) {
@@ -35,6 +35,16 @@ class WebsiteContent
             $result['seo']['description'] = $global->description ?: $result['seo']['description'];
             $result['seo']['socialImage'] = $global->social_image ?: $result['seo']['socialImage'];
             $result['seo']['editorialApproved'] = $global->indexing_enabled ?? $result['seo']['editorialApproved'];
+        }
+        if ($name === 'media') {
+            foreach ($result as &$photo) {
+                foreach (['src', 'smallSrc'] as $key) {
+                    if (isset($photo[$key]) && str_starts_with($photo[$key], '/')) {
+                        $photo[$key] = asset(ltrim($photo[$key], '/'));
+                    }
+                }
+            }
+            unset($photo);
         }
 
         return $this->files[$name] = $result;
@@ -71,6 +81,12 @@ class WebsiteContent
     {
         $data = Arr::only($entry->data ?? [], [...CmsSchema::FIELDS[$entry->collection], 'seoTitle', 'seoDescription']);
         $result = [...$data, 'id' => $entry->id, 'slug' => $entry->slug, 'title' => $entry->title, 'summary' => $entry->summary ?? '', 'publicationState' => 'approved', 'isPublished' => true];
+        if (isset(config('website.details')[$entry->collection])) {
+            $result['detailUrl'] = $this->detailPath($entry->collection, $entry->slug);
+        }
+        if ($entry->collection === 'projects') {
+            $result['donationUrl'] = route('donations.project', ['projectSlug' => $entry->slug], absolute: false);
+        }
         $cover = $entry->getFirstMedia('cover');
         if ($cover && $cover->isPublic()) {
             $result['coverImage'] = $cover->getUrl();
@@ -159,14 +175,14 @@ class WebsiteContent
 
     public function detailPath(string $collection, string $slug): string
     {
-        return '/'.config("website.detail_paths.{$collection}", $collection).'/'.$slug;
+        return route($collection.'.show', ['slug' => $slug], absolute: false);
     }
 
     public function payload(Request $request): array
     {
         $payload = [
             'now' => (int) floor(microtime(true) * 1000),
-            'site' => $this->read('site'), 'navigation' => $this->read('navigation'),
+            'site' => $this->read('site'), 'navigation' => $this->read('navigation'), 'routes' => $this->read('routes'),
             'pages' => $this->read('pages'), 'ui' => $this->read('interface'), 'media' => $this->read('media'),
         ];
         foreach (['programmes', 'projects', 'stories', 'events', 'people', 'partners', 'policies', 'faq', 'metrics', 'reports', 'galleries'] as $name) {
@@ -222,16 +238,16 @@ class WebsiteContent
         $settings = $this->seoSettings();
         $page = $settings[$path] ?? null;
         $base = rtrim($site['seo']['url'], '/');
-        $canonical = $page?->canonical_url ?: $base.($path === '/' ? '/' : '/'.trim($path, '/'));
+        $canonical = $page?->canonical_url ?: WebsiteUrls::absolute($path, $base);
         $approved = ($site['seo']['editorialApproved'] ?? false) && $indexable && ($page?->indexable ?? true);
         $title = $page?->title ?: $title;
         $description = $page?->description ?: ($description ?: $site['seo']['description']);
         // A compact title suffix keeps browser/search titles readable; identity uses the full name.
         $suffix = ($settings['global']->title ?? null) ?: $site['brand']['shortName'];
         $image = $page?->social_image ?: ($person['image'] ?? $site['seo']['socialImage']);
-        $image = str_starts_with($image, 'https://') ? $image : $base.'/'.ltrim($image, '/');
+        $image = WebsiteUrls::absolute($image, $base);
         if ($person && isset($person['image'])) {
-            $person['image'] = str_starts_with($person['image'], 'https://') ? $person['image'] : $base.'/'.ltrim($person['image'], '/');
+            $person['image'] = WebsiteUrls::absolute($person['image'], $base);
         }
         $structuredData = match (true) {
             $person !== null => ['@type' => 'ProfilePage', 'url' => $canonical, 'mainEntity' => [
@@ -239,7 +255,7 @@ class WebsiteContent
                 'affiliation' => ['@type' => 'Organization', 'name' => $site['brand']['publicName'], 'url' => $base],
             ]],
             $article !== null => ['@type' => 'Article', ...$article, 'url' => $canonical],
-            default => ['@type' => 'Organization', 'name' => $site['brand']['publicName'], 'alternateName' => [$site['brand']['shortName'], 'Jedidiah Cares Global Outreach'], 'url' => $base, 'logo' => $base.'/'.ltrim(parse_url($site['brand']['logoPath'], PHP_URL_PATH), '/'),
+            default => ['@type' => 'Organization', 'name' => $site['brand']['publicName'], 'alternateName' => [$site['brand']['shortName'], 'Jedidiah Cares Global Outreach'], 'url' => $base, 'logo' => WebsiteUrls::absolute($site['brand']['logoPath'], $base),
                 ...array_filter(['email' => $site['contact']['email'], 'telephone' => $site['contact']['phone'], 'address' => $site['contact']['address']]),
                 'sameAs' => array_values(array_filter($site['social'], fn ($url) => is_string($url) && filter_var($url, FILTER_VALIDATE_URL))),
             ],
@@ -259,26 +275,30 @@ class WebsiteContent
             return [];
         }
 
-        $paths = array_column(config('website.pages'), 'uri');
+        $paths = [];
+        foreach (config('website.pages') as $name => $page) {
+            $paths[$page['uri']] = route($name, absolute: false);
+        }
         foreach (array_keys(config('website.details')) as $collection) {
             foreach ($this->published($collection) as $entry) {
-                $paths[] = $this->detailPath($collection, $entry['slug']);
+                $path = $this->detailPath($collection, $entry['slug']);
+                $paths[$path] = $path;
             }
         }
         foreach (array_keys(config('website.policies')) as $slug) {
             if ($this->find('policies', $slug)) {
-                $paths[] = '/'.$slug;
+                $paths['/'.$slug] = route($slug, absolute: false);
             }
         }
 
         $settings = $this->seoSettings();
         $base = rtrim($site['seo']['url'], '/');
         $urls = [];
-        foreach ($paths as $path) {
-            if (($settings[$path]->indexable ?? true) === false) {
+        foreach ($paths as $settingsPath => $path) {
+            if (($settings[$settingsPath]->indexable ?? true) === false) {
                 continue;
             }
-            $url = ($settings[$path]->canonical_url ?? null) ?: $base.$path;
+            $url = ($settings[$settingsPath]->canonical_url ?? null) ?: WebsiteUrls::absolute($path, $base);
             if (parse_url($url, PHP_URL_HOST) === parse_url($base, PHP_URL_HOST)) {
                 $urls[] = $url;
             }

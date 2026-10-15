@@ -22,7 +22,10 @@ export interface BaseEntry extends Publication {
   coverImage?: string;
   coverAlt?: string;
 }
-export interface Programme extends BaseEntry {
+export interface DetailEntry extends BaseEntry {
+  detailUrl: string;
+}
+export interface Programme extends DetailEntry {
   originalThematicName: string;
   shortTitle: string;
   heroTitle: string;
@@ -35,7 +38,8 @@ export interface Programme extends BaseEntry {
   activities: string[];
   relatedProjectIds: string[];
 }
-export interface Project extends BaseEntry {
+export interface Project extends DetailEntry {
+  donationUrl: string;
   programmeIds: string[];
   stage: 'planned' | 'active' | 'completed';
   location?: string;
@@ -53,7 +57,7 @@ export interface Project extends BaseEntry {
   fundsRaised?: number | null;
   fundingCurrency?: 'NGN' | 'USD' | 'GBP' | 'EUR';
 }
-export interface Story extends BaseEntry {
+export interface Story extends DetailEntry {
   category: string;
   publishedAt: string;
   programmeId?: string;
@@ -62,7 +66,7 @@ export interface Story extends BaseEntry {
   blocks: ContentBlock[];
 }
 export type EventStatus = 'upcoming' | 'ongoing' | 'past';
-export interface Event extends BaseEntry {
+export interface Event extends DetailEntry {
   startDate: string;
   endDate?: string;
   timezone: string;
@@ -74,7 +78,7 @@ export interface Event extends BaseEntry {
 }
 export type PersonSocialPlatform =
   'linkedin' | 'facebook' | 'instagram' | 'x' | 'youtube' | 'tiktok' | 'website';
-export interface Person extends BaseEntry {
+export interface Person extends DetailEntry {
   role: string;
   group: 'leadership' | 'team' | 'volunteers';
   biography: string;

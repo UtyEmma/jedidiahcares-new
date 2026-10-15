@@ -38,7 +38,7 @@ export default function ProgrammesPage() {
                     <li key={activity}>{activity}</li>
                   ))}
                 </ul>
-                <ButtonLink to={`/programmes/${item.slug}`}>Explore this programme</ButtonLink>
+                <ButtonLink to={item.detailUrl}>Explore this programme</ButtonLink>
               </div>
             </article>
           ))}

@@ -1,6 +1,5 @@
 import { usePage } from '@inertiajs/react';
-import type siteData from '../data/site.json';
-import type interfaceData from '../data/interface.json';
+import type { SiteContent, InterfaceCopy, WebsiteRoutes } from '../types/site';
 import type {
   Programme,
   Project,
@@ -15,29 +14,21 @@ import type {
   Report,
   PageCopy,
   NavItem,
-  GivingConfig,
 } from '../types/content';
 import type { WebsitePageProps } from '../types/inertia';
 export { publicEntries, verifiedMetrics, safeExternalUrl } from './selectors';
 
 export interface WebsiteContent {
   now: number;
-  site: Omit<typeof siteData, 'giving' | 'brand' | 'social'> & {
-    giving: GivingConfig;
-    brand: typeof siteData.brand & {
-      primaryColor: string;
-      accentColor: string;
-      footerLogoPath: string;
-    };
-    social: typeof siteData.social & { youtube: string; tiktok: string };
-  };
+  site: SiteContent;
+  routes: WebsiteRoutes;
   navigation: {
     primary: NavItem[];
     footer: { title: string; links: NavItem[] }[];
     policies: NavItem[];
   };
   pages: Record<string, PageCopy>;
-  ui: typeof interfaceData;
+  ui: InterfaceCopy;
   programmes: Programme[];
   projects: Project[];
   stories: Story[];

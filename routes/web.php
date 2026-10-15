@@ -4,7 +4,7 @@ use App\Http\Controllers\LegacyRedirectController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\SeoController;
 use App\Http\Controllers\WebsitePageController;
-use App\Support\WebsiteContent;
+use App\Support\CmsSchema;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
@@ -29,9 +29,9 @@ foreach (config('website.policies') as $slug => $policy) {
         ->defaults('policySlug', $slug)->name($slug);
 }
 
-foreach (app(WebsiteContent::class)->read('redirects') as $index => $redirect) {
+foreach (CmsSchema::seed('redirects') as $index => $redirect) {
     Route::get(str_replace(':slug', '{slug}', $redirect['from']), LegacyRedirectController::class)
-        ->defaults('redirectTo', $redirect['to'])->name('legacy.'.$index);
+        ->defaults('redirectRoute', $redirect['route'])->name('legacy.'.$index);
 }
 
 Route::fallback([WebsitePageController::class, 'notFound']);

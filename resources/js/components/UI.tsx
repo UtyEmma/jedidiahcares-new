@@ -92,9 +92,10 @@ export function Breadcrumbs({
   current: string;
   parent?: { label: string; href: string };
 }) {
+  const { routes } = useContent();
   return (
     <nav className="breadcrumbs" aria-label="Breadcrumb">
-      <Link href="/">Home</Link>
+      <Link href={routes.home}>Home</Link>
       <span aria-hidden="true">/</span>
       {parent && (
         <>
@@ -198,13 +199,13 @@ export function ProgrammeRow({
       <div className="programme-row-copy">
         <p className="small-label">{programme.summary}</p>
         <h3>
-          <Link href={`/programmes/${programme.slug}`}>{programme.title}</Link>
+          <Link href={programme.detailUrl}>{programme.title}</Link>
         </h3>
         <p>{programme.shortTitle}</p>
       </div>
       <Link
         className="round-link"
-        href={`/programmes/${programme.slug}`}
+        href={programme.detailUrl}
         aria-label={`Explore ${programme.title}`}
       >
         <ArrowUpRight aria-hidden="true" />
@@ -221,7 +222,7 @@ export function EmptyState({
   filtered?: boolean;
   reset?: () => void;
 }) {
-  const { site } = useContent();
+  const { site, routes } = useContent();
   const content = site.empty[kind];
   return (
     <div className="empty-state" data-entrance>
@@ -243,7 +244,7 @@ export function EmptyState({
           <ArrowRight size={18} aria-hidden="true" />
         </button>
       ) : (
-        <TextLink to="/programmes">Explore our programme areas</TextLink>
+        <TextLink to={routes.programmes}>Explore our programme areas</TextLink>
       )}
     </div>
   );
@@ -277,7 +278,7 @@ export function CTA({
   title?: string;
   text?: string;
 }) {
-  const { site } = useContent();
+  const { site, routes } = useContent();
   const title = suppliedTitle ?? site.home.finalTitle;
   const text = suppliedText ?? site.home.finalText;
   return (
@@ -289,7 +290,7 @@ export function CTA({
             <h2>{title}</h2>
             <p>{text}</p>
           </div>
-          <ButtonLink to="/get-involved" variant="lemon">
+          <ButtonLink to={routes.getInvolved} variant="lemon">
             Find your way to help
           </ButtonLink>
           <BrandAsterisk className="cta-flower" />
