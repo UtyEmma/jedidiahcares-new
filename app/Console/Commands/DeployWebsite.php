@@ -204,7 +204,7 @@ class DeployWebsite extends Command
         $steps[] = ['Run pending database migrations', ['migrate', ['--force' => true]]];
         $steps[] = ['Seed all collections, SEO and general settings without overwriting edits', $this->option('without-media')
             ? ['cms:import-content', ['--without-media' => true]] : ['db:seed', ['--force' => true]]];
-        $steps[] = ['Optimize existing CMS images with private backups', ['cms:optimize-images']];
+        // $steps[] = ['Optimize existing CMS images with private backups', ['cms:optimize-images']];
         $steps[] = ['Prepare the public storage link (CMS originals stay private)', 'storage'];
         $steps[] = ['Publish Filament assets', ['filament:assets']];
         $steps[] = ['Remove development asset pointer in production', 'production-assets'];
