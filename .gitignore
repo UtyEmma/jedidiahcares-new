@@ -25,4 +25,6 @@ coverage/
 /storage/framework/cache/data/*
 /storage/framework/sessions/*
 /storage/framework/views/*
+/storage/framework/cms-image-locks/
+/public/storage
 /database/*.sqlite*

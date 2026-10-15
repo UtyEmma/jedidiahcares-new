@@ -206,6 +206,7 @@ class DeployWebsite extends Command
             ? ['cms:import-content', ['--without-media' => true]] : ['db:seed', ['--force' => true]]];
         // $steps[] = ['Optimize existing CMS images with private backups', ['cms:optimize-images']];
         $steps[] = ['Prepare the public storage link (CMS originals stay private)', 'storage'];
+        $steps[] = ['Save published image and thumbnail files for direct delivery', ['cms:sync-public-images']];
         $steps[] = ['Publish Filament assets', ['filament:assets']];
         $steps[] = ['Remove development asset pointer in production', 'production-assets'];
         foreach (['config:cache', 'event:cache', 'route:cache', 'view:cache', 'filament:optimize'] as $command) {
@@ -213,7 +214,7 @@ class DeployWebsite extends Command
         }
 
         $steps[] = ['Generate website site map', ['app:generate-sitemap']];
-        
+
         if (! $this->option('skip-reload')) {
             $steps[] = ['Signal queue workers to restart', ['queue:restart']];
             $steps[] = ['Interrupt the previous scheduler run', ['schedule:interrupt']];

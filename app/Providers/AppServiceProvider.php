@@ -7,18 +7,21 @@ use App\Models\ContentEntry;
 use App\Models\SeoSetting;
 use App\Models\SiteSetting;
 use App\Models\User;
+use App\Observers\CmsPublicImagesObserver;
 use App\Policies\CmsMediaPolicy;
 use App\Policies\ContentEntryPolicy;
 use App\Policies\SeoSettingPolicy;
 use App\Policies\SiteSettingPolicy;
 use App\Policies\UserPolicy;
 use App\Support\CmsImageOptimizer;
+use App\Support\CmsPublicImages;
 use BladeUI\Icons\Factory;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\ValidationException;
+use Spatie\MediaLibrary\Conversions\Events\ConversionHasBeenCompletedEvent;
 use Spatie\MediaLibrary\MediaCollections\Events\MediaHasBeenAddedEvent;
 use Throwable;
 
@@ -43,6 +46,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(ContentEntry::class, ContentEntryPolicy::class);
         Gate::policy(CmsMedia::class, CmsMediaPolicy::class);
         Gate::policy(User::class, UserPolicy::class);
+        foreach ([CmsMedia::class, ContentEntry::class, SiteSetting::class] as $model) {
+            $model::observe(CmsPublicImagesObserver::class);
+        }
         // Fires after local/chunked uploads are copied, before thumbnail generation.
         Event::listen(MediaHasBeenAddedEvent::class, function (MediaHasBeenAddedEvent $event): void {
             $media = $event->media;
@@ -60,6 +66,12 @@ class AppServiceProvider extends ServiceProvider
                 };
                 $media->forceDelete();
                 throw ValidationException::withMessages(['data.'.$field => 'This image could not be processed. Use a valid JPEG, PNG or WebP up to 10 MB with smaller image dimensions.']);
+            }
+            $media->getConnection()->afterCommit(fn () => app(CmsPublicImages::class)->syncTree($media));
+        });
+        Event::listen(ConversionHasBeenCompletedEvent::class, function (ConversionHasBeenCompletedEvent $event): void {
+            if ($event->media instanceof CmsMedia) {
+                $event->media->getConnection()->afterCommit(fn () => app(CmsPublicImages::class)->syncTree($event->media));
             }
         });
     }

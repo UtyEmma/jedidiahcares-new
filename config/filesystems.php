@@ -30,6 +30,14 @@ return [
 
     'disks' => [
 
+        'cms_images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/images'),
+            'url' => rtrim(env('APP_URL', 'http://localhost'), '/').'/storage/images',
+            'visibility' => 'public',
+            'throw' => true,
+        ],
+
         'cms' => [
             'driver' => 'local',
             'root' => env('CMS_MEDIA_ROOT', storage_path('app/cms')),

@@ -131,7 +131,27 @@ Photo previews use the installed `lightbox.js-react` package, loaded only when a
 
 For a Lightbox.js licence, set `VITE_LIGHTBOX_LICENSE_KEY` and `VITE_LIGHTBOX_PLAN_TYPE` (`individual` or `team`) in the build environment, then rebuild. These are public client configuration values. The vendor describes its commercial and open-source licence options in the [Lightbox.js installation guide](https://www.getlightboxjs.com/docs/). No licence key is bundled or invented.
 
-Uploads and thumbnails are stored in the private `storage/app/cms` directory. `CMS_MEDIA_ROOT` can point to a persistent storage directory. `/media/{uuid}/{conversion}` checks current publication eligibility for every request; active authorised staff can preview drafts. Anonymous requests cannot retrieve draft, archived or hidden uploads. Video responses support byte ranges for seeking, and reports download as attachments. Media responses use `private, no-store` to enforce current access decisions.
+Full-size optimized images and their thumbnails are generated and saved on upload, not at page-load time. The private source files stay in `storage/app/cms` (`CMS_MEDIA_ROOT` may override that location). Eligible published image files are also saved into `storage/app/public/images/{uuid}` and served directly by the web server through Laravel's public storage symlink:
+
+```text
+/storage/images/{uuid}/photo.webp
+/storage/images/{uuid}/thumbnails/photo-thumb.webp
+```
+
+Set `APP_URL` to the correct website origin. For an existing installation, run:
+
+```sh
+php artisan config:clear
+php artisan storage:link
+php artisan cms:sync-public-images --dry-run
+php artisan cms:sync-public-images
+```
+
+The synchronization command repairs missing saved thumbnails, copies eligible public files, removes hidden/orphaned public copies and leaves unchanged files untouched. It does not re-encode full-size originals; `cms:optimize-images` remains available separately. Upload, conversion and content/media-save events synchronize public copies automatically after database commit, including video posters and branding images. Rolled-back edits do not publish files. Hiding, deactivating, archiving, trashing, consent withdrawal and deletion remove public copies while retaining any private originals that still belong to the record; restoring eligible records recreates them. UUID directories prevent collisions and public filenames are URL-safe. Existing public `/media/{uuid}/original` and `/thumb` image links redirect to the saved file.
+
+Draft image previews, videos, WebVTT and PDF downloads continue through `/media/{uuid}/{conversion}` with current staff/publication checks and `private, no-store` responses. Anonymous users cannot retrieve unpublished files; video byte-range seeking and report attachments remain supported. The private CMS disk is never linked publicly. Only published image copies belong in the public disk.
+
+Apache/LiteSpeed receives `Cache-Control: public, max-age=0, must-revalidate` and `nosniff` rules for `/storage/images/` in `public/.htaccess`. For Nginx/CDN hosting, configure equivalent revalidation and do not retain withdrawn images in an independent edge cache. Preserve both `storage/app/cms` and `storage/app/public` between releases. The public image copies can be rebuilt from the private source and database with `cms:sync-public-images`; already downloaded copies cannot be recalled from visitors' devices. Direct database/bulk SQL edits bypass model events, so run the synchronization command after those operations.
 
 ## SEO without changing page design
 
@@ -145,7 +165,7 @@ Indexing is enabled by default. The site-settings migration removes the old laun
 
 Only active administrators can view or save these screens, including through direct URLs and subsequent Livewire requests. Editors retain their existing content/SEO permissions.
 
-**General & Brand** sets the full site/organisation name, compact name, tagline, default description, primary/accent colours, public email, telephone, office address and six HTTPS social profile links. Blank contact/social fields disappear from the public interface. Page-specific SEO descriptions and social-image overrides take priority over general defaults. The main logo, optional footer logo, favicon and default social image use private CMS uploads with public controlled URLs and automatic WebP optimization. Removing an upload restores the bundled default; an absent footer logo uses the main logo. Keep a dark primary and a light contrasting accent to retain legible controls.
+**General & Brand** sets the full site/organisation name, compact name, tagline, default description, primary/accent colours, public email, telephone, office address and six HTTPS social profile links. Blank contact/social fields disappear from the public interface. Page-specific SEO descriptions and social-image overrides take priority over general defaults. The main logo, optional footer logo, favicon and default social image use private CMS sources, saved public image-file URLs and automatic WebP optimization. Removing an upload restores the bundled default; an absent footer logo uses the main logo. Keep a dark primary and a light contrasting accent to retain legible controls.
 
 **Scripts** accepts complete trusted HTML/JavaScript tags up to 100,000 characters in each location. Header code is placed immediately before `</head>` and footer code before `</body>` on public pages. The enable toggle pauses both locations without deleting their contents. These fields are executable administrator configuration, not sanitized editorial text. They are not rendered on admin pages or serialized in public Inertia props. Integrations execute once per document load; subscribe to Inertia navigation events when tracking later page visits.
 
@@ -164,7 +184,7 @@ php artisan cms:deploy --force
 php artisan cms:deploy --force --create-admin
 ```
 
-The command enters maintenance mode before replacing installed dependencies or build assets, installs locked Composer production dependencies and npm build dependencies, builds client/SSR assets, clears bootstrap caches, generates a key only when absent, applies pending migrations and runs all collection/SEO/site seeders. It then optimizes existing images with private backups, creates the configured public storage link, publishes Filament assets, caches configuration/events/routes/views/Filament metadata, and signals queue workers, scheduler and SSR to restart. The CMS media disk is never publicly symlinked. Add `--create-admin` to run `cms:create-admin` after deployment succeeds and maintenance owned by this run has ended. It uses a fresh PHP process with the deployed configuration and private terminal prompts; no account/password is seeded. File imports stay offline, report missing sources and preserve successful imports and subsequent CMS edits.
+The command enters maintenance mode before replacing installed dependencies or build assets, installs locked Composer production dependencies and npm build dependencies, builds client/SSR assets, clears bootstrap caches, generates a key only when absent, applies pending migrations and runs all collection/SEO/site seeders. It then creates the configured public storage link, synchronizes saved public image/thumbnail files, publishes Filament assets, caches configuration/events/routes/views/Filament metadata, and signals queue workers, scheduler and SSR to restart. The existing full-size image optimization deployment step remains disabled; uploads still optimize automatically and `cms:optimize-images` can be run separately for backfills. The private CMS source disk is never publicly symlinked. Add `--create-admin` to run `cms:create-admin` after deployment succeeds and maintenance owned by this run has ended. It uses a fresh PHP process with the deployed configuration and private terminal prompts; no account/password is seeded. File imports stay offline, report missing sources and preserve successful imports and subsequent CMS edits.
 
 - `--skip-dependencies`: use installed dependencies. Required for the local verification workflow or prepared CI artifacts.
 - `--skip-build`: require existing client and SSR artifacts. Combine with `--skip-dependencies` when the target has no Node build tools.

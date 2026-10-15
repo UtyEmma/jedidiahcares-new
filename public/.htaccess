@@ -1,3 +1,12 @@
+<IfModule mod_setenvif.c>
+    SetEnvIf Request_URI "^/storage/images/" cms_published_image=1
+</IfModule>
+<IfModule mod_headers.c>
+    # Revalidate saved images so withdrawn public files are not served from a fresh cache.
+    Header set Cache-Control "public, max-age=0, must-revalidate" env=cms_published_image
+    Header set X-Content-Type-Options "nosniff" env=cms_published_image
+</IfModule>
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes

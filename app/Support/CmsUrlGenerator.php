@@ -9,12 +9,17 @@ class CmsUrlGenerator extends DefaultUrlGenerator
 {
     public function getUrl(): string
     {
+        $publicUrl = app(CmsPublicImages::class)->url($this->media, $this->conversion?->getName() ?? '');
+        if ($publicUrl) {
+            return $publicUrl;
+        }
+
         return route('cms.media', ['media' => $this->media->uuid, 'conversion' => $this->conversion?->getName() ?? 'original']);
     }
 
     public function getTemporaryUrl(DateTimeInterface $expiration, array $options = []): string
     {
-        // Every request checks current publication and staff access, including previews.
+        // Drafts retain authenticated previews; published images use saved public files.
         return $this->getUrl();
     }
 }
