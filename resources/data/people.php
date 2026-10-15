@@ -38,7 +38,7 @@ return [
         'role' => 'Executive Director',
         'group' => 'leadership',
         'socialLinks' => [
-            'linkedin' => '',
+            'linkedin' => 'https://ng.linkedin.com/in/agozie-ubesie-62aa2a39',
             'facebook' => '',
             'instagram' => '',
             'x' => '',
@@ -67,7 +67,7 @@ return [
         'group' => 'leadership',
         'socialLinks' => [
             'linkedin' => '',
-            'facebook' => '',
+            'facebook' => 'https://www.facebook.com/revdchukwubuike.john/',
             'instagram' => '',
             'x' => '',
             'youtube' => '',
@@ -93,7 +93,7 @@ return [
         'role' => 'Board Member',
         'group' => 'leadership',
         'socialLinks' => [
-            'linkedin' => '',
+            'linkedin' => 'https://www.linkedin.com/in/ebes-aziegbe-esho-phd-2915291b/',
             'facebook' => '',
             'instagram' => '',
             'x' => '',
