@@ -5,7 +5,7 @@ These files are the local source bundle for database seeding. Include this direc
 The CMS copy is automatically resized and encoded as WebP during import (1920-pixel maximum edge, quality 82; smaller 640-pixel thumbnails). These source files and their manifest checksums remain unchanged. Generated image flags, credits and consent metadata are retained.
 
 ```text
-people/                         2 available member portraits
+people/                         3 bundled member portraits
 programmes/                     4 existing AI-generated programme images
 projects/                       2 project campaign images
 stories/                        1 story cover
@@ -15,7 +15,9 @@ galleries/
   women-empowerment/                       20 photos
 ```
 
-The bundle contains 78 images (about 31 MiB). Original source URLs, actual file types, byte sizes and SHA-256 checksums are retained in the manifest. Source URLs are provenance: normal database seeding does not fetch them. Generated programme imagery retains its generated/representative metadata and is not used as documentary gallery content.
+The bundle contains 79 images (about 31 MiB). Original source URLs, actual file types, byte sizes and SHA-256 checksums are retained in the manifest. Source URLs are provenance: normal database seeding does not fetch them. Generated programme imagery retains its generated/representative metadata and is not used as documentary gallery content.
+
+Bubechiuzo Ubesie's volunteer portrait was supplied by the website owner on 21 October 2026. Its JPEG source is preserved in `people/bubechiuzo-ubesie.jpg`; the public default is an optimised WebP in `public/images/team/`. No email address or social accounts have been supplied for this member.
 
 Seed with the usual commands:
 

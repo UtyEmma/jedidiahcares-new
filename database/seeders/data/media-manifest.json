@@ -858,6 +858,17 @@
             "mimeType": "image/jpeg",
             "bytes": 456275,
             "sha256": "8c115699152d4928423c1266f201ffe3e25572f098af33e2423ce1c44b91558d"
+        },
+        "fb5b3c09f20531f3a71397ffb865a3213c89a3f87d473512ad3e6f8c56a53ecb": {
+            "collection": "people",
+            "record": "39e102bb-5ad2-42e4-8d25-2f4a96344648",
+            "title": "Bubechiuzo Ubesie",
+            "mediaCollection": "cover",
+            "source": "/images/team/bubechiuzo-ubesie.webp",
+            "path": "people/bubechiuzo-ubesie.jpg",
+            "mimeType": "image/jpeg",
+            "bytes": 74627,
+            "sha256": "53b75a54cc3a2e5da69924d009e8eed4860cf03164149900b6538b40947d5137"
         }
     },
     "missing": {
