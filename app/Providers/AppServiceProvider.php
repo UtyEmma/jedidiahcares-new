@@ -46,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(ContentEntry::class, ContentEntryPolicy::class);
         Gate::policy(CmsMedia::class, CmsMediaPolicy::class);
         Gate::policy(User::class, UserPolicy::class);
-        foreach ([CmsMedia::class, ContentEntry::class, SiteSetting::class] as $model) {
+        foreach ([CmsMedia::class, ContentEntry::class, SiteSetting::class, SeoSetting::class] as $model) {
             $model::observe(CmsPublicImagesObserver::class);
         }
         // Fires after local/chunked uploads are copied, before thumbnail generation.
@@ -64,6 +64,9 @@ class AppServiceProvider extends ServiceProvider
                     'logo' => 'logoUpload', 'footer-logo' => 'footerLogoUpload', 'favicon' => 'faviconUpload', 'social-image' => 'socialImageUpload',
                     default => 'coverUpload'
                 };
+                if ($media->model instanceof SeoSetting && str_starts_with($media->collection_name, 'page-')) {
+                    $field = 'pageImage_'.substr($media->collection_name, strlen('page-'));
+                }
                 $media->forceDelete();
                 throw ValidationException::withMessages(['data.'.$field => 'This image could not be processed. Use a valid JPEG, PNG or WebP up to 10 MB with smaller image dimensions.']);
             }

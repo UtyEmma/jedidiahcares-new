@@ -22,7 +22,7 @@ class GeneralSettings extends SettingsPage
 
     protected static ?int $navigationSort = 1;
 
-    protected ?string $subheading = 'Manage the identity and contact details used across the website. Page layouts and editorial copy stay in code.';
+    protected ?string $subheading = 'Manage the identity and contact details used across the website. Edit section content under Pages; page layouts stay in code.';
 
     public function form(Schema $schema): Schema
     {

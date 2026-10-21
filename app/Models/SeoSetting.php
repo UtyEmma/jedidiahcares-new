@@ -2,27 +2,36 @@
 
 namespace App\Models;
 
+use App\Support\CmsImageOptimizer;
+use App\Support\PageContentSchema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
+use Spatie\Image\Enums\Fit;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\File;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class SeoSetting extends Model
+class SeoSetting extends Model implements HasMedia
 {
-    protected $fillable = ['path', 'title', 'description', 'site_url', 'canonical_url', 'social_image', 'indexing_enabled', 'indexable'];
+    use InteractsWithMedia;
+
+    protected $fillable = ['path', 'title', 'description', 'site_url', 'canonical_url', 'social_image', 'indexing_enabled', 'indexable', 'content'];
 
     protected function casts(): array
     {
-        return ['indexing_enabled' => 'boolean', 'indexable' => 'boolean'];
+        return ['indexing_enabled' => 'boolean', 'indexable' => 'boolean', 'content' => 'array'];
     }
 
     public static function pageLabels(): array
     {
         $labels = ['global' => 'Site-wide SEO'];
-        foreach (config('website.pages') as $page) {
-            $labels[$page['uri']] = $page['title'];
+        foreach (config('website.pages') as $key => $page) {
+            $labels[$page['uri']] = $key === 'home' ? 'Home' : $page['title'];
         }
         foreach (config('website.policies') as $slug => $page) {
             $labels['/'.$slug] = $page['title'];
@@ -34,6 +43,7 @@ class SeoSetting extends Model
     protected static function booted(): void
     {
         static::saving(function (self $setting): void {
+            app(PageContentSchema::class)->validate($setting->path, $setting->content ?? []);
             Validator::make($setting->attributesToArray(), [
                 'path' => ['required', Rule::in(array_keys(self::pageLabels())), Rule::unique('seo_settings')->ignore($setting->id)],
                 'title' => 'nullable|string|max:255', 'description' => 'nullable|string|max:500',
@@ -65,5 +75,21 @@ class SeoSetting extends Model
     public function editor(): BelongsTo
     {
         return $this->belongsTo(User::class, 'updated_by');
+    }
+
+    public function registerMediaCollections(): void
+    {
+        foreach (array_keys(app(PageContentSchema::class)->imageSlots($this->path ?? '')) as $slot) {
+            $this->addMediaCollection('page-'.$slot)->useDisk('cms')->singleFile()
+                ->acceptsFile(fn (File $file) => in_array($file->mimeType, CmsImageOptimizer::MIME_TYPES, true) && $file->size <= config('cms-media.max_upload_bytes'));
+        }
+    }
+
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        if ($media && in_array($media->mime_type, CmsImageOptimizer::MIME_TYPES, true)) {
+            $this->addMediaConversion('thumb')->fit(Fit::Max, config('cms-media.thumbnail_size'), config('cms-media.thumbnail_size'))
+                ->quality(config('cms-media.thumbnail_quality'))->format('webp')->nonQueued();
+        }
     }
 }

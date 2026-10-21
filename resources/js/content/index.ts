@@ -29,6 +29,7 @@ export interface WebsiteContent {
   };
   pages: Record<string, PageCopy>;
   ui: InterfaceCopy;
+  sections: Record<string, Record<string, string>>;
   programmes: Programme[];
   projects: Project[];
   stories: Story[];

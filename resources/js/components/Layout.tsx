@@ -8,6 +8,7 @@ import { ArrowUpRight, ChevronDown, Heart, Menu, X } from './icons';
 
 import { ButtonLink } from './UI';
 import { ContactLinks, SocialLinks } from './ContactLinks';
+import { ContentLink } from './ContentLink';
 import { ScrollToTop } from './ScrollToTop';
 import { useEntranceMotion } from '../hooks/useEntranceMotion';
 function NavGroup({ item }: { item: NavItem }) {
@@ -135,10 +136,10 @@ function Header() {
           <ContactLinks compact />
           <div className="utility-actions">
             <SocialLinks />
-            <Link className="utility-cta" href={site.topBar.ctaHref}>
+            <ContentLink className="utility-cta" href={site.topBar.ctaHref}>
               {site.topBar.ctaLabel}
               <ArrowUpRight size={20} aria-hidden="true" />
-            </Link>
+            </ContentLink>
           </div>
         </div>
       </div>

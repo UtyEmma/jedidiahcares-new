@@ -23,7 +23,9 @@ import {
   TextLink,
 } from '../../components/UI';
 export default function HomePage() {
-  const { site, ui, programmes, projects, metrics, stories, events, routes } = useContent();
+  const { site, ui, programmes, projects, metrics, stories, events, routes, sections } =
+    useContent();
+  const labels = sections['home'];
   const educationProgramme = programmes.find((programme) => programme.id === 'education');
   const now = useEventTime();
   const upcomingEvents = filterEvents(events, '', 'upcoming', '', now).slice(0, 3);
@@ -45,9 +47,9 @@ export default function HomePage() {
             </h1>
             <p>{copy.heroText}</p>
             <div className="hero-actions">
-              <ButtonLink to={routes.programmes}>Explore our work</ButtonLink>
-              <ButtonLink to={routes.getInvolved} variant="outline">
-                Get involved
+              <ButtonLink to={labels.workHref}>{labels.workButton}</ButtonLink>
+              <ButtonLink to={labels.involvedHref} variant="outline">
+                {labels.involvedButton}
               </ButtonLink>
             </div>
             <a className="scroll-cue" href="#our-purpose">
@@ -87,7 +89,7 @@ export default function HomePage() {
           </div>
           <div className="intro-copy" data-entrance>
             <p>{copy.introText}</p>
-            <TextLink to={routes.about}>Meet our organisation</TextLink>
+            <TextLink to={routes.about}>{labels.aboutButton}</TextLink>
             <div className="intro-footnote">
               <span aria-hidden="true" />
               <p>
@@ -106,7 +108,7 @@ export default function HomePage() {
             eyebrow={copy.programmeEyebrow}
             title={copy.programmeHeadline}
             text={copy.programmeText}
-            action={{ label: 'All programmes', to: routes.programmes }}
+            action={{ label: labels.programmesButton, to: routes.programmes }}
           />
           <div className="home-programme-layout">
             <div className="programme-note">
@@ -114,7 +116,7 @@ export default function HomePage() {
               <p className="small-label">{ui.home.programmeNoteEyebrow}</p>
               <h3>{ui.home.programmeNoteTitle}</h3>
               <p>{ui.home.programmeNoteText}</p>
-              <Link href={routes.programmes} aria-label="Discover our four programme areas">
+              <Link href={routes.programmes} aria-label={labels.programmeLinkLabel}>
                 <ArrowUpRight size={27} aria-hidden="true" />
               </Link>
             </div>
@@ -137,10 +139,10 @@ export default function HomePage() {
             <p>{copy.featureText}</p>
             <div className="feature-detail">
               <Icon name="book" size={28} />
-              <span>Education & Scholarships</span>
+              <span>{labels.featureLabel}</span>
             </div>
             <ButtonLink to={educationProgramme?.detailUrl ?? routes.programmes}>
-              Discover education support
+              {labels.featureButton}
             </ButtonLink>
           </div>
         </div>
@@ -149,9 +151,9 @@ export default function HomePage() {
         <section className="section">
           <div className="max-w-7xl mx-auto container">
             <SectionHeading
-              eyebrow="PROJECTS & CAMPAIGNS"
-              title="A purpose behind every project."
-              action={{ label: 'Explore projects', to: routes.projects }}
+              eyebrow={labels.projectsEyebrow}
+              title={labels.projectsTitle}
+              action={{ label: labels.projectsButton, to: routes.projects }}
             />
             <div className="cards-grid">
               {projects.slice(0, 3).map((item) => (
@@ -167,7 +169,7 @@ export default function HomePage() {
             <Eyebrow>{copy.evidenceEyebrow}</Eyebrow>
             <h2>{copy.evidenceTitle}</h2>
             <p>{copy.evidenceText}</p>
-            <TextLink to={routes.reports}>Our approach to impact</TextLink>
+            <TextLink to={routes.reports}>{labels.impactButton}</TextLink>
           </div>
           <div className="evidence-note">
             <ShieldCheck size={44} weight="regular" aria-hidden="true" />
@@ -178,7 +180,7 @@ export default function HomePage() {
             </h3>
             <p>{ui.home.evidenceNoteText}</p>
             <div className="evidence-rule" />
-            <TextLink to={routes.projects}>Explore our projects</TextLink>
+            <TextLink to={routes.projects}>{labels.evidenceButton}</TextLink>
           </div>
         </div>
         {metrics.length > 0 && (
@@ -201,9 +203,9 @@ export default function HomePage() {
         <section className="section">
           <div className="max-w-7xl mx-auto container">
             <SectionHeading
-              eyebrow="STORIES & UPDATES"
-              title="A closer look at compassion in action."
-              action={{ label: 'All stories', to: routes.stories }}
+              eyebrow={labels.storiesEyebrow}
+              title={labels.storiesTitle}
+              action={{ label: labels.storiesButton, to: routes.stories }}
             />
             <div className="cards-grid">
               {stories.slice(0, 3).map((item) => (
@@ -217,9 +219,9 @@ export default function HomePage() {
         <section className="section">
           <div className="max-w-7xl mx-auto container">
             <SectionHeading
-              eyebrow="COME TOGETHER"
-              title="Upcoming opportunities."
-              action={{ label: 'All events', to: routes.events }}
+              eyebrow={labels.eventsEyebrow}
+              title={labels.eventsTitle}
+              action={{ label: labels.eventsButton, to: routes.events }}
             />
             <div className="cards-grid">
               {upcomingEvents.map((item) => (

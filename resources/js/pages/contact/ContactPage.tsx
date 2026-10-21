@@ -8,7 +8,8 @@ import { EmailComposer } from '../../components/Actions';
 import { Eyebrow, Icon, PageHero, TextLink } from '../../components/UI';
 
 export default function ContactPage() {
-  const { site, pages, ui, routes } = useContent();
+  const { site, pages, ui, routes, sections } = useContent();
+  const labels = sections['contact'];
   const location = usePageLocation();
   const search = new URLSearchParams(location.search);
   const requested = search.get('topic') ?? 'General enquiry';
@@ -19,13 +20,13 @@ export default function ContactPage() {
       <PageHero
         title={pages.contact.headline!}
         text={pages.contact.fields['Intro']}
-        eyebrow="LET’S CONNECT"
-        current="Contact"
+        eyebrow={labels.heroEyebrow}
+        current={labels.heroCurrent}
       />
       <section className="section">
         <div className="max-w-7xl mx-auto container contact-grid">
           <div>
-            <Eyebrow>THE START OF SOMETHING MEANINGFUL</Eyebrow>
+            <Eyebrow>{labels.introEyebrow}</Eyebrow>
             <h2>
               {ui.contact.title[0]}
               <br />
@@ -65,9 +66,9 @@ export default function ContactPage() {
             </div>
             <SocialMessaging />
             <div className="contact-paths">
-              <TextLink to={routes.programmes}>Explore programme information</TextLink>
-              <TextLink to={routes.partner}>Learn about partnerships</TextLink>
-              <TextLink to={routes.volunteers}>Find your volunteering path</TextLink>
+              <TextLink to={routes.programmes}>{labels.programmesButton}</TextLink>
+              <TextLink to={routes.partner}>{labels.partnerButton}</TextLink>
+              <TextLink to={routes.volunteers}>{labels.volunteersButton}</TextLink>
             </div>
           </div>
           <EmailComposer key={topic} topic={topic} />

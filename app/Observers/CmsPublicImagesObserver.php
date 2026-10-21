@@ -4,13 +4,14 @@ namespace App\Observers;
 
 use App\Models\CmsMedia;
 use App\Models\ContentEntry;
+use App\Models\SeoSetting;
 use App\Models\SiteSetting;
 use App\Support\CmsPublicImages;
 use Illuminate\Contracts\Events\ShouldHandleEventsAfterCommit;
 
 class CmsPublicImagesObserver implements ShouldHandleEventsAfterCommit
 {
-    public function saved(CmsMedia|ContentEntry|SiteSetting $record): void
+    public function saved(CmsMedia|ContentEntry|SiteSetting|SeoSetting $record): void
     {
         $publisher = app(CmsPublicImages::class);
         if ($record instanceof CmsMedia) {
@@ -23,7 +24,7 @@ class CmsPublicImagesObserver implements ShouldHandleEventsAfterCommit
         }
     }
 
-    public function deleted(CmsMedia|ContentEntry|SiteSetting $record): void
+    public function deleted(CmsMedia|ContentEntry|SiteSetting|SeoSetting $record): void
     {
         $publisher = app(CmsPublicImages::class);
         if ($record instanceof CmsMedia) {

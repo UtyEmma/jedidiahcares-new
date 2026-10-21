@@ -35,7 +35,14 @@ export default function PolicyContent({ policySlug }: { policySlug: string }) {
           <aside>
             <Eyebrow>POLICIES & INFORMATION</Eyebrow>
             {Object.entries(policyTitles).map(([href, label]) => (
-              <TextLink to={`/${href}`} key={href}>
+              <TextLink
+                to={
+                  href === 'donation-terms'
+                    ? routes.donationTerms
+                    : routes[href as 'privacy' | 'safeguarding' | 'accessibility']
+                }
+                key={href}
+              >
                 {label}
               </TextLink>
             ))}
@@ -101,7 +108,7 @@ export default function PolicyContent({ policySlug }: { policySlug: string }) {
                       </a>
                     )}
                     <ButtonLink
-                      to={`/contact?topic=${encodeURIComponent(policy.contact.topic)}`}
+                      to={`${routes.contact}?topic=${encodeURIComponent(policy.contact.topic)}`}
                       variant="outline"
                     >
                       {policy.contact.label}

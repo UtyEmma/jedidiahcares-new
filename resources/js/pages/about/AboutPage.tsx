@@ -5,7 +5,8 @@ import { Photo } from '../../components/Photo';
 import { FounderNote } from '../../components/FounderNote';
 import { ButtonLink, CTA, Eyebrow, PageHero, SectionHeading, TextLink } from '../../components/UI';
 export default function AboutPage() {
-  const { pages, ui, site, routes } = useContent();
+  const { pages, ui, site, routes, sections } = useContent();
+  const labels = sections['about'];
   const copy = pages.about;
   return (
     <>
@@ -13,15 +14,15 @@ export default function AboutPage() {
       <PageHero
         title={copy.headline!}
         text={copy.fields['Founding Narrative']}
-        eyebrow="OUR STORY"
-        current="About us"
+        eyebrow={labels.heroEyebrow}
+        current={labels.heroCurrent}
         photo="community"
       />
       <FounderNote />
       <section className="section">
         <div className="max-w-7xl mx-auto container about-intro">
           <div>
-            <Eyebrow>CARE THAT OPENS DOORS</Eyebrow>
+            <Eyebrow>{labels.introEyebrow}</Eyebrow>
             <h2>
               {ui.about.introTitle[0]}
               <br />
@@ -31,19 +32,19 @@ export default function AboutPage() {
           <div>
             <p className="lead">{copy.fields['Who We Serve']}</p>
             <p>{site.home.introText}</p>
-            <TextLink to={routes.programmes}>Explore our four programme areas</TextLink>
+            <TextLink to={routes.programmes}>{labels.programmesButton}</TextLink>
           </div>
         </div>
       </section>
       <section className="section mission-section" id="mission">
         <div className="max-w-7xl mx-auto container mission-grid">
           <div className="mission-panel">
-            <Eyebrow>OUR MISSION</Eyebrow>
+            <Eyebrow>{labels.missionEyebrow}</Eyebrow>
             <h2>{ui.about.missionTitle}</h2>
             <p>{site.about.mission}</p>
           </div>
           <div className="vision-panel">
-            <Eyebrow>OUR VISION</Eyebrow>
+            <Eyebrow>{labels.visionEyebrow}</Eyebrow>
             <blockquote>“{site.about.vision}”</blockquote>
             <p>{site.about.visionStatus}</p>
           </div>
@@ -52,7 +53,7 @@ export default function AboutPage() {
       <section className="section">
         <div className="max-w-7xl mx-auto container">
           <SectionHeading
-            eyebrow="WHAT GUIDES US"
+            eyebrow={labels.valuesEyebrow}
             title={ui.about.valuesTitle}
             text={ui.about.valuesText}
           />
@@ -71,7 +72,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto container split-grid">
           <Photo id="care" />
           <div>
-            <Eyebrow>OUR APPROACH</Eyebrow>
+            <Eyebrow>{labels.approachEyebrow}</Eyebrow>
             <h2>{ui.about.approachTitle}</h2>
             <p>{copy.fields['Our Approach']}</p>
             <ol className="steps">
@@ -82,8 +83,8 @@ export default function AboutPage() {
                 </li>
               ))}
             </ol>
-            <ButtonLink to={routes.partner}>Explore a partnership</ButtonLink>
-            <TextLink to={routes.team}>The people behind the mission</TextLink>
+            <ButtonLink to={routes.partner}>{labels.partnerButton}</ButtonLink>
+            <TextLink to={routes.team}>{labels.teamButton}</TextLink>
           </div>
         </div>
       </section>

@@ -19,6 +19,7 @@ import {
 
 import { Art } from './Art';
 import { Photo } from './Photo';
+import { ContentLink } from './ContentLink';
 import { BrandAsterisk } from './BrandAsterisk';
 import { Button } from './ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
@@ -54,10 +55,10 @@ export function ButtonLink({
       variant={variant === 'lemon' ? 'secondary' : variant === 'outline' ? 'outline' : 'default'}
       className={`button button-${variant} ${className}`}
     >
-      <Link href={to}>
+      <ContentLink href={to}>
         {children}
         <ArrowUpRight size={19} aria-hidden="true" />
-      </Link>
+      </ContentLink>
     </Button>
   );
 }
@@ -71,10 +72,10 @@ export function TextLink({
   className?: string;
 }) {
   return (
-    <Link className={`text-link ${className}`} href={to}>
+    <ContentLink className={`text-link ${className}`} href={to}>
       {children}
       <ArrowRight size={18} aria-hidden="true" />
-    </Link>
+    </ContentLink>
   );
 }
 export function Eyebrow({ children }: { children: ReactNode }) {
@@ -278,7 +279,7 @@ export function CTA({
   title?: string;
   text?: string;
 }) {
-  const { site, routes } = useContent();
+  const { site, sections } = useContent();
   const title = suppliedTitle ?? site.home.finalTitle;
   const text = suppliedText ?? site.home.finalText;
   return (
@@ -286,12 +287,12 @@ export function CTA({
       <div className="max-w-7xl mx-auto container">
         <div className="cta-band" data-entrance>
           <div>
-            <Eyebrow>COMPASSION INTO ACTION</Eyebrow>
+            <Eyebrow>{sections.shared.ctaEyebrow}</Eyebrow>
             <h2>{title}</h2>
             <p>{text}</p>
           </div>
-          <ButtonLink to={routes.getInvolved} variant="lemon">
-            Find your way to help
+          <ButtonLink to={sections.shared.ctaHref} variant="lemon">
+            {sections.shared.ctaButton}
           </ButtonLink>
           <BrandAsterisk className="cta-flower" />
         </div>

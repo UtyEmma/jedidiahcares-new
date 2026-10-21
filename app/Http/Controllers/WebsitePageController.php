@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\PageContentSchema;
 use App\Support\WebsiteContent;
 use App\Support\WebsiteSettings;
 use Illuminate\Http\Request;
@@ -11,7 +12,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class WebsitePageController extends Controller
 {
-    public function __construct(private WebsiteContent $content) {}
+    public function __construct(private WebsiteContent $content)
+    {
+        $this->content->forPage(PageContentSchema::requestPath(request()));
+    }
 
     public function index(Request $request): Response
     {

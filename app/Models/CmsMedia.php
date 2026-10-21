@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Support\CmsSchema;
+use App\Support\PageContentSchema;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
@@ -44,6 +45,13 @@ class CmsMedia extends Media implements HasMedia
         }
         if ($owner instanceof SiteSetting) {
             return $owner->key === 'site' && in_array($this->collection_name, ['logo', 'footer-logo', 'favicon', 'social-image'], true);
+        }
+        if ($owner instanceof SeoSetting) {
+            $slots = app(PageContentSchema::class)->imageSlots($owner->path);
+            $slot = $slots[substr($this->collection_name, strlen('page-'))] ?? null;
+
+            return str_starts_with($this->collection_name, 'page-') && $slot
+                && filled(data_get($owner->content, $slot['alt'], data_get(app(PageContentSchema::class)->sources(), $slot['alt'])));
         }
         if (! $owner instanceof ContentEntry || ! array_key_exists($owner->collection, CmsSchema::COLLECTIONS) || $owner->trashed() || $owner->status !== 'published') {
             return false;

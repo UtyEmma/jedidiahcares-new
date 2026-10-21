@@ -1,5 +1,5 @@
 import { useContent } from '../content';
-import { Link } from '@inertiajs/react';
+import { ContentLink } from './ContentLink';
 import {
   Mail,
   Phone,
@@ -87,10 +87,10 @@ export function ContactLinks({
       {!email &&
         !phone &&
         (compact ? (
-          <Link href={site.topBar.contactHref}>
+          <ContentLink href={site.topBar.contactHref}>
             <Mail size={20} aria-hidden="true" />
             {site.topBar.contactLabel}
-          </Link>
+          </ContentLink>
         ) : (
           <p>{site.contact.unavailable}</p>
         ))}

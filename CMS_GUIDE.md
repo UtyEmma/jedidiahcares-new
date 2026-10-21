@@ -1,6 +1,6 @@
 # Managing Jedidiah Cares Global Outreach for Women, Youth and Children content
 
-The admin interface is available at `/admin`. It manages dynamic records, SEO and site settings. Static page copy, founder’s note, policy wording, navigation and visual layouts stay in PHP data and application code. Active administrators can manage general identity, brand assets/colours, contact/social details, custom scripts and robots.txt.
+The admin interface is available at `/admin`. It manages dynamic records, fixed page-section content, SEO and site settings. PHP data supplies the default copy; navigation and visual layouts stay in application code. Active administrators can manage general identity, brand assets/colours, contact/social details, custom scripts and robots.txt.
 
 ## First-time setup
 
@@ -46,7 +46,7 @@ php artisan cms:import-content --collection=projects --collection=stories
 php artisan cms:import-content --without-media
 ```
 
-Referenced source records are included automatically, and relationships are resolved after record creation. No staff accounts or passwords are seeded. Page copy, policies, navigation and design settings remain in PHP data/code.
+Referenced source records are included automatically, and relationships are resolved after record creation. No staff accounts or passwords are seeded. PHP supplies page/policy defaults; CMS page edits are preserved. Navigation and design settings remain in application code.
 
 Default images are bundled in `database/seeders/assets`, grouped into people, programmes, projects, stories and individual gallery folders. The current bundle contains 78 images: two portraits, four existing generated programme images, two project images, one story cover and 69 gallery photos. `seedImage`/`seedFile` references and `database/seeders/data/media-manifest.json` resolve sources locally. Original remote URLs remain as provenance; normal seeding never requests them. Actual file types, sizes, checksums and safe local paths are checked before files are copied to the private CMS disk with thumbnails. Include the source bundle and manifest in deployments.
 
@@ -86,7 +86,15 @@ Manage Our People, Programmes, Projects, Reports, Stories & Updates, Events, Gal
 - Event badges are calculated from the start/end times: Upcoming before the start, Ongoing through the end, and Past afterwards. When no end is supplied, the event remains ongoing until the end of its start day in the selected timezone. Status refreshes every 30 seconds while the page is open and when returning to the tab. Cards and event detail pages use the same status rules.
 - Partners require confirmed publication rights for their logos. Impact Metrics require a value, period, evidence source and verification before publishing.
 
-Static page wording and policies are maintained in `resources/data/site.php`, `pages.php`, `interface.php` and `policies.php`. Navigation stays in `navigation.php`. CMS site settings override only identity, branding, contact/social details and SEO defaults; they do not edit page sections or layouts. Retired page-copy/policy database records from the initial CMS implementation are retained but are not exposed or consumed.
+## Editing pages without changing the design
+
+Open **Website Settings → Pages**, select a page and use **Page content**, **Images** (where the template has photos), or **SEO**. The Content tab groups populated fields by the sections already visible on that page. Edit headings, descriptions, fixed lists/cards, button labels, supported destination links and alternative text. Home includes the hero's three lines, introductions, education feature, founder's note and partner invitations. About includes mission, vision, values and approach. Policy pages include their existing sections, paragraphs, bullet lists and contact invitations. Programme/project/person/event/story/gallery records still belong in their collection screens; page forms edit the surrounding page content.
+
+Saving publishes page edits immediately for both active administrators and editors. **Site-wide SEO → Shared content** manages shared founder/CTA/partner copy, involvement cards, footer/top-bar text and enquiry/empty-state introductions. A page's own fields can override these defaults for that page; editing Home's founder note does not change About's override. General identity, logos, contact details and social accounts remain in **General & Brand**.
+
+PHP defaults live in `resources/data/site.php`, `pages.php`, `interface.php`, `page-sections.php`, `media.php` and `policies.php`. Overrides retain that nested structure in the database, and only differences are stored. **Use default content** fills the text/link fields with inherited shared/PHP defaults; review and save to apply. Image and SEO overrides are independent. Removing an uploaded page photo restores the inherited/bundled image. Page images use the same private sources, saved public WebP files and thumbnails as other CMS uploads. JPEG, PNG and WebP up to 10 MB are accepted. Descriptive alternative text is required. Section image frames and cropping styles remain fixed.
+
+There are no layout/class/HTML/style controls, section builders, reordering, add/remove controls, icon selectors, font/colour controls or image-position controls on page forms. Existing list sizes and policy section/paragraph counts are fixed. Text renders as plain text; submitted design keys, unknown fields, extra indices and unsafe links are rejected by the server. Navigation stays in `navigation.php`. Retired page-copy/policy records from the initial CMS implementation are retained without automatically importing old copy. Run `php artisan migrate --force` for the new override column; content seeding does not overwrite saved edits. No frontend rebuild is needed after routine CMS content changes.
 
 PHP data is evaluated at runtime. The default SEO URL follows `APP_URL`; a site-wide CMS canonical URL takes priority. Navigation and React links use Laravel named routes, and detail URLs use current record slugs. PHP copy edits need no frontend rebuild. After changing route/configuration files, refresh the Laravel caches; production PHP workers may also need their OPcache refreshed. See the [PHP data guide](resources/data/README.md).
 
@@ -157,7 +165,7 @@ Apache/LiteSpeed receives `Cache-Control: public, max-age=0, must-revalidate` an
 
 ## SEO without changing page design
 
-Use **Website Settings → Pages** for site-wide defaults and the fixed public page entries. Select a page and edit its **Page title** to set the browser tab, search result and social preview title. The site-wide title suffix is appended automatically; leave the field blank to restore the default page title. Changes appear immediately after saving, without a frontend rebuild. These controls affect metadata, social previews, robots and sitemap output; they do not change visible headings, founder’s note, page copy, layout or navigation.
+Use the **SEO** tab under **Website Settings → Pages** for site-wide defaults and fixed public page entries. Edit **Page title** to set the browser tab, search result and social preview title. The site-wide title suffix is appended automatically; leave the field blank to restore the default page title. Changes appear immediately after saving. SEO controls affect metadata, social previews, robots and sitemap output; visible headings and section content are managed separately in **Page content**, while layout and navigation stay in code.
 
 The **Site-wide SEO** entry includes canonical website URL, title suffix, default description, social image and search indexing. Per-page values include page title, description, canonical override, social image and indexing eligibility. Blank overrides use the existing PHP defaults. A social image can be an HTTPS URL or a local path such as `/images/social-card.png`.
 

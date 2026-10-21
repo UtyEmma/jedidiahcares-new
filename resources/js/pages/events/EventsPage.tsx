@@ -9,7 +9,8 @@ import { SelectField } from '../../components/SelectField';
 import { EventCard } from '../../components/EventCard';
 
 export default function EventsPage() {
-  const { events, pages, programmes } = useContent();
+  const { events, pages, programmes, sections } = useContent();
+  const labels = sections['events'];
   const [search, setSearch] = useState('');
   const [status, setStatus] = useState('');
   const [programme, setProgramme] = useState('');
@@ -27,8 +28,8 @@ export default function EventsPage() {
       <PageHero
         title={pages.events.headline!}
         text={pages.events.fields['Intro']}
-        eyebrow="EVENTS & ACTIVITIES"
-        current="Events"
+        eyebrow={labels.heroEyebrow}
+        current={labels.heroCurrent}
       />
       <section className="section">
         <div className="max-w-7xl mx-auto container">

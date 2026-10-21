@@ -8,7 +8,8 @@ import { CTA, EmptyState, EntryCard, PageHero, SearchField } from '../../compone
 import { SelectField } from '../../components/SelectField';
 
 export default function StoriesPage() {
-  const { stories, pages } = useContent();
+  const { stories, pages, sections } = useContent();
+  const labels = sections['stories'];
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('');
   const [year, setYear] = useState('');
@@ -25,8 +26,8 @@ export default function StoriesPage() {
       <PageHero
         title={pages.stories.headline!}
         text={pages.stories.fields['Introduction']}
-        eyebrow="STORIES & UPDATES"
-        current="Stories"
+        eyebrow={labels.heroEyebrow}
+        current={labels.heroCurrent}
       />
       <section className="section">
         <div className="max-w-7xl mx-auto container">

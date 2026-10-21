@@ -6,7 +6,8 @@ import { Photo } from '../../components/Photo';
 import { ButtonLink, CTA, FAQList, Icon, PageHero } from '../../components/UI';
 
 export default function ProgrammesPage() {
-  const { pages, programmes, ui } = useContent();
+  const { pages, programmes, ui, sections } = useContent();
+  const labels = sections['programmes'];
   const copy = pages.programmes;
   return (
     <>
@@ -14,8 +15,8 @@ export default function ProgrammesPage() {
       <PageHero
         title={copy.headline!}
         text={copy.fields['Intro']}
-        eyebrow="OUR PROGRAMMES"
-        current="Our programmes"
+        eyebrow={labels.heroEyebrow}
+        current={labels.heroCurrent}
       />
       <section className="section">
         <div className="max-w-7xl mx-auto container programme-features">
@@ -24,7 +25,18 @@ export default function ProgrammesPage() {
               key={item.id}
               className={`programme-feature ${index % 2 ? 'programme-feature-reverse' : ''}`}
             >
-              {item.photoId ? <Photo id={item.photoId} /> : <Art variant={item.illustration} />}
+              {item.photoId || item.coverImage ? (
+                <Photo
+                  id={item.photoId ?? ''}
+                  image={
+                    item.coverImage
+                      ? { src: item.coverImage, alt: item.coverAlt ?? item.title }
+                      : undefined
+                  }
+                />
+              ) : (
+                <Art variant={item.illustration} />
+              )}
               <div>
                 <div className="programme-feature-meta">
                   <span>{item.number}</span>
@@ -38,7 +50,7 @@ export default function ProgrammesPage() {
                     <li key={activity}>{activity}</li>
                   ))}
                 </ul>
-                <ButtonLink to={item.detailUrl}>Explore this programme</ButtonLink>
+                <ButtonLink to={item.detailUrl}>{labels.programmeButton}</ButtonLink>
               </div>
             </article>
           ))}

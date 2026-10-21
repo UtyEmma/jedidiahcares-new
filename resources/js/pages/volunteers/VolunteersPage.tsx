@@ -15,7 +15,8 @@ import {
 } from '../../components/UI';
 
 export default function VolunteersPage() {
-  const { site, pages, ui, routes } = useContent();
+  const { site, pages, ui, routes, sections } = useContent();
+  const labels = sections['volunteers'];
   const external = safeExternalUrl(site.volunteering.externalInterestFormUrl);
   return (
     <>
@@ -23,14 +24,14 @@ export default function VolunteersPage() {
       <PageHero
         title={pages.volunteers.headline!}
         text={pages.volunteers.fields['Intro']}
-        eyebrow="VOLUNTEER WITH US"
-        current="Volunteering"
+        eyebrow={labels.heroEyebrow}
+        current={labels.heroCurrent}
         photo="care"
       />
       <section className="section">
         <div className="max-w-7xl mx-auto container">
           <SectionHeading
-            eyebrow="PUT YOUR SKILLS TO WORK"
+            eyebrow={labels.rolesEyebrow}
             title={ui.volunteer.rolesTitle}
             text={pages.volunteers.fields['What Volunteering Involves']}
           />
@@ -48,7 +49,7 @@ export default function VolunteersPage() {
       <section className="section soft-section">
         <div className="max-w-7xl mx-auto container volunteer-grid">
           <div>
-            <Eyebrow>YOUR NEXT STEP</Eyebrow>
+            <Eyebrow>{labels.nextEyebrow}</Eyebrow>
             <h2>
               {ui.volunteer.nextTitle[0]}
               <br />
@@ -66,7 +67,7 @@ export default function VolunteersPage() {
               <ShieldCheck size={26} aria-hidden="true" />
               <p>{ui.volunteer.safeguarding}</p>
             </div>
-            <TextLink to={routes.safeguarding}>Safeguarding information</TextLink>
+            <TextLink to={routes.safeguarding}>{labels.safeguardingButton}</TextLink>
           </div>
           <div>
             {external ? (
@@ -79,12 +80,12 @@ export default function VolunteersPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Open volunteer interest form
+                  {labels.externalButton}
                   <ArrowUpRight size={19} aria-hidden="true" />
                 </a>
               </div>
             ) : (
-              <EmailComposer topic="Volunteering" />
+              <EmailComposer topic={labels.heroCurrent} />
             )}
           </div>
         </div>

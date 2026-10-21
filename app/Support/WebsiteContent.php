@@ -15,6 +15,17 @@ class WebsiteContent
 {
     private array $files = [];
 
+    private ?string $pagePath = null;
+
+    private ?PageContent $pageContent = null;
+
+    public function forPage(string $path): void
+    {
+        $this->pagePath = $path;
+        $this->files = [];
+        $this->pageContent = null;
+    }
+
     public function read(string $name): array
     {
         if (isset(CmsSchema::COLLECTIONS[$name])) {
@@ -23,13 +34,17 @@ class WebsiteContent
         if ($name === 'impact') {
             return ['metrics' => $this->published('metrics'), 'reports' => $this->published('reports')];
         }
-        if (! in_array($name, ['site', 'pages', 'interface', 'navigation', 'routes', 'media', 'redirects', 'policies'], true)) {
+        if (! in_array($name, ['site', 'pages', 'interface', 'sections', 'navigation', 'routes', 'media', 'redirects', 'policies'], true)) {
             throw new InvalidArgumentException('Unknown website content collection.');
         }
         if (isset($this->files[$name])) {
             return $this->files[$name];
         }
-        $result = $name === 'site' ? app(WebsiteSettings::class)->site() : CmsSchema::seed($name);
+        $result = $name === 'site' ? app(WebsiteSettings::class)->site() : CmsSchema::seed($name === 'sections' ? 'page-sections' : $name);
+        if (in_array($name, ['site', 'pages', 'interface', 'sections', 'media', 'policies'], true)) {
+            $this->pageContent ??= app(PageContent::class);
+            $result = $this->pageContent->apply($name, $result, $this->pagePath);
+        }
         if ($name === 'site' && ($global = $this->seoSettings()['global'] ?? null)) {
             $result['seo']['url'] = $global->site_url ?: $result['seo']['url'];
             $result['seo']['description'] = $global->description ?: $result['seo']['description'];
@@ -183,7 +198,7 @@ class WebsiteContent
         $payload = [
             'now' => (int) floor(microtime(true) * 1000),
             'site' => $this->read('site'), 'navigation' => $this->read('navigation'), 'routes' => $this->read('routes'),
-            'pages' => $this->read('pages'), 'ui' => $this->read('interface'), 'media' => $this->read('media'),
+            'pages' => $this->read('pages'), 'ui' => $this->read('interface'), 'sections' => $this->read('sections'), 'media' => $this->read('media'),
         ];
         foreach (['programmes', 'projects', 'stories', 'events', 'people', 'partners', 'policies', 'faq', 'metrics', 'reports', 'galleries'] as $name) {
             $payload[$name] = [];

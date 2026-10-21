@@ -13,6 +13,7 @@ coverage/
 /public/css/filament
 /public/fonts/filament
 /public/hot
+/public/storage
 /public/js/filament
 /bootstrap/ssr/
 /bootstrap/cache/*.php

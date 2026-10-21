@@ -9,7 +9,8 @@ import { ProjectCard } from '../../components/ProjectCard';
 import { projectStatusLabels } from '../../lib/projects';
 
 export default function ProjectsPage() {
-  const { projects, pages, programmes } = useContent();
+  const { projects, pages, programmes, sections } = useContent();
+  const labels = sections['projects'];
   const [search, setSearch] = useState('');
   const [stage, setStage] = useState('');
   const [programme, setProgramme] = useState('');
@@ -26,8 +27,8 @@ export default function ProjectsPage() {
       <PageHero
         title={pages.projects.headline!}
         text={pages.projects.fields['Intro']}
-        eyebrow="PROJECTS & CAMPAIGNS"
-        current="Projects"
+        eyebrow={labels.heroEyebrow}
+        current={labels.heroCurrent}
       />
       <section className="section">
         <div className="max-w-7xl mx-auto container">

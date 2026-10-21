@@ -8,7 +8,8 @@ import { EmailComposer } from '../../components/Actions';
 import { CTA, Eyebrow, Icon, PageHero } from '../../components/UI';
 
 export default function PartnersPage() {
-  const { site, pages, ui } = useContent();
+  const { site, pages, ui, sections } = useContent();
+  const labels = sections['partner'];
   const external = safeExternalUrl(site.partnership.externalEnquiryFormUrl);
   return (
     <>
@@ -16,13 +17,13 @@ export default function PartnersPage() {
       <PageHero
         title={pages.partner.headline!}
         text={pages.partner.fields['Intro']}
-        eyebrow="PARTNER WITH US"
-        current="Partnerships"
+        eyebrow={labels.heroEyebrow}
+        current={labels.heroCurrent}
       />
       <section className="section">
         <div className="max-w-7xl mx-auto container partnership-intro">
           <div>
-            <Eyebrow>SHARED PURPOSE. PRACTICAL ACTION.</Eyebrow>
+            <Eyebrow>{labels.introEyebrow}</Eyebrow>
             <h2>
               {ui.partner.introTitle[0]}
               <br />
@@ -44,7 +45,7 @@ export default function PartnersPage() {
       <section className="section soft-section" id="partnership-enquiry">
         <div className="max-w-7xl mx-auto container volunteer-grid">
           <div>
-            <Eyebrow>HOW WE CAN COLLABORATE</Eyebrow>
+            <Eyebrow>{labels.approachEyebrow}</Eyebrow>
             <h2>{ui.partner.approachTitle}</h2>
             <p>{pages.partner.fields['How We Collaborate']}</p>
             <ol className="steps">
@@ -66,7 +67,7 @@ export default function PartnersPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open partnership enquiry form
+                {labels.externalButton}
                 <ArrowUpRight size={19} aria-hidden="true" />
               </a>
             </div>

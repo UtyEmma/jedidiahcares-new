@@ -3,12 +3,15 @@
 namespace App\Filament\Resources\Seo;
 
 use App\Models\SeoSetting;
+use App\Support\PageContentForms;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Resources\Resource;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Tabs;
+use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -42,36 +45,43 @@ class SeoResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return $schema->components(fn (?SeoSetting $record) => [
-            Section::make($record?->path === 'global' ? 'Site-wide search appearance' : 'Page search appearance')
-                ->description('Manage the browser title, search metadata and social previews. Website headings, copy and layouts stay unchanged.')
-                ->schema([
-                    TextInput::make('title')->label($record?->path === 'global' ? 'Title suffix' : 'Page title')->maxLength(255)
-                        ->helperText($record?->path === 'global' ? 'Appended to every page title. Defaults to the organisation’s compact name.' : 'Used for the browser tab, search results and social previews. The site title suffix is appended automatically. Leave blank to use the default page title.'),
-                    Textarea::make('description')->label('Meta description')->rows(3)->maxLength(500)->helperText('Leave blank to use the existing description.'),
-                    TextInput::make('social_image')->label('Social preview image')->maxLength(2048)->helperText('An HTTPS image URL or a local path such as /images/social-preview.png.'),
-                    ...($record?->path === 'global' ? [
-                        TextInput::make('site_url')->label('Canonical website URL')->url()->maxLength(2048),
-                        Toggle::make('indexing_enabled')->label('Enable search engine indexing')->afterStateHydrated(function ($component, $state): void {
-                            if ($state === null) {
-                                $component->state(true);
-                            }
-                        })->helperText('When disabled, the public website stays noindex and the sitemap remains empty.'),
-                    ] : [
-                        TextInput::make('canonical_url')->label('Canonical URL override')->url()->maxLength(2048)->helperText('Optional. Defaults to the current website URL and page path.'),
-                        Toggle::make('indexable')->label('Allow this page to be indexed')->helperText('Site-wide indexing must also be enabled.'),
-                    ]),
+            Tabs::make('Page settings')->tabs([
+                Tab::make($record?->path === 'global' ? 'Shared content' : 'Page content')
+                    ->schema($record ? PageContentForms::sections($record) : []),
+                ...($record && ($images = PageContentForms::images($record)) ? [Tab::make('Images')->schema($images)] : []),
+                Tab::make('SEO')->schema([
+                    Section::make($record?->path === 'global' ? 'Site-wide search appearance' : 'Page search appearance')
+                        ->description('Manage the browser title, search metadata and social previews independently of the visible page content.')
+                        ->schema([
+                            TextInput::make('title')->label($record?->path === 'global' ? 'Title suffix' : 'Page title')->maxLength(255)
+                                ->helperText($record?->path === 'global' ? 'Appended to every page title. Defaults to the organisation’s compact name.' : 'Used for the browser tab, search results and social previews. The site title suffix is appended automatically. Leave blank to use the default page title.'),
+                            Textarea::make('description')->label('Meta description')->rows(3)->maxLength(500)->helperText('Leave blank to use the existing description.'),
+                            TextInput::make('social_image')->label('Social preview image')->maxLength(2048)->helperText('An HTTPS image URL or a local path such as /images/social-preview.png.'),
+                            ...($record?->path === 'global' ? [
+                                TextInput::make('site_url')->label('Canonical website URL')->url()->maxLength(2048),
+                                Toggle::make('indexing_enabled')->label('Enable search engine indexing')->afterStateHydrated(function ($component, $state): void {
+                                    if ($state === null) {
+                                        $component->state(true);
+                                    }
+                                })->helperText('When disabled, the public website stays noindex and the sitemap remains empty.'),
+                            ] : [
+                                TextInput::make('canonical_url')->label('Canonical URL override')->url()->maxLength(2048)->helperText('Optional. Defaults to the current website URL and page path.'),
+                                Toggle::make('indexable')->label('Allow this page to be indexed')->helperText('Site-wide indexing must also be enabled.'),
+                            ]),
+                        ]),
                 ]),
+            ])->columnSpanFull(),
         ])->columns(1);
     }
 
     public static function table(Table $table): Table
     {
         return $table->columns([
-            TextColumn::make('path')->label('Page')->formatStateUsing(fn ($state) => SeoSetting::pageLabels()[$state] ?? $state)->description(fn ($record) => $record->path === 'global' ? 'Defaults across the website' : $record->path)->searchable(),
+            TextColumn::make('path')->label('Page')->formatStateUsing(fn ($state) => SeoSetting::pageLabels()[$state] ?? $state)->description(fn ($record) => $record->path === 'global' ? 'Shared content and site-wide SEO' : $record->path)->searchable(),
             TextColumn::make('title')->label('Page title')->placeholder('Default title')->description(fn (SeoSetting $record) => $record->path === 'global' ? 'Site-wide title suffix' : null)->wrap(),
             TextColumn::make('editor.name')->label('Last edited by')->placeholder('Initial setup'),
             TextColumn::make('updated_at')->label('Updated')->since(),
-        ])->recordActions([EditAction::make()])->defaultSort('path');
+        ])->recordActions([EditAction::make()->url(fn (SeoSetting $record) => static::getUrl('edit', ['record' => $record]))])->defaultSort('path');
     }
 
     public static function getPages(): array

@@ -8,7 +8,8 @@ import { ShareButtons } from '../../components/ShareButtons';
 import { GalleryMediaGrid } from '../../components/gallery/GalleryMediaGrid';
 
 export default function GalleryPage() {
-  const { pages, galleries, selectedGallery, routes } = useContent();
+  const { pages, galleries, selectedGallery, routes, sections } = useContent();
+  const labels = sections['gallery'];
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
@@ -35,8 +36,8 @@ export default function GalleryPage() {
       <PageHero
         title={pages.gallery.headline!}
         text={pages.gallery.fields['Intro']}
-        eyebrow="PHOTO & VIDEO GALLERY"
-        current="Gallery"
+        eyebrow={labels.heroEyebrow}
+        current={labels.heroCurrent}
       />
       <section className="section">
         <div className="max-w-7xl mx-auto container">
@@ -59,7 +60,7 @@ export default function GalleryPage() {
               {message && <p role="alert">{message}</p>}
               <TabsContent value={selectedGallery.slug} aria-busy={loading}>
                 <div className="gallery-introduction">
-                  <p className="eyebrow">MOMENTS FROM OUR WORK</p>
+                  <p className="eyebrow">{labels.galleryEyebrow}</p>
                   <h2>{selectedGallery.title}</h2>
                   <p>{selectedGallery.summary}</p>
                 </div>
@@ -71,10 +72,8 @@ export default function GalleryPage() {
                   />
                 ) : (
                   <div className="gallery-empty">
-                    <h3>More moments to share.</h3>
-                    <p>
-                      Photos and videos from this gallery will appear here as they become available.
-                    </p>
+                    <h3>{labels.emptyTitle}</h3>
+                    <p>{labels.emptyText}</p>
                   </div>
                 )}
                 <ShareButtons

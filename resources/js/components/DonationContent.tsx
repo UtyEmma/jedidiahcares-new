@@ -9,7 +9,8 @@ import { GivingPanel } from './Actions';
 import { ButtonLink, Eyebrow, FAQList, Icon, PageHero, TextLink } from './UI';
 
 export default function DonationContent({ project }: { project?: Project }) {
-  const { site, pages, ui, routes } = useContent();
+  const { site, pages, ui, routes, sections } = useContent();
+  const labels = sections['donations'];
   const config = project?.approvedDonationUrl
     ? {
         ...site.giving,
@@ -23,13 +24,13 @@ export default function DonationContent({ project }: { project?: Project }) {
       <PageHero
         title={pages.donations.headline!}
         text={ui.support.intro}
-        eyebrow="SUPPORT OUR WORK"
-        current="Support our work"
+        eyebrow={labels.heroEyebrow}
+        current={labels.heroCurrent}
       />
       <section className="section">
         <div className="max-w-7xl mx-auto container support-grid">
           <div>
-            <Eyebrow>COMPASSION THAT CREATES POSSIBILITY</Eyebrow>
+            <Eyebrow>{labels.purposeEyebrow}</Eyebrow>
             <h2>{ui.support.purposeTitle}</h2>
             <p>{site.home.introText}</p>
             {project && (
@@ -53,7 +54,7 @@ export default function DonationContent({ project }: { project?: Project }) {
                 </li>
               ))}
             </ul>
-            <TextLink to={routes.reports}>Understand our approach to accountability</TextLink>
+            <TextLink to={routes.reports}>{labels.reportsButton}</TextLink>
           </div>
           <GivingPanel config={config} />
         </div>
@@ -69,7 +70,7 @@ export default function DonationContent({ project }: { project?: Project }) {
           <h2>{ui.support.otherTitle}</h2>
           <p>{ui.support.otherText}</p>
           <ButtonLink to={routes.getInvolved} variant="outline">
-            Explore other ways to get involved
+            {labels.involvedButton}
           </ButtonLink>
         </div>
       </section>

@@ -7,16 +7,20 @@ export function Photo({
   id,
   priority = false,
   className,
+  image,
 }: {
   id: string;
   priority?: boolean;
   className?: string;
   caption?: boolean;
+  image?: { src: string; alt: string };
 }) {
   const { media } = useContent();
-  const photo = media[id];
-  const [failed, setFailed] = useState(false);
-  if (!photo || failed) return <Art variant="education" className={className} />;
+  const base = media[id];
+  const photo = image ? { ...base, ...image, smallSrc: undefined } : base;
+  const [failedSource, setFailedSource] = useState('');
+  if (!photo || failedSource === photo.src)
+    return <Art variant="education" className={className} />;
   return (
     <figure className={cn('context-photo', className)}>
       <img
@@ -30,7 +34,7 @@ export function Photo({
         loading={priority ? 'eager' : 'lazy'}
         fetchPriority={priority ? 'high' : 'auto'}
         decoding="async"
-        onError={() => setFailed(true)}
+        onError={() => setFailedSource(photo.src)}
       />
     </figure>
   );
