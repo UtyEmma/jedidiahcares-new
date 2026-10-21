@@ -1,5 +1,11 @@
 # Implementation verification
 
+## Page image preview replacement — 21 October 2026
+
+The Images tab shows the inherited image only when the upload field is empty. Selecting/saving a replacement hides that older preview, leaving the uploader's current-image preview. Removing the upload restores the inherited preview, including a shared founder image when configured.
+
+Manual review used an isolated database/media copy and the actual Filament upload form. Initial, selected, saved and reopened preview states behaved correctly; a second upload became the sole saved image and removed the previous upload. Removal restored the fallback before and after saving. Shared founder-image inheritance, PHP syntax/style and whitespace checks passed. No automated tests or test tooling were added.
+
 ## Fixed-design page content CMS — 21 October 2026
 
 Pages now includes populated Content, Images (for existing photo slots) and SEO tabs. Existing PHP/JSON-shaped data is retained through an explicit allowlist of section fields; editorial section labels previously embedded in React now have PHP defaults. Shared content provides reusable founder/CTA/partner/footer introductions, with per-page overrides applied only to the current page. The database stores only differences from inherited defaults. Layout classes, section order/counts, fixed list sizes, icons, decorations, colours, typography, positioning and display flags have no page form fields and cannot be submitted as content. SEO remains independent of the visible heading/content.

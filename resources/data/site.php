@@ -126,7 +126,7 @@ return [
             'Opportunity',
             'Community',
         ],
-        'heroPhotoId' => 'community',
+        'heroPhotoId' => 'home-hero',
         'featurePhotoId' => 'education',
         'heroLines' => [
             'Building the future,',

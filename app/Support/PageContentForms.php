@@ -9,6 +9,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Image;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Get;
 use Illuminate\Support\Str;
 
 class PageContentForms
@@ -45,14 +46,21 @@ class PageContentForms
         $schema = app(PageContentSchema::class);
         $sources = $schema->sources();
 
-        return array_map(function ($slot, $definition) use ($sources): Section {
-            $fallback = isset($definition['photo']) ? asset(ltrim($sources['media'][$definition['photo']]['src'], '/')) : data_get($sources, $definition['target']);
+        return array_map(function ($slot, $definition) use ($sources, $record): Section {
+            $source = isset($definition['photo']) ? 'media' : strtok($definition['target'], '.');
+            $inherited = $record->path === 'global' ? $sources[$source] : app(PageContent::class)->apply($source, $sources[$source], 'global');
+            $fallback = isset($definition['photo']) ? $inherited[$definition['photo']]['src'] : data_get([$source => $inherited], $definition['target']);
+            if (str_starts_with($fallback, '/')) {
+                $fallback = asset(ltrim($fallback, '/'));
+            }
+            $uploadField = 'pageImage_'.$slot;
 
             return Section::make($definition['group'].' image')
                 ->description('The existing image frame, proportions and styling are retained. Removing your upload restores the inherited or bundled image. Edit alternative text in the matching content section.')
                 ->schema([
-                    Image::make($fallback, 'Bundled default image')->imageHeight('120px'),
-                    CmsForms::image('pageImage_'.$slot, 'page-'.$slot)->label(Str::headline($slot).' image'),
+                    Image::make($fallback, 'Current inherited image')->imageHeight('120px')
+                        ->hidden(fn (Get $get): bool => filled($get($uploadField))),
+                    CmsForms::image($uploadField, 'page-'.$slot)->label(Str::headline($slot).' image')->live(),
                 ]);
         }, array_keys($schema->imageSlots($record->path)), array_values($schema->imageSlots($record->path)));
     }

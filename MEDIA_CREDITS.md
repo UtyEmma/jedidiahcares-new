@@ -4,6 +4,8 @@ The original `assets/logo.webp` was supplied by Jedidiah Cares and is copied unc
 
 The supplied `assets/icon.webp` is copied unchanged to `public/icon.webp` and used as the site favicon.
 
+The homepage's default hero uses the Menstrual Health Project photograph supplied by the website owner on 21 October 2026. The original WebP is retained unchanged at `public/images/home/menstrual-health-outreach.webp` (1600 × 1280), with a 600-pixel responsive version. It is configured separately as `home-hero` in `resources/data/media.php`; About retains its existing community photograph. This organisation photograph is not AI-generated.
+
 Default collection images are also bundled for offline database seeding in `database/seeders/assets`, grouped by collection and gallery. Original source URLs, file types and SHA-256 checksums are recorded in `database/seeders/data/media-manifest.json`; they remain provenance rather than runtime download dependencies. The bundle includes 69 authentic gallery photos, project/story artwork, two available portraits and copies of the four generated programme images described below. Two unavailable legacy portraits are listed separately in the manifest. See the [seed asset guide](database/seeders/assets/README.md).
 
 The website's contextual images are a coordinated set generated specifically for Jedidiah Cares using the built-in OpenAI image generation tool on 14 October 2026. The scenes draw on contemporary southeastern Nigerian settings, the organisation's programme themes and its navy/lemon identity. They depict fictional people and illustrative activities; they are not evidence of delivered programmes or portraits of actual staff or beneficiaries. Existing organisation photographs, project artwork, gallery records and founder/team portraits retain their original provenance.
@@ -12,7 +14,7 @@ The final [prompt set](output/imagegen/prompts.json) is retained with the projec
 
 | Asset | Context |
 | --- | --- |
-| `generated/jedidiah-community-connection.webp` | Home and About: intergenerational connection in a community courtyard |
+| `generated/jedidiah-community-connection.webp` | About: intergenerational connection in a community courtyard |
 | `generated/jedidiah-education-support.webp` | Education programme and homepage education feature: shared reading with a mentor |
 | `generated/jedidiah-youth-mentoring.webp` | Youth Development & Drug Abuse Prevention: a supportive discussion circle |
 | `generated/jedidiah-women-skills.webp` | Women & Community Empowerment: collaborative tailoring and practical skills |

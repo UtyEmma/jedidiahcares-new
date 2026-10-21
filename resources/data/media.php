@@ -1,6 +1,19 @@
 <?php
 
 return [
+    'home-hero' => [
+        'src' => '/images/home/menstrual-health-outreach.webp',
+        'smallSrc' => '/images/home/menstrual-health-outreach-600.webp',
+        'alt' => 'Four people at a menstrual health outreach hold signs promoting period dignity and menstrual health awareness.',
+        'credit' => 'Jedidiah Cares Global Outreach for Women, Youth and Children',
+        'source' => 'Organisation photograph supplied by the website owner; Menstrual Health Project',
+        'width' => 1600,
+        'height' => 1280,
+        'caption' => 'Dignity, wellbeing and care in our community',
+        'representative' => false,
+        'generated' => false,
+        'objectPosition' => '50% 50%',
+    ],
     'community' => [
         'src' => '/images/generated/jedidiah-community-connection.webp',
         'smallSrc' => '/images/generated/jedidiah-community-connection-600.webp',
